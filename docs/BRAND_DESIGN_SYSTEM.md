@@ -61,10 +61,10 @@ shadows, translucent panels, dark mode inversion in phase 2.
 
 | Token | Size | Line height | Tracking | Use |
 | --- | --- | --- | --- | --- |
-| `display-xl` | `clamp(2.5rem, 6vw, 5.75rem)` | 1.02 | −0.03em | hero headline only, once per page |
-| `display-l` | `clamp(2.25rem, 5.2vw, 4.5rem)` | 1.04 | −0.025em | page title, closing statement |
-| `display-m` | `clamp(1.75rem, 3.4vw, 2.75rem)` | 1.12 | −0.02em | section headline |
-| `display-s` | `clamp(1.375rem, 2.2vw, 1.875rem)` | 1.22 | −0.015em | item title in a section |
+| `display-xl` | `clamp(2.5rem, 6vw, 5.75rem)` | 1.14 | −0.03em | hero headline only, once per page |
+| `display-l` | `clamp(2.25rem, 5.2vw, 4.5rem)` | 1.16 | −0.025em | page title, closing statement |
+| `display-m` | `clamp(1.75rem, 3.4vw, 2.75rem)` | 1.22 | −0.02em | section headline |
+| `display-s` | `clamp(1.375rem, 2.2vw, 1.875rem)` | 1.32 | −0.015em | item title in a section |
 | `eyebrow` | 11 px | 1.2 | 0.18em, uppercase, 500 | section labels, nav, meta labels |
 | `body` | 16 px | 1.75 | 0 | paragraphs (Korean 1.8, `keep-all`) |
 | `body-sm` | 14 px | 1.65 | 0 | captions, notes, table cells |

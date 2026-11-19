@@ -25,10 +25,10 @@ const config: Config = {
       },
       fontSize: {
         // Editorial scale — display sizes are fluid, body sizes are fixed.
-        "display-xl": ["clamp(2.5rem, 6vw, 5.75rem)", { lineHeight: "1.02", letterSpacing: "-0.03em" }],
-        "display-l": ["clamp(2.25rem, 5.2vw, 4.5rem)", { lineHeight: "1.04", letterSpacing: "-0.025em" }],
-        "display-m": ["clamp(1.75rem, 3.4vw, 2.75rem)", { lineHeight: "1.12", letterSpacing: "-0.02em" }],
-        "display-s": ["clamp(1.375rem, 2.2vw, 1.875rem)", { lineHeight: "1.22", letterSpacing: "-0.015em" }],
+        "display-xl": ["clamp(2.5rem, 6vw, 5.75rem)", { lineHeight: "1.14", letterSpacing: "-0.03em" }],
+        "display-l": ["clamp(2.25rem, 5.2vw, 4.5rem)", { lineHeight: "1.16", letterSpacing: "-0.025em" }],
+        "display-m": ["clamp(1.75rem, 3.4vw, 2.75rem)", { lineHeight: "1.22", letterSpacing: "-0.02em" }],
+        "display-s": ["clamp(1.375rem, 2.2vw, 1.875rem)", { lineHeight: "1.32", letterSpacing: "-0.015em" }],
         eyebrow: ["0.6875rem", { lineHeight: "1.2", letterSpacing: "0.18em" }],
         body: ["1rem", { lineHeight: "1.75" }],
         "body-sm": ["0.875rem", { lineHeight: "1.65" }],

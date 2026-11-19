@@ -42,7 +42,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <SectionLabel index="01">{dict.home.statementLabel}</SectionLabel>
           </div>
           <div className="col-span-12 mt-8 md:col-span-8 md:col-start-5 md:mt-0">
-            <p className="font-serif text-display-m leading-[1.28] text-ink">{dict.home.statement}</p>
+            <p className="max-w-[24ch] font-serif text-[clamp(1.5rem,2.7vw,2.25rem)] leading-[1.5] text-ink md:max-w-none">{dict.home.statement}</p>
             <p className="mt-8 font-sans text-[0.8125rem] leading-relaxed text-muted">
               {dict.home.statementFootnote}
             </p>
@@ -66,7 +66,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           {apps.map((app, index) => {
             const row = (
               <>
-                <div className="flex items-baseline gap-5 md:col-span-6">
+                <div className="col-span-12 flex items-baseline gap-5 md:col-span-6">
                   <span className="w-6 font-sans text-[0.625rem] tracking-[0.18em] text-brass">
                     {String(index + 1).padStart(2, "0")}
                   </span>
@@ -216,20 +216,20 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   rel="noopener noreferrer"
                   className="group flex items-baseline justify-between gap-4 py-5"
                 >
-                  <span className="flex items-baseline gap-4">
-                    <span className="w-5 font-sans text-[0.5625rem] tracking-[0.18em] text-brass">
+                  <span className="flex min-w-0 items-baseline gap-4">
+                    <span className="w-5 shrink-0 font-sans text-[0.5625rem] tracking-[0.18em] text-brass">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span>
-                      <span className="block font-sans text-[0.6875rem] uppercase tracking-[0.16em] text-ink">
+                      <span className="block whitespace-nowrap font-sans text-[0.6875rem] uppercase tracking-[0.16em] text-ink">
                         {channel.platform}
                       </span>
-                      <span className="mt-1 block font-sans text-[0.75rem] text-muted">
+                      <span className="mt-1 block whitespace-nowrap font-sans text-[0.75rem] text-muted">
                         {channel.handle ?? channel.account}
                       </span>
                     </span>
                   </span>
-                  <span className="flex items-center gap-3 font-sans text-[0.625rem] uppercase tracking-[0.14em] text-muted">
+                  <span className="flex shrink-0 items-center gap-3 whitespace-nowrap font-sans text-[0.625rem] uppercase tracking-[0.14em] text-muted">
                     {channel.region[locale]}
                     <ArrowGlyph className="transition-colors group-hover:text-ink" />
                   </span>

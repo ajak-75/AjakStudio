@@ -56,7 +56,7 @@ export function StatusTag({ status, label }: { status: string; label: string }) 
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 font-sans text-[0.625rem] uppercase tracking-[0.16em]",
+        "inline-flex shrink-0 items-center gap-2 whitespace-nowrap font-sans text-[0.625rem] uppercase tracking-[0.16em]",
         statusStyles[status] ?? "text-muted",
       )}
     >

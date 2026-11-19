@@ -35,7 +35,7 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Link
               href={localeHref(locale, "apps")}
-              className="inline-flex items-center gap-3 bg-ink px-6 py-3.5 font-sans text-[0.6875rem] uppercase tracking-[0.16em] text-paper transition-colors duration-300 hover:bg-brass"
+              className="inline-flex items-center gap-3 bg-ink px-6 py-3.5 whitespace-nowrap font-sans text-[0.6875rem] uppercase tracking-[0.16em] text-paper transition-colors duration-300 hover:bg-brass"
             >
               {dict.home.primaryCta}
               <span aria-hidden>→</span>
@@ -65,7 +65,7 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
                     <span className="w-5 font-sans text-[0.5625rem] tracking-[0.18em] text-brass">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-serif text-[1.125rem] leading-tight text-ink transition-transform duration-500 ease-editorial group-hover:translate-x-1">
+                    <span className="whitespace-nowrap font-serif text-[1.125rem] leading-tight text-ink transition-transform duration-500 ease-editorial group-hover:translate-x-1">
                       {app.name}
                     </span>
                   </span>

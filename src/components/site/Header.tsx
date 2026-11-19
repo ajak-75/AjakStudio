@@ -30,6 +30,17 @@ export function Header({ locale, dict }: HeaderProps) {
     };
   }, [open]);
 
+  // Escape closes the panel; the closed panel is also removed from the tab order
+  // with `inert` so keyboard users never land inside an invisible menu.
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   const isActive = (path: string): boolean => {
     const href = localeHref(locale, path);
     if (!path) return pathname === href || pathname === `/${locale}`;
@@ -62,7 +73,7 @@ export function Header({ locale, dict }: HeaderProps) {
         </Link>
 
         <nav aria-label={dict.common.menu} className="hidden xl:block">
-          <ul className="flex items-center gap-7">
+          <ul className="flex items-center gap-6 xl:gap-7">
             {menus.map((item) => {
               const active = isActive(item.path);
               return (
@@ -71,7 +82,7 @@ export function Header({ locale, dict }: HeaderProps) {
                     href={localeHref(locale, item.path)}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "relative block py-2 font-sans text-[0.6875rem] uppercase tracking-[0.16em] transition-colors duration-300",
+                      "relative block whitespace-nowrap py-2 font-sans text-[0.6875rem] uppercase tracking-[0.16em] transition-colors duration-300",
                       active ? "text-ink" : "text-graphite hover:text-ink",
                     )}
                   >
@@ -137,6 +148,7 @@ export function Header({ locale, dict }: HeaderProps) {
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
         )}
         aria-hidden={!open}
+        inert={!open}
       >
         <div className="shell flex h-[var(--gdu-header-h)] items-center justify-between border-b border-line">
           <span className="font-serif text-[1.35rem]">{brand.shortName}</span>

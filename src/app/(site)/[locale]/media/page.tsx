@@ -44,7 +44,7 @@ export default async function MediaPage({ params }: { params: Promise<{ locale: 
             <li key={channel.id} className="border-b border-line">
               <div className="grid-12 items-baseline gap-y-2 py-6">
                 <div className="col-span-12 md:col-span-3">
-                  <p className="font-sans text-[0.75rem] uppercase tracking-[0.16em] text-ink">
+                  <p className="whitespace-nowrap font-sans text-[0.75rem] uppercase tracking-[0.16em] text-ink">
                     {channel.platform}
                   </p>
                   {channel.url ? (
@@ -65,7 +65,7 @@ export default async function MediaPage({ params }: { params: Promise<{ locale: 
                   <p className="font-sans text-[0.8125rem] text-graphite">{channel.account}</p>
                 </div>
                 <div className="col-span-6 md:col-span-2">
-                  <p className="font-sans text-[0.6875rem] uppercase tracking-[0.1em] text-muted">
+                  <p className="whitespace-nowrap font-sans text-[0.6875rem] uppercase tracking-[0.1em] text-muted">
                     {channel.languages.map((code) => code.toUpperCase()).join(" · ")}
                   </p>
                 </div>
@@ -73,7 +73,7 @@ export default async function MediaPage({ params }: { params: Promise<{ locale: 
                   <p className="font-sans text-[0.8125rem] text-graphite">{channel.field[locale]}</p>
                 </div>
                 <div className="col-span-6 md:col-span-2">
-                  <p className="font-sans text-[0.8125rem] text-graphite">{channel.region[locale]}</p>
+                  <p className="whitespace-nowrap font-sans text-[0.8125rem] text-graphite">{channel.region[locale]}</p>
                 </div>
                 <div className="col-span-12 md:col-span-1 md:text-right">
                   <StatusTag status={channel.status} label={dict.media.status[channel.status]} />
