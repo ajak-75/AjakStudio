@@ -29,3 +29,6 @@ Thumbs.db
 
 # supabase CLI scratch
 supabase/.temp/
+
+# typescript incremental cache
+*.tsbuildinfo
