@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "siteName": "GLOBAL DIGITAL UNIVERSE",
+    "tagline": "The new headquarters for a global digital business",
+    "description": "One platform connecting apps, games, K-culture, and media channels across the world."
+  },
+  "common": {
+    "language": "Language",
+    "languages": { "ko": "KO", "en": "English" },
+    "menu": "Menu",
+    "close": "Close",
+    "visit": "Visit",
+    "view": "View",
+    "readMore": "Read more",
+    "comingSoon": "Coming soon",
+    "live": "Live",
+    "beta": "Beta",
+    "planned": "Planned",
+    "external": "Opens in a new tab",
+    "emailPending": "Official contact address coming soon",
+    "allApps": "View all apps",
+    "allChannels": "View all channels",
+    "backHome": "Back to home"
+  },
+  "nav": {
+    "home": "HOME",
+    "about": "ABOUT",
+    "apps": "OUR APPS",
+    "games": "GAMES",
+    "kCulture": "K-CULTURE",
+    "media": "MEDIA",
+    "news": "NEWS",
+    "contact": "CONTACT"
+  },
+  "home": {
+    "eyebrow": "INDEPENDENT DIGITAL STUDIO — SEOUL, KOREA",
+    "titleLines": ["One studio.", "A universe of", "digital ventures."],
+    "lead": "Five apps, eight channels, and the next project that has no name yet. We gather scattered digital ventures into one headquarters and open it to the world.",
+    "primaryCta": "Explore the apps",
+    "secondaryCta": "About the studio",
+    "indexLabel": "INDEX — SERVICES",
+    "indexNote": "As of November 2026",
+    "facts": [
+      { "value": "05", "label": "SERVICES" },
+      { "value": "08", "label": "CHANNELS" },
+      { "value": "03", "label": "GAMES" },
+      { "value": "₩0", "label": "INFRASTRUCTURE COST" }
+    ],
+    "statementLabel": "ABOUT THE STUDIO",
+    "statement": "GLOBAL DIGITAL UNIVERSE is an independent digital studio building apps and content from Korea for a worldwide audience. Social, games, K-culture and media live under one worldview, while each service runs on its own and speaks the same brand language.",
+    "statementFootnote": "Strategy, design, engineering and operations — handled end to end by one team.",
+    "servicesLabel": "OUR APPS",
+    "servicesTitle": "Services in operation",
+    "servicesNote": "Every app opens directly in the browser, with its own repository and no server to maintain.",
+    "gamesLabel": "GAMES",
+    "gamesTitle": "Casual games with characters that live",
+    "gamesNote": "We extend the world of KOMI and MOMO into play.",
+    "mediaLabel": "MEDIA",
+    "mediaTitle": "Eight channels, one voice",
+    "mediaNote": "Korean channels speak Korean; global channels speak the local language.",
+    "newsLabel": "NEWS",
+    "newsTitle": "Studio notes",
+    "contactLabel": "CONTACT",
+    "contactTitle": "The next project, together",
+    "contactBody": "We welcome partnerships, collaborations and press enquiries. The official contact channel will be announced here as soon as it opens.",
+    "contactCta": "Go to contact"
+  },
+  "about": {
+    "eyebrow": "ABOUT",
+    "title": "A small team, a wide world",
+    "lead": "GLOBAL DIGITAL UNIVERSE began as one person's twenty-year idea and grew into a digital business headquarters. Apps, writing and channels are gathered here under a single brand.",
+    "blocks": [
+      {
+        "label": "WHAT WE DO",
+        "title": "From concept to operations",
+        "body": "Product planning, brand design, web engineering, content production and channel operations are handled in-house. We ship directly and revise against real user response every week."
+      },
+      {
+        "label": "HOW WE BUILD",
+        "title": "Free infrastructure, paid-grade craft",
+        "body": "Every service starts on free infrastructure: zero server cost, domain attached in a later phase. Quality comes from design decisions, not from budget."
+      },
+      {
+        "label": "WHERE WE STAND",
+        "title": "A brand that is not tied to one character",
+        "body": "KOMI and MOMO are beloved characters, but they are not the whole brand. GLOBAL DIGITAL UNIVERSE is the vessel that lets new services keep being born."
+      }
+    ],
+    "principlesLabel": "PRINCIPLES",
+    "principles": [
+      "Build only what people actually use.",
+      "Design inside free limits, and check the limits first.",
+      "Keep the brand name and menus editable from the admin.",
+      "Never delete originals; keep every draft restorable."
+    ]
+  },
+  "apps": {
+    "eyebrow": "OUR APPS",
+    "title": "Five services",
+    "lead": "Each app lives in its own repository. This site introduces and links them; the data stays inside each app.",
+    "labels": { "platform": "Platform", "category": "Category", "status": "Status", "languages": "Languages", "open": "Open app" },
+    "categories": { "social": "Social", "community": "Community", "game": "Game", "culture": "K-culture", "utility": "Utility" },
+    "platforms": { "web": "Web app", "android": "Android" },
+    "note": "ABI ships as an Android APK; the others open directly in the browser."
+  },
+  "games": {
+    "eyebrow": "GAMES",
+    "title": "The world of KOMI and MOMO",
+    "lead": "We extend our character IP into games. The first is playable today; two more are in production.",
+    "inProduction": "In production",
+    "play": "Play now"
+  },
+  "kCulture": {
+    "eyebrow": "K-CULTURE",
+    "title": "Korean texture, in the world's languages",
+    "lead": "Dancheong, minhwa and myeongri — Korean materials translated into forms a global audience can read. No Chinese characters, only the reader's own language.",
+    "pillarsLabel": "THREE PILLARS",
+    "pillars": [
+      {
+        "title": "KOMI — Character",
+        "body": "A long-haired chihuahua who loves Korea introduces K-beauty, K-food, K-golf and K-places."
+      },
+      {
+        "title": "MANSE — Reading",
+        "body": "K-Sajoo reads saju and compatibility from real astronomical calendars, in fifteen languages."
+      },
+      {
+        "title": "PATTERN — Motif",
+        "body": "The colours and patterns of dancheong and minhwa return as stickers, backdrops and goods."
+      }
+    ]
+  },
+  "media": {
+    "eyebrow": "MEDIA",
+    "title": "Eight channels",
+    "lead": "One piece of content is rewritten for each channel's language and grammar. Korea runs on blog, cafe and Threads; the world on Instagram, TikTok, YouTube and Xiaohongshu.",
+    "tableHeaders": { "channel": "Channel", "account": "Account", "region": "Region", "language": "Language", "field": "Field", "status": "Status" },
+    "status": { "active": "Active", "preparing": "Preparing", "paused": "Paused" },
+    "unverified": "Address being verified"
+  },
+  "news": {
+    "eyebrow": "NEWS",
+    "title": "Studio notes",
+    "lead": "A record of launches, channel operations and what comes next.",
+    "empty": "No public notes yet.",
+    "latest": "Latest"
+  },
+  "contact": {
+    "eyebrow": "CONTACT",
+    "title": "Contact",
+    "lead": "For partnerships, collaborations and press. The official email address is being set up — until then, reach us through the channels below.",
+    "channelsLabel": "CONTACT CHANNELS",
+    "note": "An enquiry form opens in phase four, together with the Control Center inbox.",
+    "formLabel": "Enquiry form",
+    "formPending": "Coming soon"
+  },
+  "pages": {
+    "placeholderEyebrow": "IN PREPARATION",
+    "placeholderTitle": "This page is completed in phase three.",
+    "placeholderBody": "We are setting the structure and design standard first. Each menu fills in with real content, in order."
+  },
+  "footer": {
+    "tagline": "The new headquarters for a global digital business.",
+    "sitemap": "SITEMAP",
+    "channels": "CHANNELS",
+    "studio": "STUDIO",
+    "legal": "© 2026 GLOBAL DIGITAL UNIVERSE. ALL RIGHTS RESERVED.",
+    "builtLine": "SEOUL · KOREA — DESIGNED AND BUILT IN-HOUSE",
+    "privateLabel": "Admin"
+  },
+  "status": {
+    "live": "Live",
+    "beta": "Beta",
+    "coming_soon": "Coming soon",
+    "archived": "Archived"
+  }
+}

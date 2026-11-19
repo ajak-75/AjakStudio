@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "siteName": "GLOBAL DIGITAL UNIVERSE",
+    "tagline": "글로벌 디지털 사업의 새로운 본부",
+    "description": "앱, 게임, K-컬처, 미디어 채널을 하나로 잇는 글로벌 디지털 사업 플랫폼."
+  },
+  "common": {
+    "language": "언어",
+    "languages": { "ko": "한국어", "en": "EN" },
+    "menu": "메뉴",
+    "close": "닫기",
+    "visit": "바로 가기",
+    "view": "보기",
+    "readMore": "더 보기",
+    "comingSoon": "준비 중",
+    "live": "운영 중",
+    "beta": "베타",
+    "planned": "기획 중",
+    "external": "새 창에서 열림",
+    "emailPending": "공식 문의 주소 준비 중",
+    "allApps": "전체 앱 보기",
+    "allChannels": "전체 채널 보기",
+    "backHome": "홈으로"
+  },
+  "nav": {
+    "home": "HOME",
+    "about": "ABOUT",
+    "apps": "OUR APPS",
+    "games": "GAMES",
+    "kCulture": "K-CULTURE",
+    "media": "MEDIA",
+    "news": "NEWS",
+    "contact": "CONTACT"
+  },
+  "home": {
+    "eyebrow": "INDEPENDENT DIGITAL STUDIO — SEOUL, KOREA",
+    "titleLines": ["디지털 세계를", "하나의 브랜드로", "엮어 갑니다"],
+    "lead": "다섯 개의 앱, 여덟 개의 채널, 그리고 아직 이름 없는 다음 프로젝트까지. 흩어져 있던 디지털 사업을 한곳에 모아 세계에 보여 주는 본부를 만듭니다.",
+    "primaryCta": "앱 둘러보기",
+    "secondaryCta": "스튜디오 소개",
+    "indexLabel": "INDEX — SERVICES",
+    "indexNote": "2026년 11월 기준",
+    "facts": [
+      { "value": "05", "label": "SERVICES" },
+      { "value": "08", "label": "CHANNELS" },
+      { "value": "03", "label": "GAMES" },
+      { "value": "₩0", "label": "INFRASTRUCTURE COST" }
+    ],
+    "statementLabel": "ABOUT THE STUDIO",
+    "statement": "GLOBAL DIGITAL UNIVERSE는 한국에서 시작해 전 세계를 무대로 앱과 콘텐츠를 만드는 독립 디지털 스튜디오입니다. 소셜, 게임, K-컬처, 미디어를 하나의 세계관 아래 두고, 각 서비스는 독립적으로 운영하면서도 같은 브랜드의 문법을 공유합니다.",
+    "statementFootnote": "기획 · 디자인 · 개발 · 운영을 한 팀이 끝까지 맡습니다.",
+    "servicesLabel": "OUR APPS",
+    "servicesTitle": "지금 운영 중인 서비스",
+    "servicesNote": "모든 앱은 각자의 저장소와 서버 없이, 브라우저에서 바로 열립니다.",
+    "gamesLabel": "GAMES",
+    "gamesTitle": "캐릭터가 살아 있는 캐주얼 게임",
+    "gamesNote": "코미와 모모의 세계를 게임으로 확장합니다.",
+    "mediaLabel": "MEDIA",
+    "mediaTitle": "여덟 개의 채널, 하나의 목소리",
+    "mediaNote": "국내 채널은 한국어로, 글로벌 채널은 현지 언어로 운영합니다.",
+    "newsLabel": "NEWS",
+    "newsTitle": "스튜디오 소식",
+    "contactLabel": "CONTACT",
+    "contactTitle": "다음 프로젝트를 함께",
+    "contactBody": "협업, 제휴, 인터뷰 문의를 기다립니다. 공식 문의 창구는 준비되는 대로 이 페이지에 안내합니다.",
+    "contactCta": "문의 페이지로"
+  },
+  "about": {
+    "eyebrow": "ABOUT",
+    "title": "작은 팀, 넓은 세계",
+    "lead": "GLOBAL DIGITAL UNIVERSE는 한 사람의 20년 아이디어에서 출발한 디지털 사업 본부입니다. 앱을 만들고, 콘텐츠를 쓰고, 채널을 운영하며 쌓은 것들을 하나의 브랜드로 정리합니다.",
+    "blocks": [
+      {
+        "label": "WHAT WE DO",
+        "title": "기획부터 운영까지",
+        "body": "서비스 기획, 브랜드 디자인, 웹 개발, 콘텐츠 제작, 채널 운영을 한 팀이 맡습니다. 외주 없이 직접 만들고, 매주 실제 사용자 반응으로 고칩니다."
+      },
+      {
+        "label": "HOW WE BUILD",
+        "title": "무료 인프라, 유료 수준의 완성도",
+        "body": "모든 서비스는 무료 인프라 위에서 시작합니다. 서버비 0원, 도메인은 후속 단계에서 연결합니다. 비용이 아니라 설계로 품질을 만듭니다."
+      },
+      {
+        "label": "WHERE WE STAND",
+        "title": "특정 캐릭터에 기대지 않는 브랜드",
+        "body": "코미와 모모는 사랑받는 캐릭터지만, 브랜드의 전부는 아닙니다. GLOBAL DIGITAL UNIVERSE는 새로운 서비스가 계속 태어날 수 있는 그릇입니다."
+      }
+    ],
+    "principlesLabel": "PRINCIPLES",
+    "principles": [
+      "사용자가 실제로 쓰는 것만 만듭니다.",
+      "무료 한도 안에서 설계하고, 한도를 먼저 확인합니다.",
+      "브랜드 이름과 메뉴는 관리자에서 바꿀 수 있게 만듭니다.",
+      "원본 자료는 지우지 않고, 시안은 되돌릴 수 있게 보관합니다."
+    ]
+  },
+  "apps": {
+    "eyebrow": "OUR APPS",
+    "title": "다섯 개의 서비스",
+    "lead": "각 앱은 독립된 저장소에서 운영됩니다. 이 사이트는 소개와 연결만 담당하고, 앱의 데이터는 앱 안에 있습니다.",
+    "labels": { "platform": "플랫폼", "category": "분류", "status": "상태", "languages": "언어", "open": "앱 열기" },
+    "categories": { "social": "소셜", "community": "커뮤니티", "game": "게임", "culture": "K-컬처", "utility": "유틸리티" },
+    "platforms": { "web": "웹 앱", "android": "안드로이드" },
+    "note": "ABI는 안드로이드 APK로 배포되며, 나머지는 브라우저에서 바로 열립니다."
+  },
+  "games": {
+    "eyebrow": "GAMES",
+    "title": "코미와 모모의 세계",
+    "lead": "캐릭터 IP를 게임으로 확장합니다. 첫 번째 게임은 이미 플레이할 수 있고, 두 편이 더 준비 중입니다.",
+    "inProduction": "제작 중",
+    "play": "플레이하기"
+  },
+  "kCulture": {
+    "eyebrow": "K-CULTURE",
+    "title": "한국의 결을 세계의 언어로",
+    "lead": "단청, 민화, 명리처럼 한국적인 소재를 해외 사용자가 이해할 수 있는 형태로 번역합니다. 한자는 쓰지 않고, 각 나라의 언어로 읽힙니다.",
+    "pillarsLabel": "THREE PILLARS",
+    "pillars": [
+      {
+        "title": "KOMI — 캐릭터",
+        "body": "한국을 사랑하는 장모치와와 코미가 K-뷰티, K-푸드, K-골프, K-플레이스를 소개합니다."
+      },
+      {
+        "title": "MANSE — 명리",
+        "body": "K-Sajoo는 실제 만세력 계산으로 사주와 궁합을 15개 언어에 맞춰 풀어냅니다."
+      },
+      {
+        "title": "PATTERN — 문양",
+        "body": "단청과 민화의 색과 문양을 스티커, 배경, 굿즈로 다시 만듭니다."
+      }
+    ]
+  },
+  "media": {
+    "eyebrow": "MEDIA",
+    "title": "여덟 개의 채널",
+    "lead": "같은 콘텐츠를 채널의 언어와 문법에 맞게 다시 씁니다. 국내는 블로그·카페·스레드, 글로벌은 인스타그램·틱톡·유튜브·샤오홍슈로 이어집니다.",
+    "tableHeaders": { "channel": "채널", "account": "계정", "region": "국가", "language": "언어", "field": "분야", "status": "상태" },
+    "status": { "active": "운영 중", "preparing": "준비 중", "paused": "휴면" },
+    "unverified": "주소 확인 중"
+  },
+  "news": {
+    "eyebrow": "NEWS",
+    "title": "스튜디오 노트",
+    "lead": "서비스 출시, 채널 운영, 다음 단계에 대한 기록을 남깁니다.",
+    "empty": "아직 공개된 소식이 없습니다.",
+    "latest": "최근 소식"
+  },
+  "contact": {
+    "eyebrow": "CONTACT",
+    "title": "문의",
+    "lead": "협업, 제휴, 취재 문의를 받습니다. 공식 이메일 주소는 준비 중이며, 그 전까지는 아래 채널로 연락해 주세요.",
+    "channelsLabel": "CONTACT CHANNELS",
+    "note": "문의 폼은 4단계 Control Center에서 접수·보관 기능과 함께 열립니다.",
+    "formLabel": "문의 폼",
+    "formPending": "준비 중"
+  },
+  "pages": {
+    "placeholderEyebrow": "IN PREPARATION",
+    "placeholderTitle": "이 페이지는 3단계에서 완성됩니다.",
+    "placeholderBody": "지금은 구조와 디자인 기준을 먼저 세우고 있습니다. 각 메뉴는 실제 콘텐츠와 함께 순차적으로 채워집니다."
+  },
+  "footer": {
+    "tagline": "글로벌 디지털 사업의 새로운 본부.",
+    "sitemap": "SITEMAP",
+    "channels": "CHANNELS",
+    "studio": "STUDIO",
+    "legal": "© 2026 GLOBAL DIGITAL UNIVERSE. ALL RIGHTS RESERVED.",
+    "builtLine": "SEOUL · KOREA — DESIGNED AND BUILT IN-HOUSE",
+    "privateLabel": "관리자"
+  },
+  "status": {
+    "live": "운영 중",
+    "beta": "베타",
+    "coming_soon": "준비 중",
+    "archived": "종료"
+  }
+}

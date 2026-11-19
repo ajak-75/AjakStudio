@@ -1,0 +1,28 @@
+{
+  "name": "global-digital-universe",
+  "version": "0.2.0",
+  "private": true,
+  "description": "GLOBAL DIGITAL UNIVERSE — unified global digital business platform (public site + private Control Center).",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "export": "next build"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.119.2",
+    "next": "15.5.29",
+    "react": "19.1.10",
+    "react-dom": "19.1.10"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.3",
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
+    "autoprefixer": "10.4.21",
+    "postcss": "8.5.3",
+    "tailwindcss": "3.4.19",
+    "typescript": "5.8.3"
+  }
+}

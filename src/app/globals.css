@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   GLOBAL DIGITAL UNIVERSE — Editorial White
+   Token source of truth. Mirrors docs/BRAND_DESIGN_SYSTEM.md §3.
+   ========================================================================== */
+
+:root {
+  /* Surfaces — porcelain and paper, never pure #fff as a page background */
+  --gdu-paper: #fbfaf7;
+  --gdu-porcelain: #f2eee6;
+
+  /* Ink */
+  --gdu-ink: #14140f;
+  --gdu-graphite: #43433c;
+  --gdu-muted: #6b6862;
+
+  /* Hairlines — one weight only, 1px */
+  --gdu-line: #ddd7cb;
+
+  /* Accent — brass. Reserved for rules, labels and active states. */
+  --gdu-brass: #8a6a3c;
+  --gdu-brass-soft: #ece3d2;
+
+  /* Rhythm */
+  --gdu-gutter: clamp(1.25rem, 4.4vw, 4.5rem);
+  --gdu-section-y: clamp(4.5rem, 9vw, 9rem);
+  --gdu-header-h: 4.25rem;
+
+  /* Fonts are injected by next/font in the locale layout */
+  --font-serif: var(--font-cormorant), var(--font-noto-serif-kr), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  color-scheme: light;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--gdu-paper);
+    color: var(--gdu-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Korean lines read better with a touch more leading and word-break */
+  :lang(ko) body {
+    word-break: keep-all;
+    line-height: 1.8;
+  }
+
+  ::selection {
+    background: var(--gdu-brass-soft);
+    color: var(--gdu-ink);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--gdu-ink);
+    outline-offset: 4px;
+  }
+
+  img,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Page shell: 12-column editorial grid with fluid gutters */
+  .shell {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: var(--gdu-gutter);
+  }
+
+  .grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: clamp(1rem, 2vw, 1.75rem);
+  }
+
+  /* Small caps label — the only uppercase typography on the site */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gdu-muted);
+  }
+
+  .rule {
+    border-top: 1px solid var(--gdu-line);
+  }
+
+  /* Understated editorial link: hairline that draws itself */
+  .link-rule {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.15em;
+  }
+  .link-rule::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-rule:hover::after,
+  .link-rule:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .project-row {
+    transition: background-color 380ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .project-row:hover {
+    background-color: color-mix(in srgb, var(--gdu-porcelain) 62%, transparent);
+  }
+
+  .rise {
+    animation: rise-in 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .hairline-b {
+    border-bottom: 1px solid var(--gdu-line);
+  }
+  .hairline-t {
+    border-top: 1px solid var(--gdu-line);
+  }
+  /* Keep the sticky header from covering anchored headings */
+  .anchor-offset {
+    scroll-margin-top: calc(var(--gdu-header-h) + 1.5rem);
+  }
+}
