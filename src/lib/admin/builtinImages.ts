@@ -24,7 +24,7 @@ export const BUILTIN_HERO_IMAGES: ImageRecord[] = [
     },
     blobKey: "",
     mime: "image/webp",
-    byteSize: 208654,
+    byteSize: 128378,
     width: 1100,
     height: 1100,
     archivedAt: null,

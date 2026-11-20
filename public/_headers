@@ -1,0 +1,36 @@
+# Cloudflare Pages security headers — copied to out/_headers by the static export.
+# No Content-Security-Policy here on purpose: the Next.js static export inlines
+# its bootstrap scripts, and a strict CSP that has not been verified against them
+# would break the site.
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Control Center: never indexed, never cached.
+/ko/admin
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/ko/admin/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/en/admin
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/en/admin/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/admin
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store

@@ -80,8 +80,8 @@ Hero Studio ──저장──▶ heroLayouts(브라우저) ──게시──�
 ### 3.4 기본 아트워크
 | 파일 | 크기 | 용도 |
 | --- | --- | --- |
-| `public/hero/hojakdo-clean.png` | 1100², 1.5MB | 기본 HOME 히어로 (2번 시안 · 까치 호랑이 클린본) |
-| `public/hero/hojakdo-clean.webp` | 1100², 188KB | 실제 전송용 (picture/srcset, 캔버스) |
+| `public/hero/hojakdo-clean.png` | 1100², 1.8MB | 기본 HOME 히어로 (까치 호랑이 · 틀 없는 한지 배경본) |
+| `public/hero/hojakdo-clean.webp` | 1100², 125KB | 실제 전송용 (picture/srcset, 캔버스) |
 | `public/hero/ilwolobongdo-clean.png` | 1100², 1.6MB | 보관용 원본 (1번 시안 · 일월오봉도 클린본) |
 | `public/hero/ilwolobongdo-clean.webp` | 1100², 196KB | 전송용 |
 

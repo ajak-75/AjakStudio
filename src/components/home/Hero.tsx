@@ -8,7 +8,8 @@ import { localeHref } from "@/lib/utils";
 /**
  * Default HOME hero (server-rendered).
  *
- * The plate on the right is the confirmed artwork — `까치 호랑이 클린본` — shown
+ * The plate on the right is the confirmed artwork — `까치 호랑이`, the frameless
+ * version on warm hanji paper — shown
  * as an unframed editorial plate: one hairline, a caption, no shadow. It is the
  * fallback only: once a Hero Studio 시안 is published, `HomeHero` replaces this
  * whole section with the composed canvas.
