@@ -7,6 +7,7 @@ Next.js 15 (정적 export) · TypeScript · Tailwind CSS · Supabase Free · Clo
 - 비공개 관리자: **`/ko/admin/`** · 15개 메뉴 + Hero Studio (4단계 완료) — 운영 안내는 [docs/CONTROL_CENTER.md](./docs/CONTROL_CENTER.md)
 - 기본 히어로 아트워크: `까치 호랑이 클린본` (보관용 `일월오봉도 클린본`), Hero Studio에서 게시하면 즉시 교체
 - 기존 앱 5개(`Ajak`, `KOMI-Diary`, `KOMI & MOMO POP`, `K-Sajoo`, `ABI`)는 **수정하지 않고 링크만** 연결합니다.
+  - `ABI`는 스토어 배포 전이라 GitHub 직링크 대신 사이트 안 소개 페이지(`/ko/apps/abi/` · `/en/apps/abi/`)로 연결합니다.
 
 ---
 
@@ -16,7 +17,7 @@ Next.js 15 (정적 export) · TypeScript · Tailwind CSS · Supabase Free · Clo
 npm ci            # 또는 npm install
 npm run dev       # http://localhost:3000 → /ko/ 로 이동
 npm run typecheck # tsc --noEmit
-npm run test:admin  # 관리자 순수 로직 81검사
+npm run test:admin  # 관리자 순수 로직 82검사
 npm run test:render # 관리자 15개 화면 렌더 스모크
 npm run build     # 정적 export → out/
 ```

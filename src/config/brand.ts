@@ -26,8 +26,25 @@ export interface AppEntry {
   status: AppStatus;
   /** Public URL. `null` renders as "coming soon" — never a guess. */
   url: string | null;
+  /**
+   * Locale-relative path of this site's own introduction page (`"apps/abi"`).
+   * When set, the app row links inside the site instead of to `url`, and the
+   * page `/{locale}/{detail}/` carries the full story.
+   */
+  detail?: string;
   repo: string | null;
   year: string;
+}
+
+/**
+ * Where an app row points: the in-site introduction page when the app has one,
+ * otherwise its own public URL. `null` means no destination yet — the caller
+ * renders "coming soon" rather than a guessed link.
+ */
+export function appHref(app: AppEntry, locale: Locale): { href: string; external: boolean } | null {
+  if (app.detail) return { href: `/${locale}/${app.detail.replace(/^\/+|\/+$/g, "")}/`, external: false };
+  if (app.url) return { href: app.url, external: true };
+  return null;
 }
 
 export type ChannelStatus = "active" | "preparing" | "paused";
@@ -167,13 +184,16 @@ export const apps: readonly AppEntry[] = [
     category: "utility",
     platform: "android",
     status: "beta",
-    url: "https://github.com/ajak-75/ABI-ai-agent",
+    // The APK is not distributed through the store yet, so the row opens the
+    // introduction page below instead of sending visitors straight to GitHub.
+    url: null,
+    detail: "apps/abi",
     repo: "https://github.com/ajak-75/ABI-ai-agent",
     year: "2026",
   },
 ] as const;
 
-/** Games slate: one playable, two in production (names stay editable in the admin). */
+/** Games slate: two playable, one in production (names stay editable in the admin). */
 export const games = [
   {
     id: "komi-momo-pop",
@@ -187,22 +207,22 @@ export const games = [
     year: "2026",
   },
   {
+    id: "komi-momo-bubble-merge",
+    name: "KOMI & MOMO BUBBLE MERGE",
+    tagline: {
+      ko: "버블을 합쳐 레전더리 코미와 모모를 만드는 합치기 퍼즐",
+      en: "A merge puzzle where bubbles fuse into legendary KOMI and MOMO",
+    } satisfies Localized,
+    status: "live" as AppStatus,
+    url: "https://ajak-75.github.io/komi-momo-bubble-merge/",
+    year: "2026",
+  },
+  {
     id: "momo-run",
     name: "MOMO'S ADVENTURE RUN",
     tagline: {
       ko: "모모가 달리는 사이드 스크롤 러너",
       en: "A side-scrolling runner starring MOMO",
-    } satisfies Localized,
-    status: "coming_soon" as AppStatus,
-    url: null,
-    year: "—",
-  },
-  {
-    id: "game-03",
-    name: "GAME 03",
-    tagline: {
-      ko: "이름을 준비 중인 세 번째 게임",
-      en: "A third game, still unnamed",
     } satisfies Localized,
     status: "coming_soon" as AppStatus,
     url: null,

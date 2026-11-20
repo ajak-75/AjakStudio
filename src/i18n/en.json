@@ -103,15 +103,77 @@
     "eyebrow": "OUR APPS",
     "title": "Five services",
     "lead": "Each app lives in its own repository. This site introduces and links them; the data stays inside each app.",
-    "labels": { "platform": "Platform", "category": "Category", "status": "Status", "languages": "Languages", "open": "Open app" },
+    "labels": { "platform": "Platform", "category": "Category", "status": "Status", "languages": "Languages", "open": "Open app", "detail": "Read the introduction" },
     "categories": { "social": "Social", "community": "Community", "game": "Game", "culture": "K-culture", "utility": "Utility" },
     "platforms": { "web": "Web app", "android": "Android" },
     "note": "ABI ships as an Android APK; the others open directly in the browser."
   },
+  "abi": {
+    "eyebrow": "OUR APPS · 05 ABI",
+    "title": "ABI — an AI assistant that remembers on your phone",
+    "lead": "ABI is a standalone Android AI assistant that keeps conversations and memory in the phone's own SQLite and reaches the cloud only when it needs to. It is in phase-one beta, distributed as an APK rather than through a store.",
+    "meta": [
+      { "label": "Phase", "value": "Phase 1 Beta" },
+      { "label": "Platform", "value": "Android · APK" },
+      { "label": "Memory store", "value": "On-device SQLite" },
+      { "label": "Built with", "value": "Expo SDK 58 · React Native · TypeScript" }
+    ],
+    "whyLabel": "WHY ABI",
+    "whyTitle": "A conversation stays where it happened — on the phone",
+    "whyBody": "ABI began with one idea: an assistant that lives inside the phone. Conversations, memory and tasks accumulate in the device's SQLite, so reopening the app restores the context exactly as it was. Only heavy inference is meant for the cloud, and the route is chosen in settings, not by default.",
+    "architectureLabel": "STRUCTURE",
+    "architectureTitle": "Stored locally first, cloud only when needed",
+    "architectureLead": "ABI is a hybrid by design: memory is collected on the device, and only heavy inference travels to the cloud. Phase one builds the skeleton of that structure — the store, the route-selection logic and the approval policy — and leaves the model connection to phase two.",
+    "layers": [
+      {
+        "title": "On-device memory — SQLite",
+        "body": "Conversations, the user's preferences, facts and instructions, task records and approval logs are written to the app's own SQLite. Reopening the app keeps the conversation, and every memory can be added, edited or deleted directly."
+      },
+      {
+        "title": "Hybrid route — local · free cloud · automatic",
+        "body": "The route is chosen in settings: work the phone can finish stays local, heavier inference goes to a free cloud tier. The router that decides this already exists in phase one; the model connection itself is phase two."
+      },
+      {
+        "title": "Approval and key storage — Android Keystore",
+        "body": "API keys are never hardcoded: they live in SecureStore (Android Keystore) and are masked on screen. Tool runs pass through an approval policy that records both approvals and refusals."
+      }
+    ],
+    "phaseLabel": "PHASE 1",
+    "phaseTitle": "What phase one does, and what was left out on purpose",
+    "phaseInTitle": "Working today",
+    "phaseIn": [
+      "Four tabs: conversation, memory, tasks, settings",
+      "Input → SQLite → the conversation survives a restart",
+      "Add, edit and delete preferences, facts and instructions",
+      "Approval policy, approval and refusal records, run audit log",
+      "Route selection, key masking and data deletion"
+    ],
+    "phaseOutTitle": "Left out on purpose",
+    "phaseOut": [
+      "Local AI inference (an LLM runtime) — deferred to phase two.",
+      "Outbound API code — there is no HTTP client in the app at all.",
+      "Real tool execution (notifications, calendar, messages) — the tool registry is empty."
+    ],
+    "phaseNote": "Phase-one chat replies are guidance text marked 'PHASE 1 · TEST RESPONSE', not model output. What is being validated now is the structure of storage, memory and approval — not conversational quality.",
+    "installLabel": "ANDROID APK",
+    "installTitle": "Installing the APK",
+    "installSteps": [
+      "Clone the repository and install dependencies with npm install.",
+      "Check the setup with npm run typecheck, npm run config and npm run doctor.",
+      "Build a development APK with npx eas-cli login → npx eas-cli init → npm run build:apk:eas. With JDK 17 and the Android SDK installed, npm run prebuild:android followed by gradlew assembleDebug builds it locally.",
+      "Install the APK on the phone and connect it to the development build server with npm start. Expo Go alone will not run it."
+    ],
+    "installNote": "This is a test APK, not a store release. The build procedure is documented in the repository under docs/CI_ANDROID_APK.md and ci/android-debug-apk.yml.",
+    "repoLabel": "REFERENCE",
+    "repoTitle": "Source and design documents",
+    "repoBody": "This page is an introduction. ABI's source, its seven design documents and the verification record live in the repository below.",
+    "repoCta": "Open the GitHub repository",
+    "backToApps": "View all apps"
+  },
   "games": {
     "eyebrow": "GAMES",
     "title": "The world of KOMI and MOMO",
-    "lead": "We extend our character IP into games. The first is playable today; two more are in production.",
+    "lead": "We extend our character IP into games. Two are playable today; one more is in production.",
     "inProduction": "In production",
     "play": "Play now"
   },

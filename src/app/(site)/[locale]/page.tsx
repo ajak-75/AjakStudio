@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowGlyph, SectionLabel, StatusTag } from "@/components/site/Editorial";
 import { Hero } from "@/components/home/Hero";
 import { HomeHero } from "@/components/home/HomeHero";
-import { apps, brand, channels, games, news } from "@/config/brand";
+import { apps, appHref, brand, channels, games, news } from "@/config/brand";
 import { getDictionary, isLocale, type Locale } from "@/i18n";
 import { formatEditorialDate, localeHref } from "@/lib/utils";
 
@@ -29,7 +29,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const dict = getDictionary(locale);
 
   const publishedNews = news.filter((item) => item.status === "published");
-  const liveGame = games.find((game) => game.status === "live");
+  const liveGames = games.filter((game) => game.status === "live");
   const pipeline = games.filter((game) => game.status !== "live");
 
   return (
@@ -65,6 +65,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
         <ol className="mt-12 border-t border-ink/80">
           {apps.map((app, index) => {
+            const link = appHref(app, locale);
             const row = (
               <>
                 <div className="col-span-12 flex items-baseline gap-5 md:col-span-6">
@@ -92,15 +93,24 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
             return (
               <li key={app.id} className="border-b border-line">
-                {app.url ? (
-                  <a
-                    href={app.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-row group grid grid-cols-12 items-center gap-4 px-2 py-6 md:px-4"
-                  >
-                    {row}
-                  </a>
+                {link ? (
+                  link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-row group grid grid-cols-12 items-center gap-4 px-2 py-6 md:px-4"
+                    >
+                      {row}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="project-row group grid grid-cols-12 items-center gap-4 px-2 py-6 md:px-4"
+                    >
+                      {row}
+                    </Link>
+                  )
                 ) : (
                   <div className="grid grid-cols-12 items-center gap-4 px-2 py-6 text-muted md:px-4">
                     {row}
@@ -134,32 +144,47 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 {dict.home.gamesNote}
               </p>
 
-              {liveGame ? (
-                <div className="mt-10 border-t border-ink/80 pt-6">
-                  <div className="flex items-center justify-between">
-                    <StatusTag status={liveGame.status} label={dict.status[liveGame.status]} />
-                    <span className="font-sans text-[0.625rem] tracking-[0.18em] text-muted">
-                      {liveGame.year}
-                    </span>
-                  </div>
-                  <Link
-                    href={liveGame.url ?? localeHref(locale, "games")}
-                    className="group mt-4 block"
-                    {...(liveGame.url ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  >
+              {liveGames.map((game) => {
+                const body = (
+                  <>
                     <span className="font-serif text-display-s text-ink transition-colors group-hover:text-brass">
-                      {liveGame.name}
+                      {game.name}
                     </span>
                     <p className="mt-2 max-w-[28ch] font-sans text-[0.9375rem] leading-relaxed text-graphite">
-                      {liveGame.tagline[locale]}
+                      {game.tagline[locale]}
                     </p>
                     <span className="mt-5 inline-flex items-center gap-2 font-sans text-[0.6875rem] uppercase tracking-[0.16em]">
                       {dict.games.play}
                       <ArrowGlyph />
                     </span>
-                  </Link>
-                </div>
-              ) : null}
+                  </>
+                );
+
+                return (
+                  <div key={game.id} className="mt-10 border-t border-ink/80 pt-6">
+                    <div className="flex items-center justify-between">
+                      <StatusTag status={game.status} label={dict.status[game.status]} />
+                      <span className="font-sans text-[0.625rem] tracking-[0.18em] text-muted">
+                        {game.year}
+                      </span>
+                    </div>
+                    {game.url ? (
+                      <a
+                        href={game.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group mt-4 block"
+                      >
+                        {body}
+                      </a>
+                    ) : (
+                      <Link href={localeHref(locale, "games")} className="group mt-4 block">
+                        {body}
+                      </Link>
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
             <div className="col-span-12 md:col-span-5 md:col-start-8">

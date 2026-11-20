@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { ArrowGlyph, StatusTag } from "@/components/site/Editorial";
-import { apps } from "@/config/brand";
+import { appHref, apps } from "@/config/brand";
 import type { Dictionary, Locale } from "@/i18n";
 import { localeHref } from "@/lib/utils";
 
@@ -79,25 +79,47 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
       </div>
 
       <ul className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 border-y border-line py-4 md:mt-20">
-        {liveApps.map((app, index) => (
-          <li key={app.id} className="flex items-baseline gap-2">
-            <span className="font-sans text-[0.5rem] tracking-[0.18em] text-brass">{String(index + 1).padStart(2, "0")}</span>
-            {app.url ? (
-              <a
-                href={app.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-baseline gap-2 whitespace-nowrap font-sans text-[0.6875rem] uppercase tracking-[0.14em] text-ink"
-              >
-                {app.name}
-                <ArrowGlyph className="translate-y-[1px] text-muted transition-colors group-hover:text-ink" />
-              </a>
-            ) : (
-              <span className="whitespace-nowrap font-sans text-[0.6875rem] uppercase tracking-[0.14em] text-muted">{app.name}</span>
-            )}
-            <StatusTag status={app.status} label={dict.status[app.status]} />
-          </li>
-        ))}
+        {liveApps.map((app, index) => {
+          const link = appHref(app, locale);
+          const label = (
+            <>
+              {app.name}
+              <ArrowGlyph className="translate-y-[1px] text-muted transition-colors group-hover:text-ink" />
+            </>
+          );
+
+          return (
+            <li key={app.id} className="flex items-baseline gap-2">
+              <span className="font-sans text-[0.5rem] tracking-[0.18em] text-brass">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              {link ? (
+                link.external ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-baseline gap-2 whitespace-nowrap font-sans text-[0.6875rem] uppercase tracking-[0.14em] text-ink"
+                  >
+                    {label}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className="group inline-flex items-baseline gap-2 whitespace-nowrap font-sans text-[0.6875rem] uppercase tracking-[0.14em] text-ink"
+                  >
+                    {label}
+                  </Link>
+                )
+              ) : (
+                <span className="whitespace-nowrap font-sans text-[0.6875rem] uppercase tracking-[0.14em] text-muted">
+                  {app.name}
+                </span>
+              )}
+              <StatusTag status={app.status} label={dict.status[app.status]} />
+            </li>
+          );
+        })}
       </ul>
 
       <dl className="mt-10 grid grid-cols-2 gap-y-8 border-b border-line pb-8 md:grid-cols-4">
