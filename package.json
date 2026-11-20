@@ -1,14 +1,16 @@
 {
   "name": "global-digital-universe",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "private": true,
-  "description": "GLOBAL DIGITAL UNIVERSE — unified global digital business platform (public site + private Control Center).",
+  "description": "GLOBAL DIGITAL UNIVERSE — unified global digital business platform (public site + private Control Center + Hero Studio).",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "export": "next build"
+    "export": "next build",
+    "test:admin": "tsc -p .tmp-test/tsconfig.json && node scripts/admin-selftest.cjs",
+    "test:render": "tsc -p .tmp-test/ssr-tsconfig.json && node scripts/admin-render-test.cjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.119.2",

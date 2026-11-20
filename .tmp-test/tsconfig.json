@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ES2022",
+    "jsx": "preserve",
+    "outDir": "./out",
+    "rootDir": "..",
+    "incremental": false,
+    "noUncheckedIndexedAccess": true,
+    "resolveJsonModule": true,
+    "isolatedModules": false
+  },
+  "include": ["../src/lib/admin/hero.ts", "../src/lib/admin/backup.ts", "../src/lib/admin/metrics.ts", "../src/lib/admin/seed.ts", "../src/lib/admin/types.ts", "../src/lib/admin/builtinImages.ts", "../src/config/brand.ts", "../src/i18n/index.ts"]
+}

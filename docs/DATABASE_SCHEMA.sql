@@ -238,21 +238,27 @@ create trigger trg_hero_assets_protect
 -- ----------------------------------------------------------------------------
 -- 5. hero_layouts — every saved 시안, with one published version
 -- ----------------------------------------------------------------------------
--- snapshot is the complete, versioned scene description:
+-- snapshot is the complete, versioned scene description (v1.1 · phase 4):
 -- {
---   "canvas": { "aspect": "16:9", "background": "#F2EEE6" },
---   "layers": [
---     { "id": "l1", "assetId": "<uuid>", "src": "hero-originals/…",
---       "x": 0.12, "y": 0.18, "w": 0.42, "h": 0.6, "fit": "cover",
---       "crop": { "x": 0, "y": 0, "w": 1, "h": 1 }, "opacity": 1,
---       "z": 10, "mask": "none" }
---   ],
---   "text": [
---     { "id": "t1", "value": "…", "role": "display", "x": 0.08, "y": 0.62,
---       "size": 72, "color": "#14140F", "align": "left", "z": 30 }
---   ],
---   "devices": { "desktop": { … }, "mobile": { … } }
+--   "schema": 1,
+--   "pc": {
+--     "aspect": "16:9", "ratioW": 16, "ratioH": 9, "background": "#fbfaf7",
+--     "layers": [
+--       { "id": "layer_…", "assetId": "<hero_assets.id | builtin-hojakdo>",
+--         "url": "/hero/hojakdo-clean.webp", "x": 0.755, "y": 0.5,
+--         "scale": 0.46, "crop": { "x": 0, "y": 0, "w": 1, "h": 1 },
+--         "opacity": 1, "visible": true }
+--     ],
+--     "text": { "visible": true, "kicker": "…", "headline": "…", "subcopy": "…",
+--               "headlineEn": "…", "subcopyEn": "…", "x": 0.055, "y": 0.245,
+--               "align": "left", "color": "#14140f", "headlineScale": 0.088,
+--               "scrim": 0, "maxWidth": 0.42 }
+--   },
+--   "mobile": { … same shape, portrait 3:4 … }
 -- }
+-- Every position and size is 0–1 of the frame, so one snapshot renders on
+-- desktop, phone and the published HOME through the same drawHero(). Crops are
+-- values only: the original file is never rewritten.
 
 create table if not exists public.hero_layouts (
   id               uuid primary key default gen_random_uuid(),

@@ -5,13 +5,21 @@ import { apps } from "@/config/brand";
 import type { Dictionary, Locale } from "@/i18n";
 import { localeHref } from "@/lib/utils";
 
+/**
+ * Default HOME hero (server-rendered).
+ *
+ * The plate on the right is the confirmed artwork — `까치 호랑이 클린본` — shown
+ * as an unframed editorial plate: one hairline, a caption, no shadow. It is the
+ * fallback only: once a Hero Studio 시안 is published, `HomeHero` replaces this
+ * whole section with the composed canvas.
+ */
 export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const liveApps = apps.filter((app) => app.status !== "archived");
 
   return (
     <section className="shell pb-16 pt-12 md:pb-20 md:pt-20">
-      <div className="grid-12">
-        <div className="col-span-12 lg:col-span-7">
+      <div className="grid-12 items-start">
+        <div className="col-span-12 lg:col-span-6">
           <div className="flex items-center gap-4">
             <span aria-hidden className="h-px w-10 bg-brass" />
             <p className="eyebrow text-graphite">{dict.home.eyebrow}</p>
@@ -28,9 +36,7 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             ))}
           </h1>
 
-          <p className="mt-8 max-w-measure-tight text-[1.0625rem] leading-[1.8] text-graphite">
-            {dict.home.lead}
-          </p>
+          <p className="mt-8 max-w-measure-tight text-[1.0625rem] leading-[1.8] text-graphite">{dict.home.lead}</p>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Link
@@ -49,55 +55,52 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           </div>
         </div>
 
-        <aside className="col-span-12 mt-16 lg:col-span-4 lg:col-start-9 lg:mt-2" aria-label={dict.home.indexLabel}>
-          <div className="flex items-baseline justify-between border-b border-line pb-3">
-            <p className="eyebrow">{dict.home.indexLabel}</p>
-            <p className="font-sans text-[0.5625rem] uppercase tracking-[0.14em] text-muted">
-              {dict.home.indexNote}
-            </p>
+        <figure className="col-span-12 mt-12 lg:col-span-5 lg:col-start-8 lg:mt-1">
+          <div className="relative">
+            <span aria-hidden className="absolute -left-6 top-0 hidden h-px w-4 bg-brass lg:block" />
+            <picture>
+              <source srcSet="/hero/hojakdo-clean.webp" type="image/webp" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/hero/hojakdo-clean.png"
+                alt={dict.home.plate.alt}
+                width={1100}
+                height={1100}
+                fetchPriority="high"
+                className="block w-full border border-line bg-porcelain"
+              />
+            </picture>
           </div>
-
-          <ol className="mt-1">
-            {liveApps.map((app, index) => {
-              const body = (
-                <>
-                  <span className="flex items-baseline gap-4">
-                    <span className="w-5 font-sans text-[0.5625rem] tracking-[0.18em] text-brass">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="whitespace-nowrap font-serif text-[1.125rem] leading-tight text-ink transition-transform duration-500 ease-editorial group-hover:translate-x-1">
-                      {app.name}
-                    </span>
-                  </span>
-                  <StatusTag status={app.status} label={dict.status[app.status]} />
-                </>
-              );
-
-              return (
-                <li key={app.id} className="border-b border-line">
-                  {app.url ? (
-                    <a
-                      href={app.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center justify-between gap-3 py-3.5"
-                    >
-                      {body}
-                      <ArrowGlyph className="text-muted transition-colors group-hover:text-ink" />
-                    </a>
-                  ) : (
-                    <div className="flex items-center justify-between gap-3 py-3.5 text-muted">
-                      {body}
-                    </div>
-                  )}
-                </li>
-              );
-            })}
-          </ol>
-        </aside>
+          <figcaption className="mt-3 flex items-baseline justify-between gap-4 border-t border-line pt-2.5">
+            <span className="eyebrow text-graphite">{dict.home.plate.title}</span>
+            <span className="font-sans text-[0.5625rem] uppercase tracking-[0.16em] text-muted">{dict.home.plate.meta}</span>
+          </figcaption>
+        </figure>
       </div>
 
-      <dl className="mt-16 grid grid-cols-2 gap-y-8 border-y border-line py-8 md:mt-24 md:grid-cols-4">
+      <ul className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 border-y border-line py-4 md:mt-20">
+        {liveApps.map((app, index) => (
+          <li key={app.id} className="flex items-baseline gap-2">
+            <span className="font-sans text-[0.5rem] tracking-[0.18em] text-brass">{String(index + 1).padStart(2, "0")}</span>
+            {app.url ? (
+              <a
+                href={app.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-baseline gap-2 whitespace-nowrap font-sans text-[0.6875rem] uppercase tracking-[0.14em] text-ink"
+              >
+                {app.name}
+                <ArrowGlyph className="translate-y-[1px] text-muted transition-colors group-hover:text-ink" />
+              </a>
+            ) : (
+              <span className="whitespace-nowrap font-sans text-[0.6875rem] uppercase tracking-[0.14em] text-muted">{app.name}</span>
+            )}
+            <StatusTag status={app.status} label={dict.status[app.status]} />
+          </li>
+        ))}
+      </ul>
+
+      <dl className="mt-10 grid grid-cols-2 gap-y-8 border-b border-line pb-8 md:grid-cols-4">
         {dict.home.facts.map((fact) => (
           <div key={fact.label}>
             <dt className="eyebrow">{fact.label}</dt>

@@ -1,0 +1,23 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ES2022",
+    "jsx": "react-jsx",
+    "outDir": "./ssr",
+    "rootDir": "..",
+    "incremental": false,
+    "isolatedModules": false,
+    "declaration": false,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "../src/components/admin/**/*.tsx",
+    "../src/lib/**/*.ts",
+    "../src/lib/**/*.tsx",
+    "../src/config/**/*.ts",
+    "../src/i18n/*.ts"
+  ]
+}

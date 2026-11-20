@@ -32,3 +32,8 @@ supabase/.temp/
 
 # typescript incremental cache
 *.tsbuildinfo
+
+# admin self-test build output
+.tmp-test/out/
+.tmp-test/hero-snapshot.json
+.tmp-test/ssr/

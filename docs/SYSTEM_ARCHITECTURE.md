@@ -407,3 +407,60 @@ work/global-digital-universe/
 - **No video hosting.** 1 GB cannot hold video; YouTube/Drive links are the policy, and the archive stores the link plus metadata.
 - **No character-led brand.** KOMI and MOMO can appear in content; the site's identity does not depend on them.
 - **No modification of the five existing apps.** They are linked, not integrated.
+
+---
+
+## 14. Phase 4 — what was actually built
+
+### 14.1 Routes
+
+| Route | Rendering | Purpose |
+| --- | --- | --- |
+| `/{ko,en}/admin/` | static shell + client app | the fifteen menus |
+| `/admin/` | static meta refresh | forwards to `/ko/admin/` |
+
+The admin lives in its own route group `(control)` with its own root layout, so the public
+header/footer never wrap it and both can share `globals.css` without branching on path.
+
+### 14.2 Data path
+
+```
+browser (operator)
+  ├─ Supabase keys absent  → local preview mode
+  │     IndexedDB `gdu-control-center`  (kv: one AdminData JSON, blobs: original images)
+  │     localStorage fallback when IndexedDB is unavailable
+  └─ Supabase keys present → Auth session + admin_users row (owner/editor/viewer)
+        RLS is_admin() is the real gate; the UI redirect is convenience
+        hero publish → hero_layouts (+ publish_hero_layout RPC), image → hero-originals bucket
+```
+
+An `AdminData` document holds every collection (`apps`, `channels`, `contents`, `images`,
+`videos`, `docs`, `prompts`, `projects`, `tasks`, `repos`, `finance`, `heroLayouts`, `backups`)
+plus `notion`. One document is why a backup is one JSON file.
+
+**Known limit, stated plainly:** in local mode the fifteen menus persist to the browser only.
+Hero publishing is the one path that also writes to Supabase when keys exist. Table-by-table
+sync of the remaining collections is a phase-5 task; the admin banner says so instead of
+claiming an automatic sync that does not exist yet.
+
+### 14.3 Hero rendering
+
+- `src/lib/admin/hero.ts` — pure geometry: crop → source rect, cover fit, scale, normalised
+  coordinates, version numbering, publish/unpublish, restore-as-clone.
+- `src/lib/admin/heroCanvas.ts` — one `drawHero()` used by the editor canvas and the public
+  HOME canvas. Fonts are read from the live next/font stacks so canvas text matches the page.
+- `src/components/home/HomeHero.tsx` — server-rendered editorial hero as fallback, upgraded to
+  the published canvas only when a published layout is found (local first, then Supabase).
+
+### 14.4 Default artwork
+
+`까치 호랑이 클린본` is the confirmed default hero plate (PNG original + WebP delivery in
+`public/hero/`). `일월오봉도 클린본` ships alongside as the second built-in image. Both are
+seeded into the image library (`src/lib/admin/builtinImages.ts`) so the studio can use them
+without an upload.
+
+### 14.5 Verification
+
+`npm run typecheck` · `npm run test:admin` (81 checks) · `npm run test:render` (15 screens) ·
+`npm run build` (23 static pages). Click-through of upload/publish/download remains a manual
+check in a real browser after deploy, because the build environment has no display server.

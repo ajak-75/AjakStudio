@@ -4,7 +4,8 @@
 Next.js 15 (정적 export) · TypeScript · Tailwind CSS · Supabase Free · Cloudflare Pages Free · **운영비 0원**.
 
 - 공개 사이트: 8개 메뉴 (HOME · ABOUT · OUR APPS · GAMES · K-CULTURE · MEDIA · NEWS · CONTACT), 한국어/영어
-- 비공개 관리자: 15개 메뉴 + Hero Studio (4단계에서 구현)
+- 비공개 관리자: **`/ko/admin/`** · 15개 메뉴 + Hero Studio (4단계 완료) — 운영 안내는 [docs/CONTROL_CENTER.md](./docs/CONTROL_CENTER.md)
+- 기본 히어로 아트워크: `까치 호랑이 클린본` (보관용 `일월오봉도 클린본`), Hero Studio에서 게시하면 즉시 교체
 - 기존 앱 5개(`Ajak`, `KOMI-Diary`, `KOMI & MOMO POP`, `K-Sajoo`, `ABI`)는 **수정하지 않고 링크만** 연결합니다.
 
 ---
@@ -15,6 +16,8 @@ Next.js 15 (정적 export) · TypeScript · Tailwind CSS · Supabase Free · Clo
 npm ci            # 또는 npm install
 npm run dev       # http://localhost:3000 → /ko/ 로 이동
 npm run typecheck # tsc --noEmit
+npm run test:admin  # 관리자 순수 로직 81검사
+npm run test:render # 관리자 15개 화면 렌더 스모크
 npm run build     # 정적 export → out/
 ```
 
@@ -44,12 +47,18 @@ docs/
   FREE_INFRA_AND_LIMITS.md  무료 한도 · 7일 정지 대응 · 영상 정책 · 백업/복구
 src/
   app/(root)/               "/" → /ko/ 정적 포워딩
+  app/(gate)/admin/         "/admin" → /ko/admin/ 정적 포워딩
   app/(site)/[locale]/      공개 8개 메뉴 (SSG, ko/en)
+  app/(control)/[locale]/admin/  비공개 CONTROL CENTER (noindex)
   app/globals.css           디자인 토큰 단일 소스
-  components/               Header · Footer · Hero · Editorial 컴포넌트
+  components/               Header · Footer · Hero · HomeHero · Editorial
+  components/admin/         관리자 셸 · 15개 섹션 · Hero Studio · 공용 UI
   config/brand.ts           브랜드 · 메뉴 · 앱 5 · 게임 3 · 채널 8 · 뉴스 시드
   i18n/                     ko.json · en.json · 타입 안전 사전
+  lib/admin/                데이터 모델 · 시드 · IndexedDB · 저장소 · 히어로 캔버스 · 백업
   lib/supabase/             client · server · types · guard
+  public/hero/              기본 히어로 아트워크 (PNG 원본 + WebP 전송본)
+scripts/                    관리자 자체 테스트 (로직 · 렌더)
 ```
 
 ## Supabase 적용 순서 (4단계에서)
@@ -61,13 +70,16 @@ src/
 5. Project settings → API의 URL과 **anon** 키를 Cloudflare 환경변수에 입력 (service_role 키는 사용하지 않음)
 6. 재배포 후 Control Center 로그인 확인
 
-## 검증 (2026-11-20, phase 2)
+## 검증 (2026-11-20, phase 4)
 
 | 항목 | 결과 |
 | --- | --- |
 | `npx tsc --noEmit` | 오류 0 |
-| `npm run build` | 성공 · 정적 페이지 20개 (ko/en × 9 + 404 + root) |
-| 첫 로드 JS | 103 kB (gzip) |
+| `npm run test:admin` | 81 / 81 통과 (히어로 기하·버전·게시·백업 왕복·재무·시드) |
+| `npm run test:render` | 관리자 15개 화면 렌더 15 / 15 |
+| `npm run build` | 성공 · 정적 페이지 23개 (ko/en × 9 + admin × 2 + 404 + root + gate) |
+| `out/` | 218개 파일 · 12.7MB · 최대 파일 1.58MB (한도 20,000개 / 25MiB) |
+| 첫 로드 JS | 공개 103 kB · 관리자 214 kB (gzip) |
 | 서버 런타임 | 없음 (Functions 0회) |
 | 유료 서비스 | 없음 (0원) |
 

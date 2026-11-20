@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ArrowGlyph, SectionLabel, StatusTag } from "@/components/site/Editorial";
 import { Hero } from "@/components/home/Hero";
+import { HomeHero } from "@/components/home/HomeHero";
 import { apps, brand, channels, games, news } from "@/config/brand";
 import { getDictionary, isLocale, type Locale } from "@/i18n";
 import { formatEditorialDate, localeHref } from "@/lib/utils";
@@ -33,7 +34,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
-      <Hero locale={locale} dict={dict} />
+      <HomeHero locale={locale} fallback={<Hero locale={locale} dict={dict} />} />
 
       {/* Statement ------------------------------------------------------- */}
       <section className="border-t border-line bg-porcelain">
