@@ -106,6 +106,8 @@ Supabase Free는 자동 백업이 없습니다. **주 1회 내보내기**를 일
 - 관리자 판정은 브라우저의 `admin_users` 조회 결과 + 서버(RLS) `is_admin()` 이중입니다. UI 숨김은 편의일 뿐, 실제 차단은 RLS가 합니다.
 - 업로드 검증: MIME(JPG/PNG/WebP) + 5MB + 빈 파일 거부. 파일 이름은 저장 키로 쓰지 않습니다(`blob_<id>`).
 - 공개 페이지는 `noindex`가 아니지만 관리자 화면은 `noindex, nofollow, nocache`입니다.
+- 배포 헤더는 `public/_headers`(정적 export가 `out/_headers`로 복사)에 있습니다. 전체 경로에 `X-Frame-Options: DENY`·`X-Content-Type-Options: nosniff`·`Referrer-Policy`·`Permissions-Policy`(카메라·마이크·위치 차단)·`HSTS`, `/ko/admin`·`/en/admin`(및 하위)에 `X-Robots-Tag: noindex, nofollow`와 `Cache-Control: no-store`를 겁니다. `public/robots.txt`도 관리자 경로 두 개를 막습니다.
+- CSP는 아직 넣지 않았습니다. 정적 export가 부트스트랩 스크립트를 인라인으로 내보내므로, 스크립트 해시까지 확인한 CSP를 만든 뒤 phase 5에서 추가합니다.
 
 ---
 
@@ -113,7 +115,7 @@ Supabase Free는 자동 백업이 없습니다. **주 1회 내보내기**를 일
 
 ```bash
 npm run typecheck     # tsc --noEmit — 오류 0
-npm run test:admin    # 순수 로직 81개 (히어로 기하·버전·게시·백업·재무·시드)
+npm run test:admin    # 순수 로직 82개 (히어로 기하·버전·게시·백업·재무·시드)
 npm run test:render   # 15개 화면 서버 렌더 스모크 테스트
 npm run build         # 정적 export → out/
 ```
