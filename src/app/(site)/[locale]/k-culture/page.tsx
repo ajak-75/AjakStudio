@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
-import { PageHeader, SectionLabel } from "@/components/site/Editorial";
+import { ArrowGlyph, PageHeader, SectionLabel } from "@/components/site/Editorial";
+import { appHref, apps } from "@/config/brand";
 import { getDictionary, isLocale, type Locale } from "@/i18n";
 
 export async function generateMetadata({
@@ -23,6 +25,9 @@ export default async function KCulturePage({ params }: { params: Promise<{ local
   if (!isLocale(raw)) return null;
   const locale: Locale = raw;
   const dict = getDictionary(locale);
+  const cultureApps = apps.filter(
+    (app) => app.group === "universe" || app.id === "k-sajoo",
+  );
 
   return (
     <>
@@ -41,6 +46,33 @@ export default async function KCulturePage({ params }: { params: Promise<{ local
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="shell pb-section">
+        <SectionLabel>{dict.kCulture.appsLabel}</SectionLabel>
+        <p className="mt-4 max-w-measure font-sans text-[0.8125rem] leading-relaxed text-muted">
+          {dict.kCulture.appsNote}
+        </p>
+        <ul className="mt-8 border-t border-ink/80">
+          {cultureApps.map((app) => {
+            const link = appHref(app, locale);
+            return (
+              <li key={app.id} className="border-b border-line">
+                <Link
+                  href={link?.href ?? `/${locale}/apps/`}
+                  {...(link?.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="project-row group flex items-baseline justify-between gap-4 px-2 py-4 md:px-4"
+                >
+                  <span className="font-serif text-[1.25rem] text-ink">{app.name}</span>
+                  <span className="flex items-center gap-3 font-sans text-[0.5625rem] uppercase tracking-[0.14em] text-muted">
+                    {app.tagline[locale]}
+                    <ArrowGlyph />
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </section>
 
       <section className="border-y border-line bg-porcelain">

@@ -14,7 +14,7 @@ export default function RootRedirectPage() {
     >
       <div>
         <p style={{ letterSpacing: "0.24em", fontSize: "11px", textTransform: "uppercase" }}>
-          Global Digital Universe
+          AjakStudio
         </p>
         <p style={{ marginTop: "1.5rem", fontSize: "1.25rem" }}>
           <a href="/ko/" style={{ borderBottom: "1px solid currentColor" }}>

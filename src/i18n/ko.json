@@ -1,12 +1,15 @@
 {
   "meta": {
-    "siteName": "GLOBAL DIGITAL UNIVERSE",
-    "tagline": "글로벌 디지털 사업의 새로운 본부",
-    "description": "앱, 게임, K-컬처, 미디어 채널을 하나로 잇는 글로벌 디지털 사업 플랫폼."
+    "siteName": "AjakStudio",
+    "tagline": "세계의 앱과 채널이 한곳에 모이는 스튜디오",
+    "description": "일반 앱과 게임, 코미·모모의 K-컬처 IP, 한국형·글로벌 SNS 채널, 단짠살림의 국내 커머스까지 — 흩어져 있던 디지털 사업이 한곳에 모인 아작스튜디오."
   },
   "common": {
     "language": "언어",
-    "languages": { "ko": "한국어", "en": "EN" },
+    "languages": {
+      "ko": "한국어",
+      "en": "EN"
+    },
     "menu": "메뉴",
     "close": "닫기",
     "visit": "바로 가기",
@@ -33,38 +36,88 @@
     "contact": "CONTACT"
   },
   "home": {
-    "eyebrow": "INDEPENDENT DIGITAL STUDIO — SEOUL, KOREA",
-    "titleLines": ["디지털 세계를", "하나의 브랜드로", "엮어 갑니다"],
-    "lead": "다섯 개의 앱, 여덟 개의 채널, 그리고 아직 이름 없는 다음 프로젝트까지. 흩어져 있던 디지털 사업을 한곳에 모아 세계에 보여 주는 본부를 만듭니다.",
+    "eyebrow": "AJAKSTUDIO — INDEPENDENT DIGITAL STUDIO · SEOUL",
+    "titleLines": [
+      "국경과 언어를 지우고",
+      "하나의 세계를",
+      "직접 짓습니다"
+    ],
+    "lead": "오랫동안 품어 온 ‘연결’의 꿈이 있습니다. 서로 다른 나라의 사람이 같은 이야기에 웃고, 같은 캐릭터를 보고, 같은 문화를 함께 경험하는 세계. 언어 장벽 없는 소셜, 코미와 모모의 K-컬처, 사주·에이전트 앱, 그리고 그 세계를 바깥으로 잇는 미디어와 커머스까지 — 아작스튜디오와 함께 기획하고 짓고 운영합니다. 여러 앱과 게임, 글로벌 채널이 이미 이 세계 안에서 하나씩 자라고 있습니다.",
     "primaryCta": "앱 둘러보기",
-    "secondaryCta": "스튜디오 소개",
+    "secondaryCta": "스튜디오 이야기",
+    "heroNote": "CREATOR-LED DIGITAL STUDIO — SEOUL, SINCE 2026",
+    "scrollCue": "SCROLL — 이 세계를 이루는 세 개의 축",
+    "showcaseLabel": "LIVE SHOWCASE · REAL-TIME",
+    "showcaseTitle": "아작 쇼케이스",
+    "showcaseNote": "새로 만든 앱과 게임이 가장 먼저 올라오는 실시간 공간입니다. 이 홈페이지에 아직 반영되지 않은 최신 앱도 여기서 바로 열어 볼 수 있습니다.",
+    "showcaseCta": "쇼케이스 바로 열기",
+    "showcaseMeta": "AJAK-75.GITHUB.IO — 항상 최신",
+    "showcaseArtAlt": "짙은 한지 위에 놓인 동백꽃 — 오른쪽 아래 아작 스튜디오 낙관",
+    "showcaseSealAlt": "아작 스튜디오 — 붉은 낙관 도장",
     "plate": {
-      "alt": "까치와 호랑이 — 호작도를 3D 클레이로 재해석한 그림",
+      "alt": "틀 없이 놓인 까치와 호랑이 — 호작도를 3D 클레이로 재해석한 그림",
       "title": "까치 호랑이",
       "meta": "HOJAKDO · DIGITAL CLAY · 2026"
     },
-    "indexLabel": "INDEX — SERVICES",
-    "indexNote": "2026년 11월 기준",
     "facts": [
-      { "value": "05", "label": "SERVICES" },
-      { "value": "08", "label": "CHANNELS" },
-      { "value": "03", "label": "GAMES" },
-      { "value": "₩0", "label": "INFRASTRUCTURE COST" }
+      {
+        "value": "KOMI & MOMO",
+        "label": "UNIVERSE"
+      },
+      {
+        "value": "APPS & AGENT",
+        "label": "TOOLS"
+      },
+      {
+        "value": "KR & GLOBAL",
+        "label": "CHANNELS"
+      },
+      {
+        "value": "₩0",
+        "label": "INFRASTRUCTURE COST"
+      }
     ],
-    "statementLabel": "ABOUT THE STUDIO",
-    "statement": "GLOBAL DIGITAL UNIVERSE는 한국에서 시작해 전 세계를 무대로 앱과 콘텐츠를 만드는 독립 디지털 스튜디오입니다. 소셜, 게임, K-컬처, 미디어를 하나의 세계관 아래 두고, 각 서비스는 독립적으로 운영하면서도 같은 브랜드의 문법을 공유합니다.",
-    "statementFootnote": "기획 · 디자인 · 개발 · 운영을 한 팀이 끝까지 맡습니다.",
+    "worldsLabel": "THE UNIVERSE",
+    "worldsTitle": "하나의 세계, 세 개의 축",
+    "worldsNote": "캐릭터와 문화, 언어를 넘는 앱, 그리고 세계와 만나는 채널. 세 축이 맞물려 하나의 디지털 유니버스를 이룹니다.",
+    "worlds": [
+      {
+        "kicker": "CULTURE · K-CULTURE WORLDVIEW",
+        "title": "코미 & 모모 세계관",
+        "body": "한국을 사랑하는 치와와 코미와 모모가 세계의 팬과 만나는 세계관. 다이어리 앱과 여러 편의 게임이 16개국어로 이어지고, 단청과 민화의 색이 스티커와 굿즈로 다시 태어납니다.",
+        "meta": "CHARACTER · DIARY · GAMES"
+      },
+      {
+        "kicker": "APPS · NO LANGUAGE BARRIER",
+        "title": "언어를 넘는 앱",
+        "body": "언어와 기기의 경계를 넘어 누구나 바로 쓰는 앱들. 15개국어 미니 SNS ‘Ajak’, 만세력으로 읽는 ‘K-Sajoo’, 폰 안에서 기억하는 에이전트 ‘ABI’. 국경 밖에서도 그 나라 언어로 바로 열립니다.",
+        "meta": "SOCIAL · SAJU · AGENT"
+      },
+      {
+        "kicker": "REACH · MEDIA & COMMERCE",
+        "title": "세계와 잇는 채널",
+        "body": "세계를 바깥과 연결하는 글로벌 채널과, 국내에서 살림과 물건을 다루는 채널. 콘텐츠로 세계를 만나고, 커머스로 생활을 만납니다.",
+        "meta": "KR & GLOBAL · CHANNELS"
+      }
+    ],
     "servicesLabel": "OUR APPS",
-    "servicesTitle": "지금 운영 중인 서비스",
-    "servicesNote": "모든 앱은 각자의 저장소와 서버 없이, 브라우저에서 바로 열립니다.",
+    "servicesTitle": "세계가 하나로 모아지는 곳",
+    "servicesNote": "누구나 가볍게 쓰는 소셜·사주·에이전트 앱부터 코미·모모의 K-컬처 이야기까지, 아작스튜디오의 모든 앱이 한자리에 모여 있습니다. 설치 없이 브라우저에서 바로 열어 보세요.",
+    "groupUniverse": "GROUP A — 코미·모모 유니버스",
+    "groupUniverseNote": "캐릭터 IP가 다이어리 앱과 게임으로 이어집니다.",
+    "groupIndependent": "GROUP B — 독립·에이전트 앱",
+    "groupIndependentNote": "언어와 기기의 경계를 넘어 누구나 바로 쓰는 앱들.",
     "gamesLabel": "GAMES",
-    "gamesTitle": "캐릭터가 살아 있는 캐주얼 게임",
-    "gamesNote": "코미와 모모의 세계를 게임으로 확장합니다.",
+    "gamesTitle": "지금 바로 플레이할 수 있는 게임",
+    "gamesNote": "코미와 모모의 세계를 게임으로 넓혔습니다. 모두 설치 없이 브라우저에서 열립니다.",
     "mediaLabel": "MEDIA",
-    "mediaTitle": "여덟 개의 채널, 하나의 목소리",
-    "mediaNote": "국내 채널은 한국어로, 글로벌 채널은 현지 언어로 운영합니다.",
+    "mediaTitle": "두 개의 무대, 이어지는 채널",
+    "mediaNote": "국내 채널은 단짠살림과 KFN의 이름으로, 국외 채널은 KOMI's Unnie와 AjakStudio의 이름으로 운영합니다.",
+    "domestic": "국내 · 단짠살림 & KFN",
+    "domesticNote": "생활·커머스 콘텐츠를 한국어로 운영합니다.",
+    "global": "국외 · 글로벌",
+    "globalNote": "K-컬처를 현지 언어와 문법으로 다시 씁니다.",
     "newsLabel": "NEWS",
-    "newsTitle": "스튜디오 소식",
     "contactLabel": "CONTACT",
     "contactTitle": "다음 프로젝트를 함께",
     "contactBody": "협업, 제휴, 인터뷰 문의를 기다립니다. 공식 문의 창구는 준비되는 대로 이 페이지에 안내합니다.",
@@ -72,23 +125,50 @@
   },
   "about": {
     "eyebrow": "ABOUT",
-    "title": "작은 팀, 넓은 세계",
-    "lead": "GLOBAL DIGITAL UNIVERSE는 한 사람의 20년 아이디어에서 출발한 디지털 사업 본부입니다. 앱을 만들고, 콘텐츠를 쓰고, 채널을 운영하며 쌓은 것들을 하나의 브랜드로 정리합니다.",
+    "title": "세계를 직접 짓는 사람",
+    "lead": "아작스튜디오는 오랫동안 품어 온 ‘연결’의 꿈을 직접 짓기 시작한 1인 디지털 스튜디오입니다. 기획자이자 창작자로서, 캐릭터와 앱과 채널을 하나의 세계관으로 엮어 갑니다.",
+    "storyLabel": "THE STORY",
+    "storyTitle": "꿈은 오래 품었고, 이제 매일 짓습니다",
+    "story": [
+      "20년 전부터 마음에 담아 둔 것이 하나 있습니다. 국경과 언어가 사라진 세계 — 다른 나라의 사람이 같은 캐릭터를 보고, 같은 이야기에 웃고, 같은 물건을 함께 쓰는 세계입니다. 그때는 방법을 몰랐고, 지금은 도구가 생겼습니다.",
+      "2026년, 세계관을 세우는 일부터 시작했습니다. 한국을 사랑하는 치와와 ‘코미’와 ‘모모’를 세우고, 다이어리 앱과 게임들을 16개국어로 열었습니다. 그 옆자리에는 언어 장벽 없는 앱을 놓았습니다. 15개국어 미니 SNS ‘Ajak’, 만세력으로 읽는 ‘K-Sajoo’, 폰 안에서 기억하는 에이전트 ‘ABI’입니다.",
+      "혼자서는 불가능한 속도를 아작스튜디오와 함께 냅니다. 기획하고, 그리고, 코드를 쓰고, 배포하고, 고치는 일을 매일 나눠서 합니다. 그래서 지금 돌아가는 앱 모두가 서버비 0원 위에서 움직입니다.",
+      "세계를 바깥과 잇는 일은 채널이 맡습니다. 글로벌 채널로 K-컬처를 각 나라의 언어로 다시 쓰고, 국내에서는 ‘단짠살림’이라는 이름으로 살림과 물건을 다룹니다. 콘텐츠가 사람을 만나고, 커머스가 생활을 만나는 자리입니다. 다음은 이 세계의 이름을 건 브랜드입니다."
+    ],
+    "factsLabel": "AT A GLANCE",
+    "facts": [
+      {
+        "value": "KOMI & MOMO",
+        "label": "UNIVERSE"
+      },
+      {
+        "value": "APPS & AGENT",
+        "label": "TOOLS"
+      },
+      {
+        "value": "KR & GLOBAL",
+        "label": "CHANNELS"
+      },
+      {
+        "value": "₩0",
+        "label": "INFRASTRUCTURE COST"
+      }
+    ],
     "blocks": [
       {
         "label": "WHAT WE DO",
-        "title": "기획부터 운영까지",
+        "title": "기획부터 운영까지, 한 사람과 에이전트",
         "body": "서비스 기획, 브랜드 디자인, 웹 개발, 콘텐츠 제작, 채널 운영을 한 팀이 맡습니다. 외주 없이 직접 만들고, 매주 실제 사용자 반응으로 고칩니다."
       },
       {
         "label": "HOW WE BUILD",
         "title": "무료 인프라, 유료 수준의 완성도",
-        "body": "모든 서비스는 무료 인프라 위에서 시작합니다. 서버비 0원, 도메인은 후속 단계에서 연결합니다. 비용이 아니라 설계로 품질을 만듭니다."
+        "body": "지금 돌아가는 앱이 모두 무료 인프라 위에서 시작했습니다. 서버비 0원, 도메인은 후속 단계에서 연결합니다. 비용이 아니라 설계로 품질을 만듭니다."
       },
       {
         "label": "WHERE WE STAND",
-        "title": "특정 캐릭터에 기대지 않는 브랜드",
-        "body": "코미와 모모는 사랑받는 캐릭터지만, 브랜드의 전부는 아닙니다. GLOBAL DIGITAL UNIVERSE는 새로운 서비스가 계속 태어날 수 있는 그릇입니다."
+        "title": "두 갈래, 하나의 기준",
+        "body": "코미·모모 유니버스, 일반 앱, 한국형 SNS ‘Ajak’과 글로벌 SNS 채널까지 — 흩어져 있던 것들이 한곳에 모인 곳이 아작스튜디오입니다. 캐릭터는 사랑받지만 브랜드의 전부는 아닙니다. 새 서비스가 계속 태어날 수 있는 그릇이 이 사이트입니다."
       }
     ],
     "principlesLabel": "PRINCIPLES",
@@ -101,22 +181,54 @@
   },
   "apps": {
     "eyebrow": "OUR APPS",
-    "title": "다섯 개의 서비스",
-    "lead": "각 앱은 독립된 저장소에서 운영됩니다. 이 사이트는 소개와 연결만 담당하고, 앱의 데이터는 앱 안에 있습니다.",
-    "labels": { "platform": "플랫폼", "category": "분류", "status": "상태", "languages": "언어", "open": "앱 열기", "detail": "소개 보기" },
-    "categories": { "social": "소셜", "community": "커뮤니티", "game": "게임", "culture": "K-컬처", "utility": "유틸리티" },
-    "platforms": { "web": "웹 앱", "android": "안드로이드" },
+    "title": "앱 컬렉션",
+    "lead": "코미·모모 유니버스의 앱과 소셜·사주·에이전트 앱. 각 앱은 따로 만들어지고 운영되며, 이 사이트는 소개와 연결만 담당합니다.",
+    "labels": {
+      "platform": "플랫폼",
+      "category": "분류",
+      "status": "상태",
+      "languages": "언어",
+      "open": "앱 열기",
+      "detail": "소개 보기"
+    },
+    "categories": {
+      "social": "소셜",
+      "community": "커뮤니티",
+      "game": "게임",
+      "culture": "K-컬처",
+      "utility": "유틸리티"
+    },
+    "platforms": {
+      "web": "웹 앱",
+      "android": "안드로이드"
+    },
+    "groupUniverse": "GROUP A · 코미·모모 유니버스",
+    "groupUniverseNote": "캐릭터 IP — 다이어리 앱과 게임들. 모두 브라우저에서 열립니다.",
+    "groupIndependent": "GROUP B · 독립·에이전트 앱",
+    "groupIndependentNote": "언어와 기기를 넘어 누구나 바로 쓰는 앱 — 소셜, 사주 리딩, 안드로이드 에이전트.",
     "note": "ABI는 안드로이드 APK로 배포되며, 나머지는 브라우저에서 바로 열립니다."
   },
   "abi": {
-    "eyebrow": "OUR APPS · 05 ABI",
-    "title": "ABI — 폰 안에서 기억하는 AI 비서",
-    "lead": "ABI는 대화와 기억을 기기 안 SQLite에 두고, 필요할 때만 클라우드로 넘기는 독립형 안드로이드 AI 비서입니다. 지금은 1단계 베타로, 스토어가 아닌 APK로 배포됩니다.",
+    "eyebrow": "OUR APPS · ABI",
+    "title": "ABI — 폰 안에서 기억하는 에이전트",
+    "lead": "ABI는 대화와 기억을 기기 안 SQLite에 두고, 필요할 때만 클라우드로 넘기는 독립형 안드로이드 에이전트입니다. 지금은 1단계 베타로, 스토어가 아닌 APK로 배포됩니다.",
     "meta": [
-      { "label": "단계", "value": "1단계 베타 (Phase 1 Beta)" },
-      { "label": "플랫폼", "value": "안드로이드 · APK" },
-      { "label": "기억 저장", "value": "기기 내 SQLite" },
-      { "label": "구성", "value": "Expo SDK 58 · React Native · TypeScript" }
+      {
+        "label": "단계",
+        "value": "1단계 베타 (Phase 1 Beta)"
+      },
+      {
+        "label": "플랫폼",
+        "value": "안드로이드 · APK"
+      },
+      {
+        "label": "기억 저장",
+        "value": "기기 내 SQLite"
+      },
+      {
+        "label": "구성",
+        "value": "Expo SDK 58 · React Native · TypeScript"
+      }
     ],
     "whyLabel": "WHY ABI",
     "whyTitle": "대화가 남는 곳은, 내 폰 안",
@@ -173,7 +285,7 @@
   "games": {
     "eyebrow": "GAMES",
     "title": "코미와 모모의 세계",
-    "lead": "캐릭터 IP를 게임으로 확장합니다. 두 편은 지금 플레이할 수 있고, 한 편이 더 준비 중입니다.",
+    "lead": "캐릭터 IP를 게임으로 확장합니다. 지금 플레이할 수 있고, 설치 없이 브라우저에서 열립니다.",
     "inProduction": "제작 중",
     "play": "플레이하기"
   },
@@ -195,14 +307,31 @@
         "title": "PATTERN — 문양",
         "body": "단청과 민화의 색과 문양을 스티커, 배경, 굿즈로 다시 만듭니다."
       }
-    ]
+    ],
+    "appsLabel": "이 세계를 담은 앱",
+    "appsNote": "코미·모모 유니버스의 앱과 게임, 그리고 명리를 다루는 K-Sajoo가 한국의 결을 각자의 언어로 전합니다."
   },
   "media": {
     "eyebrow": "MEDIA",
-    "title": "여덟 개의 채널",
-    "lead": "같은 콘텐츠를 채널의 언어와 문법에 맞게 다시 씁니다. 국내는 블로그·카페·스레드, 글로벌은 인스타그램·틱톡·유튜브·샤오홍슈로 이어집니다.",
-    "tableHeaders": { "channel": "채널", "account": "계정", "region": "국가", "language": "언어", "field": "분야", "status": "상태" },
-    "status": { "active": "운영 중", "preparing": "준비 중", "paused": "휴면" },
+    "title": "국내와 국외, 두 개의 무대",
+    "lead": "같은 콘텐츠를 채널의 언어와 문법에 맞게 다시 씁니다. 국내는 단짠살림과 KFN, 국외는 KOMI's Unnie와 AjakStudio의 이름으로 운영합니다.",
+    "domesticLabel": "국내 · 단짠살림 & KFN",
+    "domesticNote": "생활·절약·커머스와 방송 팩트 콘텐츠를 한국어로 운영합니다.",
+    "globalLabel": "국외 · 글로벌",
+    "globalNote": "K-컬처와 K-라이프를 인스타그램·스레드·틱톡·유튜브·샤오홍슈로 다시 씁니다.",
+    "tableHeaders": {
+      "channel": "채널",
+      "account": "계정",
+      "region": "국가",
+      "language": "언어",
+      "field": "분야",
+      "status": "상태"
+    },
+    "status": {
+      "active": "운영 중",
+      "preparing": "준비 중",
+      "paused": "휴면"
+    },
     "unverified": "주소 확인 중"
   },
   "news": {
@@ -227,11 +356,14 @@
     "placeholderBody": "지금은 구조와 디자인 기준을 먼저 세우고 있습니다. 각 메뉴는 실제 콘텐츠와 함께 순차적으로 채워집니다."
   },
   "footer": {
-    "tagline": "글로벌 디지털 사업의 새로운 본부.",
+    "tagline": "세계의 앱과 채널이 한곳에 모이는 스튜디오.",
     "sitemap": "SITEMAP",
     "channels": "CHANNELS",
+    "domestic": "국내",
+    "global": "국외",
     "studio": "STUDIO",
-    "legal": "© 2026 GLOBAL DIGITAL UNIVERSE. ALL RIGHTS RESERVED.",
+    "showcase": "아작 쇼케이스",
+    "legal": "© 2026 아작스튜디오. ALL RIGHTS RESERVED.",
     "builtLine": "SEOUL · KOREA — DESIGNED AND BUILT IN-HOUSE",
     "privateLabel": "관리자"
   },

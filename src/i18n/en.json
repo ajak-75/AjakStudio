@@ -1,12 +1,15 @@
 {
   "meta": {
-    "siteName": "GLOBAL DIGITAL UNIVERSE",
-    "tagline": "The new headquarters for a global digital business",
-    "description": "One platform connecting apps, games, K-culture, and media channels across the world."
+    "siteName": "AjakStudio",
+    "tagline": "The studio where apps and channels from around the world gather in one place",
+    "description": "Everyday apps and games, the KOMI & MOMO K-culture IP, Korean and global social channels and Danjjan Sallim commerce — AjakStudio, the one studio where a scattered digital business is gathered."
   },
   "common": {
     "language": "Language",
-    "languages": { "ko": "KO", "en": "English" },
+    "languages": {
+      "ko": "KO",
+      "en": "English"
+    },
     "menu": "Menu",
     "close": "Close",
     "visit": "Visit",
@@ -33,38 +36,88 @@
     "contact": "CONTACT"
   },
   "home": {
-    "eyebrow": "INDEPENDENT DIGITAL STUDIO — SEOUL, KOREA",
-    "titleLines": ["One studio.", "A universe of", "digital ventures."],
-    "lead": "Five apps, eight channels, and the next project that has no name yet. We gather scattered digital ventures into one headquarters and open it to the world.",
+    "eyebrow": "AJAKSTUDIO — INDEPENDENT DIGITAL STUDIO · SEOUL",
+    "titleLines": [
+      "Erase the borders and the languages,",
+      "and build one world",
+      "with my own hands."
+    ],
+    "lead": "There is a dream I have carried for a long time: a world where the borders and the languages are gone. Where people in different countries laugh at the same stories, meet the same characters and share the same culture. Social apps without a language barrier, the KOMI & MOMO K-culture world, saju and agent apps, and the media and commerce that carry it outward. Planned, built and run with AjakStudio. Apps, games and global channels are already growing inside this world, one at a time.",
     "primaryCta": "Explore the apps",
-    "secondaryCta": "About the studio",
+    "secondaryCta": "The studio story",
+    "heroNote": "CREATOR-LED DIGITAL STUDIO — SEOUL, SINCE 2026",
+    "scrollCue": "SCROLL — the three axes of this world",
+    "showcaseLabel": "LIVE SHOWCASE · REAL-TIME",
+    "showcaseTitle": "Ajak Showcase",
+    "showcaseNote": "The live space where every new app and game lands first. Anything this site has not caught up with yet can be opened there right away.",
+    "showcaseCta": "Open the showcase",
+    "showcaseMeta": "AJAK-75.GITHUB.IO — ALWAYS CURRENT",
+    "showcaseArtAlt": "A camellia laid on dark hanji, with the Ajak Studio seal at the lower right",
+    "showcaseSealAlt": "The Ajak Studio seal, stamped in red",
     "plate": {
-      "alt": "Magpie and tiger — a clay reinterpretation of a Korean hojakdo painting",
+      "alt": "A magpie and a tiger, unframed — a Korean hojakdo painting reimagined in digital clay",
       "title": "Magpie and Tiger",
       "meta": "HOJAKDO · DIGITAL CLAY · 2026"
     },
-    "indexLabel": "INDEX — SERVICES",
-    "indexNote": "As of November 2026",
     "facts": [
-      { "value": "05", "label": "SERVICES" },
-      { "value": "08", "label": "CHANNELS" },
-      { "value": "03", "label": "GAMES" },
-      { "value": "₩0", "label": "INFRASTRUCTURE COST" }
+      {
+        "value": "KOMI & MOMO",
+        "label": "UNIVERSE"
+      },
+      {
+        "value": "APPS & AGENT",
+        "label": "TOOLS"
+      },
+      {
+        "value": "KR & GLOBAL",
+        "label": "CHANNELS"
+      },
+      {
+        "value": "₩0",
+        "label": "INFRASTRUCTURE COST"
+      }
     ],
-    "statementLabel": "ABOUT THE STUDIO",
-    "statement": "GLOBAL DIGITAL UNIVERSE is an independent digital studio building apps and content from Korea for a worldwide audience. Social, games, K-culture and media live under one worldview, while each service runs on its own and speaks the same brand language.",
-    "statementFootnote": "Strategy, design, engineering and operations — handled end to end by one team.",
+    "worldsLabel": "THE UNIVERSE",
+    "worldsTitle": "One world, three axes",
+    "worldsNote": "Characters and culture, apps that cross every language, and the channels that meet the world. Three axes turning into one digital universe.",
+    "worlds": [
+      {
+        "kicker": "CULTURE · K-CULTURE WORLDVIEW",
+        "title": "The KOMI & MOMO world",
+        "body": "A world where a long-haired chihuahua and her companion meet fans everywhere. One diary app and its games run in sixteen languages, while the colours of dancheong and minhwa return as stickers and goods.",
+        "meta": "CHARACTER · DIARY · GAMES"
+      },
+      {
+        "kicker": "APPS · NO LANGUAGE BARRIER",
+        "title": "Apps that cross languages",
+        "body": "Apps anyone can open at once, whatever the language or the device: a fifteen-language mini social network, a saju reading built on the real calendar, and an agent that remembers inside the phone. They open in the reader's own language, anywhere.",
+        "meta": "SOCIAL · SAJU · AGENT"
+      },
+      {
+        "kicker": "REACH · MEDIA & COMMERCE",
+        "title": "Channels that meet the world",
+        "body": "Global channels carrying the world outward and Korean channels handling home and goods. Content meets the world; commerce meets daily life.",
+        "meta": "KR & GLOBAL · CHANNELS"
+      }
+    ],
     "servicesLabel": "OUR APPS",
-    "servicesTitle": "Services in operation",
-    "servicesNote": "Every app opens directly in the browser, with its own repository and no server to maintain.",
+    "servicesTitle": "Where worlds meet as one",
+    "servicesNote": "From social, saju and agent apps anyone can pick up lightly to the KOMI & MOMO K-culture world, every AjakStudio app meets in one place. Open any of them straight in your browser.",
+    "groupUniverse": "GROUP A — KOMI & MOMO UNIVERSE",
+    "groupUniverseNote": "The character IP, carried into a diary app and its games.",
+    "groupIndependent": "GROUP B — INDEPENDENT & AGENT APPS",
+    "groupIndependentNote": "Apps anyone can use straight away, across languages and devices.",
     "gamesLabel": "GAMES",
-    "gamesTitle": "Casual games with characters that live",
-    "gamesNote": "We extend the world of KOMI and MOMO into play.",
+    "gamesTitle": "Games you can play right now",
+    "gamesNote": "The world of KOMI and MOMO widened into play. All of them open in the browser, with nothing to install.",
     "mediaLabel": "MEDIA",
-    "mediaTitle": "Eight channels, one voice",
-    "mediaNote": "Korean channels speak Korean; global channels speak the local language.",
+    "mediaTitle": "Two stages, a line of channels",
+    "mediaNote": "Korean channels run under Danjjan Sallim and KFN; overseas channels under KOMI's Unnie and AjakStudio.",
+    "domestic": "Korea · Danjjan Sallim & KFN",
+    "domesticNote": "Life, saving and commerce, written in Korean.",
+    "global": "Overseas · Global",
+    "globalNote": "K-culture rewritten in each local language.",
     "newsLabel": "NEWS",
-    "newsTitle": "Studio notes",
     "contactLabel": "CONTACT",
     "contactTitle": "The next project, together",
     "contactBody": "We welcome partnerships, collaborations and press enquiries. The official contact channel will be announced here as soon as it opens.",
@@ -72,23 +125,50 @@
   },
   "about": {
     "eyebrow": "ABOUT",
-    "title": "A small team, a wide world",
-    "lead": "GLOBAL DIGITAL UNIVERSE began as one person's twenty-year idea and grew into a digital business headquarters. Apps, writing and channels are gathered here under a single brand.",
+    "title": "The person building a world",
+    "lead": "AjakStudio is a one-person digital studio that has started to build, by hand, a dream of connection it carried for a long time — a planner and a creator weaving characters, apps and channels into one worldview.",
+    "storyLabel": "THE STORY",
+    "storyTitle": "The dream is old; now it is built every day",
+    "story": [
+      "There is something I have carried for twenty years: a world where borders and languages disappear — where people in different countries see the same characters, laugh at the same stories, use the same things. Back then I had no way to build it. Now the tools exist.",
+      "In 2026 I began with the worldview itself. Two characters — a long-haired chihuahua, KOMI, and MOMO — arrived with a diary app and its games, opened in sixteen languages. Beside them, an app that language cannot stop takes its place: the fifteen-language mini social network Ajak, the saju reading K-Sajoo, the on-device agent ABI.",
+      "The speed of one person becomes the speed of a studio with AjakStudio. Planning, drawing, writing code, shipping, fixing — divided between us every day. That is why every app that runs today does so on zero server cost.",
+      "Channels carry the world outward: global channels rewriting K-culture in each local language, and in Korea the name Danjjan Sallim for home and goods — the place where content meets people and commerce meets daily life. What comes next is the brand that carries this world's name."
+    ],
+    "factsLabel": "AT A GLANCE",
+    "facts": [
+      {
+        "value": "KOMI & MOMO",
+        "label": "UNIVERSE"
+      },
+      {
+        "value": "APPS & AGENT",
+        "label": "TOOLS"
+      },
+      {
+        "value": "KR & GLOBAL",
+        "label": "CHANNELS"
+      },
+      {
+        "value": "₩0",
+        "label": "INFRASTRUCTURE COST"
+      }
+    ],
     "blocks": [
       {
         "label": "WHAT WE DO",
-        "title": "From concept to operations",
+        "title": "From concept to operations — a person and an agent",
         "body": "Product planning, brand design, web engineering, content production and channel operations are handled in-house. We ship directly and revise against real user response every week."
       },
       {
         "label": "HOW WE BUILD",
         "title": "Free infrastructure, paid-grade craft",
-        "body": "Every service starts on free infrastructure: zero server cost, domain attached in a later phase. Quality comes from design decisions, not from budget."
+        "body": "Every app that runs today started on free infrastructure: zero server cost, a domain attached in a later phase. Quality comes from design decisions, not from budget."
       },
       {
         "label": "WHERE WE STAND",
-        "title": "A brand that is not tied to one character",
-        "body": "KOMI and MOMO are beloved characters, but they are not the whole brand. GLOBAL DIGITAL UNIVERSE is the vessel that lets new services keep being born."
+        "title": "Two tracks, one standard",
+        "body": "The KOMI & MOMO universe, everyday apps, the Korean SNS Ajak and the global social channels — AjakStudio is where all of it meets in one place. Characters are loved here, but they are not the whole brand: this site is the vessel new services keep being born into."
       }
     ],
     "principlesLabel": "PRINCIPLES",
@@ -101,22 +181,54 @@
   },
   "apps": {
     "eyebrow": "OUR APPS",
-    "title": "Five services",
-    "lead": "Each app lives in its own repository. This site introduces and links them; the data stays inside each app.",
-    "labels": { "platform": "Platform", "category": "Category", "status": "Status", "languages": "Languages", "open": "Open app", "detail": "Read the introduction" },
-    "categories": { "social": "Social", "community": "Community", "game": "Game", "culture": "K-culture", "utility": "Utility" },
-    "platforms": { "web": "Web app", "android": "Android" },
+    "title": "The apps",
+    "lead": "The apps of the KOMI & MOMO universe and the independent social, saju and agent apps. Each is built and run on its own; this site introduces and links them.",
+    "labels": {
+      "platform": "Platform",
+      "category": "Category",
+      "status": "Status",
+      "languages": "Languages",
+      "open": "Open app",
+      "detail": "Read the introduction"
+    },
+    "categories": {
+      "social": "Social",
+      "community": "Community",
+      "game": "Game",
+      "culture": "K-culture",
+      "utility": "Utility"
+    },
+    "platforms": {
+      "web": "Web app",
+      "android": "Android"
+    },
+    "groupUniverse": "GROUP A · KOMI & MOMO UNIVERSE",
+    "groupUniverseNote": "The character IP — a diary app and its games, all opening in the browser.",
+    "groupIndependent": "GROUP B · INDEPENDENT & AGENT APPS",
+    "groupIndependentNote": "Apps anyone can use straight away — social, a saju reading, an Android agent.",
     "note": "ABI ships as an Android APK; the others open directly in the browser."
   },
   "abi": {
-    "eyebrow": "OUR APPS · 05 ABI",
-    "title": "ABI — an AI assistant that remembers on your phone",
-    "lead": "ABI is a standalone Android AI assistant that keeps conversations and memory in the phone's own SQLite and reaches the cloud only when it needs to. It is in phase-one beta, distributed as an APK rather than through a store.",
+    "eyebrow": "OUR APPS · ABI",
+    "title": "ABI — an agent that remembers on your phone",
+    "lead": "ABI is a standalone Android agent that keeps conversations and memory in the phone's own SQLite and reaches the cloud only when it needs to. It is in phase-one beta, distributed as an APK rather than through a store.",
     "meta": [
-      { "label": "Phase", "value": "Phase 1 Beta" },
-      { "label": "Platform", "value": "Android · APK" },
-      { "label": "Memory store", "value": "On-device SQLite" },
-      { "label": "Built with", "value": "Expo SDK 58 · React Native · TypeScript" }
+      {
+        "label": "Phase",
+        "value": "Phase 1 Beta"
+      },
+      {
+        "label": "Platform",
+        "value": "Android · APK"
+      },
+      {
+        "label": "Memory store",
+        "value": "On-device SQLite"
+      },
+      {
+        "label": "Built with",
+        "value": "Expo SDK 58 · React Native · TypeScript"
+      }
     ],
     "whyLabel": "WHY ABI",
     "whyTitle": "A conversation stays where it happened — on the phone",
@@ -173,7 +285,7 @@
   "games": {
     "eyebrow": "GAMES",
     "title": "The world of KOMI and MOMO",
-    "lead": "We extend our character IP into games. Two are playable today; one more is in production.",
+    "lead": "We extend our character IP into games. They are playable today, straight in the browser with nothing to install.",
     "inProduction": "In production",
     "play": "Play now"
   },
@@ -195,14 +307,31 @@
         "title": "PATTERN — Motif",
         "body": "The colours and patterns of dancheong and minhwa return as stickers, backdrops and goods."
       }
-    ]
+    ],
+    "appsLabel": "The apps that carry this world",
+    "appsNote": "The KOMI & MOMO universe apps and games, together with K-Sajoo, carry Korean texture in their own languages."
   },
   "media": {
     "eyebrow": "MEDIA",
-    "title": "Eight channels",
-    "lead": "One piece of content is rewritten for each channel's language and grammar. Korea runs on blog, cafe and Threads; the world on Instagram, TikTok, YouTube and Xiaohongshu.",
-    "tableHeaders": { "channel": "Channel", "account": "Account", "region": "Region", "language": "Language", "field": "Field", "status": "Status" },
-    "status": { "active": "Active", "preparing": "Preparing", "paused": "Paused" },
+    "title": "Two stages, home and abroad",
+    "lead": "One piece of content is rewritten for each channel's language and grammar: Danjjan Sallim and KFN in Korea, KOMI's Unnie and AjakStudio overseas.",
+    "domesticLabel": "Korea · Danjjan Sallim & KFN",
+    "domesticNote": "Life, saving, commerce and broadcast facts, written in Korean.",
+    "globalLabel": "Overseas · Global",
+    "globalNote": "K-culture and K-life rewritten for Instagram, Threads, TikTok, YouTube and Xiaohongshu.",
+    "tableHeaders": {
+      "channel": "Channel",
+      "account": "Account",
+      "region": "Region",
+      "language": "Language",
+      "field": "Field",
+      "status": "Status"
+    },
+    "status": {
+      "active": "Active",
+      "preparing": "Preparing",
+      "paused": "Paused"
+    },
     "unverified": "Address being verified"
   },
   "news": {
@@ -227,11 +356,14 @@
     "placeholderBody": "We are setting the structure and design standard first. Each menu fills in with real content, in order."
   },
   "footer": {
-    "tagline": "The new headquarters for a global digital business.",
+    "tagline": "The studio where apps and channels gather in one place.",
     "sitemap": "SITEMAP",
     "channels": "CHANNELS",
+    "domestic": "Korea",
+    "global": "Overseas",
     "studio": "STUDIO",
-    "legal": "© 2026 GLOBAL DIGITAL UNIVERSE. ALL RIGHTS RESERVED.",
+    "showcase": "Ajak Showcase",
+    "legal": "© 2026 AjakStudio. ALL RIGHTS RESERVED.",
     "builtLine": "SEOUL · KOREA — DESIGNED AND BUILT IN-HOUSE",
     "privateLabel": "Admin"
   },

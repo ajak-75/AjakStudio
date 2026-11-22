@@ -3,8 +3,16 @@ import Link from "next/link";
 
 import { ArrowGlyph, SectionLabel, StatusTag } from "@/components/site/Editorial";
 import { Hero } from "@/components/home/Hero";
-import { HomeHero } from "@/components/home/HomeHero";
-import { apps, appHref, brand, channels, games, news } from "@/config/brand";
+import {
+  appHref,
+  apps,
+  brand,
+  domesticChannels,
+  games,
+  globalChannels,
+  news,
+  showcase,
+} from "@/config/brand";
 import { getDictionary, isLocale, type Locale } from "@/i18n";
 import { formatEditorialDate, localeHref } from "@/lib/utils";
 
@@ -22,6 +30,12 @@ export async function generateMetadata({
   };
 }
 
+const universeApps = apps.filter((app) => app.group === "universe");
+const independentApps = apps.filter((app) => app.group === "independent");
+
+/** Which section each of the three axes opens into. */
+const worldLinks = ["apps", "apps", "media"] as const;
+
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: raw } = await params;
   if (!isLocale(raw)) return null;
@@ -29,30 +43,143 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const dict = getDictionary(locale);
 
   const publishedNews = news.filter((item) => item.status === "published");
-  const liveGames = games.filter((game) => game.status === "live");
-  const pipeline = games.filter((game) => game.status !== "live");
 
   return (
     <>
-      <HomeHero locale={locale} fallback={<Hero locale={locale} dict={dict} />} />
+      <Hero locale={locale} dict={dict} />
 
-      {/* Statement ------------------------------------------------------- */}
-      <section className="border-t border-line bg-porcelain">
-        <div className="shell grid-12 py-section">
-          <div className="col-span-12 md:col-span-3">
-            <SectionLabel index="01">{dict.home.statementLabel}</SectionLabel>
+      {/* Ajak Showcase — the live shelf, straight under the hero ---------- */}
+      <section
+        aria-labelledby="showcase-title"
+        className="showcase-band relative isolate overflow-hidden border-y border-brass/40"
+      >
+        {/*
+         * The camellia is a cut-out (its hanji ground was lifted off), laid on
+         * the band's own dark sheet. It runs off the top, right and bottom
+         * edges so the heavy branch never stops in mid-air.
+         */}
+        <div aria-hidden className="showcase-plate">
+          <picture>
+            <source srcSet="/art/showcase-camellia-cutout.webp" type="image/webp" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/art/showcase-camellia-cutout.png"
+              alt=""
+              width={1600}
+              height={900}
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </div>
+        {/* Only on a phone, where the words sit over the plate. */}
+        <div aria-hidden className="showcase-veil" />
+
+        <div className="relative z-10 shell">
+          <div className="grid-12 items-center gap-y-10 py-[clamp(3rem,5.6vw,5rem)]">
+            <div className="col-span-12 lg:col-span-7">
+              <div className="flex items-center gap-4">
+                <span aria-hidden className="h-1.5 w-1.5 animate-pulse rounded-full bg-brass-soft" />
+                <p className="font-sans text-[0.625rem] uppercase tracking-[0.22em] text-brass-soft">
+                  {dict.home.showcaseLabel}
+                </p>
+              </div>
+              <h2
+                id="showcase-title"
+                className="mt-3 text-[clamp(2.75rem,6.2vw,5.25rem)] font-brush leading-[1.06] text-paper"
+              >
+                {dict.home.showcaseTitle}
+              </h2>
+              <p className="mt-5 max-w-[34rem] font-sans text-[0.9375rem] leading-[1.9] text-[#ddd3be] text-pretty">
+                {dict.home.showcaseNote}
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
+                <a
+                  href={showcase.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-5 border border-brass-soft/70 px-7 py-4 font-sans text-[0.6875rem] uppercase tracking-[0.16em] text-paper transition-colors duration-300 hover:bg-brass-soft hover:text-ink"
+                >
+                  {dict.home.showcaseCta}
+                  <span
+                    aria-hidden
+                    className="text-[0.9375rem] leading-none transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  >
+                    ↗
+                  </span>
+                </a>
+                <p className="font-sans text-[0.5625rem] uppercase tracking-[0.18em] text-[#a2947a]">
+                  {dict.home.showcaseMeta}
+                </p>
+              </div>
+            </div>
+
+            {/* The plate is the backdrop on every size, so this column only
+                keeps the words off the flowers on the narrowest screens. */}
+            <div aria-hidden className="col-span-12 hidden lg:block lg:col-span-5" />
           </div>
-          <div className="col-span-12 mt-8 md:col-span-8 md:col-start-5 md:mt-0">
-            <p className="max-w-[24ch] font-serif text-[clamp(1.5rem,2.7vw,2.25rem)] leading-[1.5] text-ink md:max-w-none">{dict.home.statement}</p>
-            <p className="mt-8 font-sans text-[0.8125rem] leading-relaxed text-muted">
-              {dict.home.statementFootnote}
+        </div>
+
+        {/* 아작 스튜디오 — the red seal, stamped on the sheet's lower corner */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/art/showcase-seal.png"
+          alt={dict.home.showcaseSealAlt}
+          width={244}
+          height={231}
+          loading="lazy"
+          className="showcase-seal"
+        />
+      </section>
+
+      {/* The universe — three axes --------------------------------------- */}
+      <section className="border-b border-line bg-porcelain" id="worlds">
+        <div className="shell py-section">
+          <div className="grid-12 items-end gap-y-6">
+            <div className="col-span-12 md:col-span-7">
+              <SectionLabel index="01">{dict.home.worldsLabel}</SectionLabel>
+              <h2 className="mt-6 font-serif text-display-m text-ink">{dict.home.worldsTitle}</h2>
+            </div>
+            <p className="col-span-12 max-w-measure-tight font-sans text-[0.8125rem] leading-relaxed text-muted md:col-span-4 md:col-start-9">
+              {dict.home.worldsNote}
             </p>
           </div>
+
+          <ol className="mt-12 grid-12 gap-y-12 border-t border-ink/80 pt-10 md:gap-y-0">
+            {dict.home.worlds.map((world, index) => (
+              <li key={world.title} className="col-span-12 md:col-span-4 md:pr-6">
+                <div className="flex items-baseline gap-4">
+                  <span className="font-serif text-[2.25rem] leading-none text-line">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-sans text-[0.5625rem] uppercase tracking-[0.18em] text-brass">
+                    {world.kicker}
+                  </span>
+                </div>
+                <h3 className="mt-5 font-serif text-display-s text-ink">{world.title}</h3>
+                <p className="mt-3 max-w-[40ch] font-sans text-[0.875rem] leading-[1.85] text-graphite">
+                  {world.body}
+                </p>
+                <div className="mt-6 flex items-baseline justify-between gap-4 border-t border-line pt-3">
+                  <span className="font-sans text-[0.5625rem] uppercase tracking-[0.16em] text-muted">
+                    {world.meta}
+                  </span>
+                  <Link
+                    href={localeHref(locale, worldLinks[index] ?? "apps")}
+                    className="link-rule inline-flex items-center gap-2 font-sans text-[0.625rem] uppercase tracking-[0.16em] text-ink"
+                  >
+                    {dict.common.view}
+                    <ArrowGlyph />
+                  </Link>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      {/* Services -------------------------------------------------------- */}
-      <section className="shell py-section" id="services">
+      {/* Apps — two shelves ---------------------------------------------- */}
+      <section className="shell py-section" id="apps">
         <div className="grid-12 items-end gap-y-6">
           <div className="col-span-12 md:col-span-7">
             <SectionLabel index="02">{dict.home.servicesLabel}</SectionLabel>
@@ -63,165 +190,133 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </p>
         </div>
 
-        <ol className="mt-12 border-t border-ink/80">
-          {apps.map((app, index) => {
-            const link = appHref(app, locale);
-            const row = (
-              <>
-                <div className="col-span-12 flex items-baseline gap-5 md:col-span-6">
-                  <span className="w-6 font-sans text-[0.625rem] tracking-[0.18em] text-brass">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <span className="font-serif text-[1.625rem] leading-tight text-ink transition-transform duration-500 ease-editorial group-hover:translate-x-1 md:text-[1.75rem]">
-                      {app.name}
-                    </span>
-                    <p className="mt-1.5 font-sans text-[0.8125rem] text-graphite">{app.tagline[locale]}</p>
-                  </div>
-                </div>
-                <p className="col-span-3 hidden max-w-[34ch] font-sans text-[0.8125rem] leading-relaxed text-muted md:block">
-                  {app.summary[locale]}
-                </p>
-                <div className="col-span-2 hidden md:block">
-                  <StatusTag status={app.status} label={dict.status[app.status]} />
-                </div>
-                <div className="hidden justify-end md:col-span-1 md:flex">
-                  <ArrowGlyph className="text-muted transition-colors group-hover:text-ink" />
-                </div>
-              </>
-            );
+        {[
+          { key: "universe", list: universeApps, title: dict.home.groupUniverse, note: dict.home.groupUniverseNote },
+          { key: "independent", list: independentApps, title: dict.home.groupIndependent, note: dict.home.groupIndependentNote },
+        ].map((group, groupIndex) => (
+          <div key={group.key} className="mt-14">
+            <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-ink/80 pb-3">
+              <p className="font-sans text-[0.625rem] uppercase tracking-[0.18em] text-ink">{group.title}</p>
+              <p className="font-sans text-[0.6875rem] text-muted">{group.note}</p>
+            </div>
 
-            return (
-              <li key={app.id} className="border-b border-line">
-                {link ? (
-                  link.external ? (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-row group grid grid-cols-12 items-center gap-4 px-2 py-6 md:px-4"
-                    >
-                      {row}
-                    </a>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className="project-row group grid grid-cols-12 items-center gap-4 px-2 py-6 md:px-4"
-                    >
-                      {row}
-                    </Link>
-                  )
-                ) : (
-                  <div className="grid grid-cols-12 items-center gap-4 px-2 py-6 text-muted md:px-4">
-                    {row}
-                  </div>
-                )}
-              </li>
-            );
-          })}
-        </ol>
-
-        <div className="mt-8 flex justify-end">
-          <Link
-            href={localeHref(locale, "apps")}
-            className="link-rule font-sans text-[0.6875rem] uppercase tracking-[0.16em]"
-          >
-            {dict.common.allApps}
-          </Link>
-        </div>
-      </section>
-
-      {/* Games ----------------------------------------------------------- */}
-      <section className="border-y border-line bg-porcelain">
-        <div className="shell py-section">
-          <div className="grid-12 gap-y-12">
-            <div className="col-span-12 md:col-span-6">
-              <SectionLabel index="03">{dict.home.gamesLabel}</SectionLabel>
-              <h2 className="mt-6 max-w-[16ch] font-serif text-display-m text-ink">
-                {dict.home.gamesTitle}
-              </h2>
-              <p className="mt-6 max-w-measure-tight font-sans text-[0.8125rem] leading-relaxed text-muted">
-                {dict.home.gamesNote}
-              </p>
-
-              {liveGames.map((game) => {
-                const body = (
+            <ol>
+              {group.list.map((app, index) => {
+                const link = appHref(app, locale);
+                const row = (
                   <>
-                    <span className="font-serif text-display-s text-ink transition-colors group-hover:text-brass">
-                      {game.name}
-                    </span>
-                    <p className="mt-2 max-w-[28ch] font-sans text-[0.9375rem] leading-relaxed text-graphite">
-                      {game.tagline[locale]}
+                    <div className="col-span-12 flex items-baseline gap-4 md:col-span-5">
+                      <span className="w-6 shrink-0 font-sans text-[0.625rem] tracking-[0.18em] text-brass">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <span className="font-serif text-[1.5rem] leading-tight text-ink transition-transform duration-500 ease-editorial group-hover:translate-x-1 md:text-[1.625rem]">
+                          {app.name}
+                        </span>
+                        <p className="mt-1.5 font-sans text-[0.8125rem] text-graphite">{app.tagline[locale]}</p>
+                      </div>
+                    </div>
+                    <p className="col-span-3 hidden font-sans text-[0.8125rem] leading-relaxed text-muted md:block">
+                      {app.summary[locale]}
                     </p>
-                    <span className="mt-5 inline-flex items-center gap-2 font-sans text-[0.6875rem] uppercase tracking-[0.16em]">
-                      {dict.games.play}
-                      <ArrowGlyph />
-                    </span>
+                    <div className="col-span-2 hidden md:block">
+                      <StatusTag status={app.status} label={dict.status[app.status]} />
+                    </div>
+                    <div className="hidden justify-end md:col-span-2 md:flex">
+                      <ArrowGlyph className="text-muted transition-colors group-hover:text-ink" />
+                    </div>
                   </>
                 );
 
                 return (
-                  <div key={game.id} className="mt-10 border-t border-ink/80 pt-6">
-                    <div className="flex items-center justify-between">
-                      <StatusTag status={game.status} label={dict.status[game.status]} />
-                      <span className="font-sans text-[0.625rem] tracking-[0.18em] text-muted">
-                        {game.year}
-                      </span>
-                    </div>
-                    {game.url ? (
-                      <a
-                        href={game.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group mt-4 block"
-                      >
-                        {body}
-                      </a>
+                  <li key={app.id} className="border-b border-line">
+                    {link ? (
+                      link.external ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-row group grid grid-cols-12 items-center gap-4 px-2 py-5 md:px-4"
+                        >
+                          {row}
+                        </a>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="project-row group grid grid-cols-12 items-center gap-4 px-2 py-5 md:px-4"
+                        >
+                          {row}
+                        </Link>
+                      )
                     ) : (
-                      <Link href={localeHref(locale, "games")} className="group mt-4 block">
-                        {body}
-                      </Link>
+                      <div className="grid grid-cols-12 items-center gap-4 px-2 py-5 text-muted md:px-4">{row}</div>
                     )}
-                  </div>
+                  </li>
                 );
               })}
-            </div>
+            </ol>
 
-            <div className="col-span-12 md:col-span-5 md:col-start-8">
-              <p className="eyebrow">{dict.games.inProduction}</p>
-              <ul className="mt-5 border-t border-line">
-                {pipeline.map((game, index) => (
-                  <li key={game.id} className="border-b border-line py-6">
-                    <div className="flex items-baseline justify-between gap-4">
-                      <span className="font-sans text-[0.625rem] tracking-[0.18em] text-brass">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <span className="flex-1 font-serif text-[1.375rem] leading-tight text-ink">
-                        {game.name}
-                      </span>
-                      <span className="font-sans text-[0.5625rem] uppercase tracking-[0.16em] text-muted">
-                        {dict.status[game.status]}
-                      </span>
-                    </div>
-                    <p className="mt-2 pl-9 font-sans text-[0.8125rem] leading-relaxed text-muted">
-                      {game.tagline[locale]}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href={localeHref(locale, "games")}
-                className="link-rule mt-8 inline-block font-sans text-[0.6875rem] uppercase tracking-[0.16em]"
-              >
-                {dict.nav.games}
-              </Link>
-            </div>
+            {groupIndex === 1 ? (
+              <div className="mt-6 flex justify-end">
+                <Link
+                  href={localeHref(locale, "apps")}
+                  className="link-rule inline-flex items-center gap-2 font-sans text-[0.6875rem] uppercase tracking-[0.16em]"
+                >
+                  {dict.common.allApps}
+                  <ArrowGlyph />
+                </Link>
+              </div>
+            ) : null}
           </div>
+        ))}
+      </section>
+
+      {/* Games ----------------------------------------------------------- */}
+      <section className="border-y border-line bg-porcelain" id="games">
+        <div className="shell py-section">
+          <div className="grid-12 items-end gap-y-6">
+            <div className="col-span-12 md:col-span-7">
+              <SectionLabel index="03">{dict.home.gamesLabel}</SectionLabel>
+              <h2 className="mt-6 max-w-[20ch] font-serif text-display-m text-ink">{dict.home.gamesTitle}</h2>
+            </div>
+            <p className="col-span-12 max-w-measure-tight font-sans text-[0.8125rem] leading-relaxed text-muted md:col-span-4 md:col-start-9">
+              {dict.home.gamesNote}
+            </p>
+          </div>
+
+          <ul className="mt-12 grid-12 gap-y-8 border-t border-ink/80 pt-8">
+            {games.map((game, index) => (
+              <li key={game.id} className="col-span-12 md:col-span-4 md:pr-6">
+                <div className="flex items-center justify-between">
+                  <span className="font-sans text-[0.625rem] tracking-[0.18em] text-brass">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <StatusTag status={game.status} label={dict.status[game.status]} />
+                </div>
+                <a
+                  href={game.url ?? localeHref(locale, "games")}
+                  {...(game.url ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="group mt-4 block"
+                >
+                  <span className="block font-serif text-[1.5rem] leading-tight text-ink transition-colors group-hover:text-brass">
+                    {game.name}
+                  </span>
+                  <p className="mt-2 max-w-[30ch] font-sans text-[0.8125rem] leading-relaxed text-graphite">
+                    {game.tagline[locale]}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-2 font-sans text-[0.625rem] uppercase tracking-[0.16em] text-ink">
+                    {dict.games.play}
+                    <ArrowGlyph />
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* Media ----------------------------------------------------------- */}
-      <section className="shell py-section">
+      {/* Media — Korea / Overseas ---------------------------------------- */}
+      <section className="shell py-section" id="media">
         <div className="grid-12 items-end gap-y-6">
           <div className="col-span-12 md:col-span-7">
             <SectionLabel index="04">{dict.home.mediaLabel}</SectionLabel>
@@ -232,54 +327,70 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </p>
         </div>
 
-        <ul className="mt-12 grid grid-cols-1 gap-x-14 border-t border-ink/80 md:grid-cols-2">
-          {channels.map((channel, index) => (
-            <li key={channel.id} className="border-b border-line">
-              {channel.url ? (
-                <a
-                  href={channel.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-baseline justify-between gap-4 py-5"
-                >
-                  <span className="flex min-w-0 items-baseline gap-4">
-                    <span className="w-5 shrink-0 font-sans text-[0.5625rem] tracking-[0.18em] text-brass">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span>
-                      <span className="block whitespace-nowrap font-sans text-[0.6875rem] uppercase tracking-[0.16em] text-ink">
-                        {channel.platform}
-                      </span>
-                      <span className="mt-1 block whitespace-nowrap font-sans text-[0.75rem] text-muted">
-                        {channel.handle ?? channel.account}
-                      </span>
-                    </span>
-                  </span>
-                  <span className="flex shrink-0 items-center gap-3 whitespace-nowrap font-sans text-[0.625rem] uppercase tracking-[0.14em] text-muted">
-                    {channel.region[locale]}
-                    <ArrowGlyph className="transition-colors group-hover:text-ink" />
-                  </span>
-                </a>
-              ) : (
-                <div className="flex items-baseline justify-between gap-4 py-5 text-muted">
-                  <span className="font-sans text-[0.6875rem] uppercase tracking-[0.16em]">
-                    {channel.platform}
-                  </span>
-                  <span className="font-sans text-[0.625rem] uppercase tracking-[0.14em]">
-                    {dict.media.unverified}
-                  </span>
-                </div>
-              )}
-            </li>
+        <div className="mt-12 grid-12 gap-y-12 border-t border-ink/80 pt-8 md:gap-x-14">
+          {[
+            { key: "domestic", list: domesticChannels, title: dict.home.domestic, note: dict.home.domesticNote },
+            { key: "global", list: globalChannels, title: dict.home.global, note: dict.home.globalNote },
+          ].map((group) => (
+            <div key={group.key} className="col-span-12 md:col-span-6">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <p className="font-sans text-[0.625rem] uppercase tracking-[0.18em] text-ink">{group.title}</p>
+              </div>
+              <p className="mt-2 font-sans text-[0.6875rem] leading-relaxed text-muted">{group.note}</p>
+
+              <ul className="mt-4">
+                {group.list.map((channel, index) => (
+                  <li key={channel.id} className="border-t border-line last:border-b">
+                    {channel.url ? (
+                      <a
+                        href={channel.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-row group flex items-baseline justify-between gap-3 px-1 py-3.5"
+                      >
+                        <span className="flex min-w-0 items-baseline gap-3">
+                          <span className="w-4 shrink-0 font-sans text-[0.5rem] tracking-[0.16em] text-brass">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
+                          <span className="min-w-0">
+                            <span className="block truncate font-sans text-[0.625rem] uppercase tracking-[0.16em] text-ink">
+                              {channel.platform}
+                            </span>
+                            <span className="mt-0.5 block truncate font-sans text-[0.75rem] text-muted">
+                              {channel.account}
+                              {channel.handle ? ` · ${channel.handle}` : ""}
+                            </span>
+                          </span>
+                        </span>
+                        <span className="flex shrink-0 items-center gap-2 font-sans text-[0.5625rem] uppercase tracking-[0.12em] text-muted">
+                          {channel.region[locale]}
+                          <ArrowGlyph className="transition-colors group-hover:text-ink" />
+                        </span>
+                      </a>
+                    ) : (
+                      <div className="flex items-baseline justify-between gap-4 py-3.5 text-muted">
+                        <span className="font-sans text-[0.625rem] uppercase tracking-[0.16em]">
+                          {channel.platform}
+                        </span>
+                        <span className="font-sans text-[0.5625rem] uppercase tracking-[0.12em]">
+                          {dict.media.unverified}
+                        </span>
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
 
         <div className="mt-8 flex justify-end">
           <Link
             href={localeHref(locale, "media")}
-            className="link-rule font-sans text-[0.6875rem] uppercase tracking-[0.16em]"
+            className="link-rule inline-flex items-center gap-2 font-sans text-[0.6875rem] uppercase tracking-[0.16em]"
           >
             {dict.common.allChannels}
+            <ArrowGlyph />
           </Link>
         </div>
       </section>

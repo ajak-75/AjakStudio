@@ -343,7 +343,7 @@ export function HeroStudio() {
 
   const onSave = () => {
     const saved = saveHeroVersion(draft, name.trim() || "home-hero", note.trim());
-    setStatus(`v${saved.version} 저장 완료 — 게시하면 HOME에 반영됩니다.`);
+    setStatus(`v${saved.version} 저장 완료 — 버전으로 보관했습니다.`);
     setDirty(false);
     setNote("");
   };
@@ -355,7 +355,7 @@ export function HeroStudio() {
       const result = await pushHeroLayout(published);
       setStatus(`${result.message}${result.ok ? "" : " (로컬 게시는 완료)"}`);
     } else {
-      setStatus(`v${published.version} 게시 — 공개 HOME이 이 시안을 읽습니다.`);
+      setStatus(`v${published.version} 게시 표시 — 공개 HOME은 고정 히어로를 씁니다.`);
     }
   };
 
@@ -807,7 +807,7 @@ export function HeroStudio() {
                 ) : null}
               </div>
               <p className="font-sans text-[0.5625rem] leading-relaxed text-muted">
-                저장은 새 버전을 쌓습니다. 게시한 버전만 공개 HOME에 반영되고, 이전 시안은 사라지지 않습니다.
+                저장은 새 버전을 쌓습니다. 공개 HOME의 히어로는 고정 시그니처로 운영되며, 이전 시안은 사라지지 않습니다.
               </p>
             </div>
           </Panel>
@@ -862,7 +862,7 @@ export function HeroStudio() {
                       variant="ghost"
                       onClick={() => {
                         unpublishHero(layout.id);
-                        setStatus("게시를 취소했습니다. 공개 HOME은 기본 히어로로 돌아갑니다.");
+                        setStatus("게시 표시를 취소했습니다. 공개 HOME은 고정 히어로를 씁니다.");
                       }}
                     >
                       게시 취소

@@ -94,7 +94,7 @@ export const defaultHeroSnapshot: HeroSnapshot = {
     ],
     text: {
       visible: true,
-      kicker: "GLOBAL DIGITAL UNIVERSE",
+      kicker: "AjakStudio",
       headline: "디지털 세계를\n하나의 브랜드로\n엮어 갑니다",
       headlineEn: "The digital world,\ninto one brand",
       subcopy: "다섯 개의 앱, 여덟 개의 채널, 그리고 다음 프로젝트까지. 흩어진 디지털 사업을 한곳에 모읍니다.",
@@ -246,7 +246,7 @@ function seedProjects(): ProjectRecord[] {
     note: string;
   }> = [
     {
-      title: "GLOBAL DIGITAL UNIVERSE 공식 사이트",
+      title: "AjakStudio 공식 사이트",
       goal: "5개 앱·8개 채널을 잇는 공개 사이트와 비공개 Control Center를 0원 인프라로 운영",
       status: "in_progress",
       phase: 4,
@@ -343,7 +343,7 @@ function seedRepos(): RepoRecord[] {
     {
       name: "ajak-75/AjakStudio",
       url: "https://github.com/ajak-75/AjakStudio",
-      role: "GLOBAL DIGITAL UNIVERSE (이 사이트 + Control Center)",
+      role: "AjakStudio (이 사이트 + Control Center)",
       visibility: "private",
       branch: "main",
       note: "Next.js 정적 export · 이 저장소만 이 프로젝트에서 수정합니다.",

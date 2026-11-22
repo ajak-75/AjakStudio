@@ -61,7 +61,7 @@ export function OverviewSection({ onNavigate }: { onNavigate: (id: string) => vo
       <div className="grid gap-6 xl:grid-cols-2">
         <Panel
           title="히어로 게시 상태"
-          note={publishedHero ? `v${publishedHero.version} 공개 중 · ${formatEditorialDate(publishedHero.publishedAt ?? publishedHero.createdAt)}` : "게시된 시안이 없습니다 — 공개 HOME은 기본 에디토리얼 히어로를 보여 줍니다."}
+          note={publishedHero ? `v${publishedHero.version} 보관 중 · ${formatEditorialDate(publishedHero.publishedAt ?? publishedHero.createdAt)} — 공개 HOME은 고정 시그니처 히어로를 씁니다.` : "보관된 시안이 없습니다 — 공개 HOME은 고정 시그니처 히어로(까치 호랑이)를 씁니다."}
           action={
             <Btn variant="outline" onClick={() => onNavigate("hero")}>
               편집
@@ -98,8 +98,7 @@ export function OverviewSection({ onNavigate }: { onNavigate: (id: string) => vo
             </div>
           ) : (
             <p className="font-sans text-[0.8125rem] leading-relaxed text-graphite">
-              Hero Studio에서 이미지를 올리고 시안을 저장한 뒤 <strong className="font-medium text-ink">게시</strong>를 누르면
-              공개 홈페이지의 히어로가 이 시안으로 바뀝니다. 게시 전에는 아무 것도 바뀌지 않습니다.
+              Hero Studio는 시안을 버전으로 쌓아 두는 작업실입니다. 공개 HOME의 히어로는 고정 시그니처(까치 호랑이 + 움직이는 까치)로 운영되며, 저장한 시안은 공개 페이지에 자동 반영되지 않습니다.
             </p>
           )}
         </Panel>

@@ -16,9 +16,17 @@ export type AppStatus = "live" | "beta" | "coming_soon" | "archived";
 export type AppCategory = "social" | "community" | "game" | "culture" | "utility";
 export type AppPlatform = "web" | "android";
 
+/**
+ * Two groups, one studio:
+ * - `universe`    — the KOMI & MOMO character universe (K-culture IP + games)
+ * - `independent` — standalone apps (social, reading, AI)
+ */
+export type AppGroup = "universe" | "independent";
+
 export interface AppEntry {
   id: string;
   name: string;
+  group: AppGroup;
   tagline: Localized;
   summary: Localized;
   category: AppCategory;
@@ -49,6 +57,9 @@ export function appHref(app: AppEntry, locale: Locale): { href: string; external
 
 export type ChannelStatus = "active" | "preparing" | "paused";
 
+/** Media is split the same way the content is made: at home in Korea, and abroad. */
+export type ChannelScope = "domestic" | "global";
+
 export interface ChannelEntry {
   id: string;
   platform: string;
@@ -56,6 +67,7 @@ export interface ChannelEntry {
   handle: string | null;
   /** Only URLs verifiable from the project record are filled in. */
   url: string | null;
+  scope: ChannelScope;
   region: Localized;
   languages: string[];
   field: Localized;
@@ -85,12 +97,12 @@ export interface MenuItem {
 
 export const brand = {
   /** Editable from Control Center → 브랜드 설정 once Supabase is connected. */
-  name: "GLOBAL DIGITAL UNIVERSE",
-  shortName: "GDU",
-  monogram: "GDU",
+  name: "AjakStudio",
+  shortName: "AjakStudio",
+  monogram: "AjakStudio",
   tagline: {
-    ko: "글로벌 디지털 사업의 새로운 본부",
-    en: "The new headquarters for a global digital business",
+    ko: "일반 앱과 코미·모모 앱, 한국형·글로벌 SNS가 한곳에 모인 스튜디오",
+    en: "Everyday apps, KOMI & MOMO games, Korean and global social — one studio",
   } satisfies Localized,
   founded: "2026",
   base: { ko: "서울 · 대한민국", en: "Seoul · Republic of Korea" } satisfies Localized,
@@ -111,30 +123,23 @@ export const menus: readonly MenuItem[] = [
   { id: "contact", labelKey: "contact", path: "contact" },
 ] as const;
 
-/** Five live services. Repositories are never modified by this site. */
+/**
+ * Seven apps in two groups.
+ *
+ * Group A — KOMI & MOMO Universe: the character IP, its diary app and its games.
+ * Group B — Independent & agent apps: apps a visitor would never guess belong to the
+ * same studio, which is the point of this site.
+ */
 export const apps: readonly AppEntry[] = [
-  {
-    id: "ajak",
-    name: "Ajak",
-    tagline: { ko: "한국형 소셜, 아작", en: "A Korean social feed, Ajak" },
-    summary: {
-      ko: "사진과 글로 가볍게 이어지는 소셜 피드. 기기 언어를 자동으로 감지해 15개 언어로 열립니다.",
-      en: "A light social feed for photos and words, opening in fifteen languages through automatic device-language detection.",
-    },
-    category: "social",
-    platform: "web",
-    status: "live",
-    url: "https://ajak-75.github.io/diary/",
-    repo: "https://github.com/ajak-75/diary",
-    year: "2026",
-  },
+  /* ── Group A · KOMI & MOMO Universe ─────────────────────────────────── */
   {
     id: "komi-diary",
     name: "KOMI-Diary",
-    tagline: { ko: "코미의 K-컬처 다이어리", en: "KOMI's K-culture diary" },
+    group: "universe",
+    tagline: { ko: "코미의 K-컬처 팬덤 다이어리", en: "KOMI's K-culture fandom diary" },
     summary: {
-      ko: "세계의 팬이 모이는 K-컬처 커뮤니티. 케미, 실시간 번역, 단청 스티커, 모모 샵까지 한 앱에 담았습니다.",
-      en: "A K-culture community for a worldwide fandom: Kemi matching, live translation, dancheong stickers and the MOMO shop in one app.",
+      ko: "세계의 팬이 모이는 K-컬처 커뮤니티. 케미 매칭, 실시간 번역, 단청 스티커, 모모 샵을 한 앱에 담고 16개 언어로 엽니다.",
+      en: "A K-culture community for a worldwide fandom: Kemi matching, live translation, dancheong stickers and the MOMO shop in one app, in sixteen languages.",
     },
     category: "community",
     platform: "web",
@@ -146,10 +151,11 @@ export const apps: readonly AppEntry[] = [
   {
     id: "komi-momo-pop",
     name: "KOMI & MOMO POP",
-    tagline: { ko: "코미와 모모의 합치기 퍼즐", en: "A merge puzzle with KOMI and MOMO" },
+    group: "universe",
+    tagline: { ko: "한붓그리기 팡! 스테이지 퍼즐", en: "One-stroke link & pop stage puzzle" },
     summary: {
-      ko: "3D 캐릭터를 합쳐 점수를 쌓는 캐주얼 퍼즐. 열 가지 의상과 단청 꽃이 차례로 등장합니다.",
-      en: "A casual merge puzzle: drop, combine and grow through ten character costumes and dancheong blossoms.",
+      ko: "같은 코미·모모 유리 구슬을 3개 이상 한붓으로 이어 터뜨리는 퍼즐. 7개 이상 이으면 황금 폭탄이 터지고, 별·코인·도감을 모으며 스테이지를 깨 나갑니다.",
+      en: "Link three or more matching Komi & Momo glass beads in one stroke to pop them. Connect seven or more for a golden bomb, and clear stages while collecting stars, coins and your album.",
     },
     category: "game",
     platform: "web",
@@ -159,12 +165,63 @@ export const apps: readonly AppEntry[] = [
     year: "2026",
   },
   {
+    id: "komi-momo-bubble-merge",
+    name: "KOMI & MOMO BUBBLE MERGE",
+    group: "universe",
+    tagline: { ko: "손가락으로 조준해 터뜨리는 버블슈터", en: "Aim-and-shoot Komi & Momo bubble puzzle" },
+    summary: {
+      ko: "손가락으로 각도를 겨냥해 버블을 쏘아 올리고, 같은 색 코미·모모 버블을 3개 이상 맞춰 터뜨리는 슈팅 퍼즐. 벽 반사와 구슬 교체를 활용해 콤보를 이어 갑니다.",
+      en: "Aim with your finger and shoot bubbles upward to match three or more of the same color. Use wall bounces and bubble swaps to keep your combo going.",
+    },
+    category: "game",
+    platform: "web",
+    status: "live",
+    url: "https://ajak-75.github.io/komi-momo-bubble-merge/",
+    repo: "https://github.com/ajak-75/komi-momo-bubble-merge",
+    year: "2026",
+  },
+  {
+    id: "momo-run",
+    name: "MOMO ADVENTURE RUN",
+    group: "universe",
+    tagline: { ko: "명동·북촌·남산·부산 자갈치·제주를 달리는 러너", en: "A runner across Myeongdong, Bukchon, Namsan, Busan Jagalchi & Jeju" },
+    summary: {
+      ko: "모모가 한국의 다섯 명소를 달리는 세로형 2D 러너. 점프와 슬라이드로 장애물을 피하고 한국 길거리 음식을 먹으며 피버 질주와 신기록에 도전합니다.",
+      en: "A portrait 2D runner starring Momo across five Korean landmarks. Jump and slide past obstacles, grab Korean street food, trigger Fever dashes and chase a new record.",
+    },
+    category: "game",
+    platform: "web",
+    status: "live",
+    url: "https://ajak-75.github.io/momo-run/",
+    repo: "https://github.com/ajak-75/momo-run",
+    year: "2026",
+  },
+
+  /* ── Group B · Independent & agent apps ─────────────────────────────── */
+  {
+    id: "ajak",
+    name: "Ajak",
+    group: "independent",
+    tagline: { ko: "가볍게 일상과 생각을 나누는 한국판 미니 SNS", en: "A light Korean mini social feed for everyday thoughts" },
+    summary: {
+      ko: "사진과 글로 가볍게 이어지는 스레드형 피드. 기기 언어를 자동으로 감지해 15개 언어로 열립니다.",
+      en: "A threads-style feed for photos and words, opening in fifteen languages through automatic device-language detection.",
+    },
+    category: "social",
+    platform: "web",
+    status: "live",
+    url: "https://ajak-75.github.io/diary/",
+    repo: "https://github.com/ajak-75/diary",
+    year: "2026",
+  },
+  {
     id: "k-sajoo",
     name: "K-Sajoo",
-    tagline: { ko: "글로벌 사주 리딩", en: "Korean saju, read globally" },
+    group: "independent",
+    tagline: { ko: "만세력으로 읽는 글로벌 사주", en: "Korean saju, read from the real calendar" },
     summary: {
-      ko: "실제 만세력 계산으로 사주와 궁합을 풀어내는 글로벌 리딩 앱. 한자 대신 각 나라의 언어로 읽힙니다.",
-      en: "A global reading app that computes saju and compatibility from real astronomical calendars, in the reader's language and without Chinese characters.",
+      ko: "실제 만세력 계산으로 사주와 궁합을 풀어내는 글로벌 리딩 앱. 한자를 쓰지 않고 읽는 사람의 언어로 풀어냅니다.",
+      en: "A global reading app that computes saju and compatibility from real astronomical calendars, without a single Chinese character.",
     },
     category: "culture",
     platform: "web",
@@ -176,7 +233,8 @@ export const apps: readonly AppEntry[] = [
   {
     id: "abi",
     name: "ABI",
-    tagline: { ko: "안드로이드 AI 비서", en: "An Android AI assistant" },
+    group: "independent",
+    tagline: { ko: "폰 안에서 기억하는 안드로이드 에이전트", en: "An Android agent that remembers on the phone" },
     summary: {
       ko: "대화·기억·작업 기록을 기기 안 SQLite에 두고 필요할 때만 클라우드로 넘기는 독립형 AI 에이전트. 1단계 APK로 배포됩니다.",
       en: "A standalone AI agent that keeps conversations, memory and tasks in the device's SQLite, syncing only when needed. Distributed as a phase-one APK.",
@@ -193,14 +251,14 @@ export const apps: readonly AppEntry[] = [
   },
 ] as const;
 
-/** Games slate: two playable, one in production (names stay editable in the admin). */
+/** Games slate: all three are playable — the universe reaches past the app. */
 export const games = [
   {
     id: "komi-momo-pop",
     name: "KOMI & MOMO POP",
     tagline: {
-      ko: "떨어뜨리고, 합치고, 커지는 캐주얼 퍼즐",
-      en: "Drop, merge, and grow — a casual puzzle",
+      ko: "한붓그리기 팡! 스테이지 퍼즐",
+      en: "One-stroke link & pop stage puzzle",
     } satisfies Localized,
     status: "live" as AppStatus,
     url: "https://ajak-75.github.io/komi-pop/",
@@ -210,8 +268,8 @@ export const games = [
     id: "komi-momo-bubble-merge",
     name: "KOMI & MOMO BUBBLE MERGE",
     tagline: {
-      ko: "버블을 합쳐 레전더리 코미와 모모를 만드는 합치기 퍼즐",
-      en: "A merge puzzle where bubbles fuse into legendary KOMI and MOMO",
+      ko: "손가락으로 조준해 터뜨리는 버블슈터",
+      en: "Aim-and-shoot Komi & Momo bubble puzzle",
     } satisfies Localized,
     status: "live" as AppStatus,
     url: "https://ajak-75.github.io/komi-momo-bubble-merge/",
@@ -219,44 +277,32 @@ export const games = [
   },
   {
     id: "momo-run",
-    name: "MOMO'S ADVENTURE RUN",
+    name: "MOMO ADVENTURE RUN",
     tagline: {
-      ko: "모모가 달리는 사이드 스크롤 러너",
-      en: "A side-scrolling runner starring MOMO",
+      ko: "명동·북촌·남산·부산 자갈치·제주를 달리는 러너",
+      en: "A runner across Myeongdong, Bukchon, Namsan, Busan Jagalchi & Jeju",
     } satisfies Localized,
-    status: "coming_soon" as AppStatus,
-    url: null,
-    year: "—",
+    status: "live" as AppStatus,
+    url: "https://ajak-75.github.io/momo-run/",
+    year: "2026",
   },
 ] as const;
 
 /**
- * Eight external channels. A URL appears only when it is documented in the
- * project record; anything unconfirmed stays `null` and renders as "확인 중".
+ * Ten external channels in two shelves — five at home in Korea under 단짠살림
+ * and KFN, five abroad under KOMI's Unnie and AjakStudio. A URL appears only
+ * when it is documented in the project record; anything unconfirmed stays
+ * `null` and renders as "확인 중".
  */
 export const channels: readonly ChannelEntry[] = [
-  {
-    id: "naver-blog",
-    platform: "NAVER BLOG",
-    account: "단짠살림",
-    handle: "songja75",
-    url: "https://blog.naver.com/songja75",
-    region: { ko: "대한민국", en: "Korea" },
-    languages: ["ko"],
-    field: { ko: "살림 · 절약", en: "Home & saving" },
-    status: "active",
-    verified: true,
-    note: {
-      ko: "두 번째 블로그 KFN 미디어 팩트(sjwson12)도 함께 운영합니다.",
-      en: "A second blog, KFN Media Fact (sjwson12), runs alongside.",
-    },
-  },
+  /* ── 국내 · 단짠살림 & KFN ─────────────────────────────────────────── */
   {
     id: "naver-cafe",
     platform: "NAVER CAFE",
     account: "단짠살림",
     handle: "danjjansallim",
     url: "https://cafe.naver.com/danjjansallim",
+    scope: "domestic",
     region: { ko: "대한민국", en: "Korea" },
     languages: ["ko"],
     field: { ko: "커뮤니티", en: "Community" },
@@ -264,11 +310,66 @@ export const channels: readonly ChannelEntry[] = [
     verified: true,
   },
   {
+    id: "naver-blog",
+    platform: "NAVER BLOG 01",
+    account: "단짠살림",
+    handle: "songja75",
+    url: "https://blog.naver.com/songja75",
+    scope: "domestic",
+    region: { ko: "대한민국", en: "Korea" },
+    languages: ["ko"],
+    field: { ko: "살림 · 절약", en: "Home & saving" },
+    status: "active",
+    verified: true,
+  },
+  {
+    id: "naver-blog-kfn",
+    platform: "NAVER BLOG 02",
+    account: "KFN 미디어 팩트",
+    handle: "sjwson12",
+    url: "https://blog.naver.com/sjwson12",
+    scope: "domestic",
+    region: { ko: "대한민국", en: "Korea" },
+    languages: ["ko"],
+    field: { ko: "방송 · 드라마 팩트", en: "Broadcast & drama facts" },
+    status: "active",
+    verified: true,
+  },
+  {
+    id: "naver-creator-shop",
+    platform: "NAVER CREATOR SHOP",
+    account: "단짠살림",
+    handle: "danjjan",
+    url: "https://cshop.naver.com/danjjan",
+    scope: "domestic",
+    region: { ko: "대한민국", en: "Korea" },
+    languages: ["ko"],
+    field: { ko: "공동구매 · 큐레이션", en: "Group buying" },
+    status: "active",
+    verified: true,
+  },
+  {
+    id: "naver-smartstore",
+    platform: "NAVER SMARTSTORE",
+    account: "단짠살림",
+    handle: "danjjansallim",
+    url: "https://smartstore.naver.com/danjjansallim",
+    scope: "domestic",
+    region: { ko: "대한민국", en: "Korea" },
+    languages: ["ko"],
+    field: { ko: "생활 · 주방 상품", en: "Home & kitchen goods" },
+    status: "active",
+    verified: true,
+  },
+
+  /* ── 국외 · 글로벌 (KOMI's Unnie · AjakStudio) ────────────────────── */
+  {
     id: "instagram",
     platform: "INSTAGRAM",
     account: "KOMI's Unnie",
     handle: "@ajakstudio.lab",
     url: "https://www.instagram.com/ajakstudio.lab/",
+    scope: "global",
     region: { ko: "글로벌", en: "Global" },
     languages: ["ko", "en", "th", "ja", "ar", "tl", "vi"],
     field: { ko: "K-라이프", en: "K-life" },
@@ -285,8 +386,9 @@ export const channels: readonly ChannelEntry[] = [
     account: "단짠살림 · KOMI's Unnie",
     handle: "@ajakstudio.lab",
     url: "https://www.threads.net/@ajakstudio.lab",
-    region: { ko: "대한민국", en: "Korea" },
-    languages: ["ko"],
+    scope: "global",
+    region: { ko: "글로벌", en: "Global" },
+    languages: ["ko", "en"],
     field: { ko: "일상 · 바이럴", en: "Daily life" },
     status: "active",
     verified: true,
@@ -297,6 +399,7 @@ export const channels: readonly ChannelEntry[] = [
     account: "AjakStudio",
     handle: "@komi_0520",
     url: "https://www.tiktok.com/@komi_0520",
+    scope: "global",
     region: { ko: "글로벌", en: "Global" },
     languages: ["en", "th"],
     field: { ko: "숏폼", en: "Short video" },
@@ -309,6 +412,7 @@ export const channels: readonly ChannelEntry[] = [
     account: "AjakStudioKFN",
     handle: "@K-컬처박스75",
     url: "https://www.youtube.com/@K-컬처박스75",
+    scope: "global",
     region: { ko: "글로벌", en: "Global" },
     languages: ["ko", "en"],
     field: { ko: "쇼츠 · K-컬처", en: "Shorts · K-culture" },
@@ -325,6 +429,7 @@ export const channels: readonly ChannelEntry[] = [
     account: "komi_88",
     handle: "komi_88",
     url: "https://xhslink.cn/o/4MnsV7lTcNU",
+    scope: "global",
     region: { ko: "중국", en: "China" },
     languages: ["zh"],
     field: { ko: "K-라이프", en: "K-life" },
@@ -335,44 +440,57 @@ export const channels: readonly ChannelEntry[] = [
       en: "Kept free of outbound links and calls to action; used purely for account growth.",
     },
   },
-  {
-    id: "showcase",
-    platform: "SHOWCASE",
-    account: "Ajak Studio",
-    handle: "ajak-75.github.io",
-    url: "https://ajak-75.github.io/",
-    region: { ko: "글로벌", en: "Global" },
-    languages: ["ko", "en"],
-    field: { ko: "앱 쇼케이스", en: "App showcase" },
-    status: "active",
-    verified: true,
-    note: {
-      ko: "GLOBAL DIGITAL UNIVERSE가 완성되면 이 사이트가 쇼케이스 역할을 이어받습니다.",
-      en: "Once this site is complete, it takes over the showcase role.",
-    },
-  },
 ] as const;
+
+/** Domestic and overseas shelves, in menu order. */
+export const domesticChannels = channels.filter((channel) => channel.scope === "domestic");
+export const globalChannels = channels.filter((channel) => channel.scope === "global");
+
+/** The GitHub showcase is not a social channel; the footer and About carry it. */
+export const showcase = {
+  name: "아작 쇼케이스",
+  handle: "ajak-75.github.io",
+  url: "https://ajak-75.github.io/",
+  note: {
+    ko: "아작 쇼케이스 — 새 앱과 게임이 가장 먼저 올라오는 실시간 공간입니다.",
+    en: "Ajak Showcase — the live space where new apps and games land first.",
+  } satisfies Localized,
+};
 
 /** News seeds — only published rows render on the public site. */
 export const news: readonly NewsEntry[] = [
   {
+    id: "site-build-02",
+    date: "2026-11-22",
+    title: {
+      ko: "앱과 채널을 두 갈래로 나눠 홈페이지를 다시 엮었습니다",
+      en: "Apps and channels put on two shelves — the site is rewoven",
+    },
+    excerpt: {
+      ko: "코미·모모 유니버스와 독립 앱, 단짠살림의 국내 채널과 글로벌 채널을 한눈에 나눠 담았습니다. 모모 어드벤처 런이 라이브로 합류했습니다.",
+      en: "The KOMI & MOMO universe and the independent apps, the Korean and the global channels — each on its own shelf. MOMO ADVENTURE RUN joins as a live game.",
+    },
+    status: "published",
+  },
+  {
     id: "site-build-01",
     date: "2026-11-20",
     title: {
-      ko: "GLOBAL DIGITAL UNIVERSE, 공식 사이트 구축을 시작합니다",
-      en: "GLOBAL DIGITAL UNIVERSE begins building its official site",
+      ko: "아작스튜디오, 공식 사이트 구축을 시작합니다",
+      en: "AjakStudio begins building its official site",
     },
     excerpt: {
-      ko: "다섯 개 앱과 여덟 개 채널을 하나로 잇는 공식 사이트의 설계와 기반 공사를 시작했습니다. 에디토리얼 화이트 디자인 시스템, Supabase 데이터 구조, 무료 인프라 기준을 먼저 세웁니다.",
-      en: "Design and groundwork have started for an official site that connects five apps and eight channels: an Editorial White design system, a Supabase data structure and a free-infrastructure baseline come first.",
+      ko: "앱과 채널을 하나로 잇는 공식 사이트의 설계와 기반 공사를 시작했습니다. 에디토리얼 화이트 디자인 시스템, Supabase 데이터 구조, 무료 인프라 기준을 먼저 세웁니다.",
+      en: "Design and groundwork have started for an official site that connects apps and channels: an Editorial White design system, a Supabase data structure and a free-infrastructure baseline come first.",
     },
     status: "published",
   },
 ] as const;
 
+/** Brand axes, not tallies — the list keeps growing, so no fixed counts here. */
 export const siteFacts = [
-  { value: "05", labelKey: "SERVICES" },
-  { value: "08", labelKey: "CHANNELS" },
-  { value: "03", labelKey: "GAMES" },
+  { value: "KOMI & MOMO", labelKey: "UNIVERSE" },
+  { value: "APPS & AGENT", labelKey: "TOOLS" },
+  { value: "KR & GLOBAL", labelKey: "CHANNELS" },
   { value: "₩0", labelKey: "INFRASTRUCTURE COST" },
 ] as const;

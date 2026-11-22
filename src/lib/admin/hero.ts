@@ -46,7 +46,7 @@ export function applyAspect(frame: HeroFrame, aspect: HeroAspect): HeroFrame {
 export function defaultText(): HeroText {
   return {
     visible: true,
-    kicker: "GLOBAL DIGITAL UNIVERSE",
+    kicker: "AjakStudio",
     headline: "디지털 세계를\n하나의 브랜드로",
     subcopy: "앱과 채널을 하나의 브랜드로 잇는 본부.",
     x: 0.07,

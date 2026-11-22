@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { brand, menus } from "@/config/brand";
+import { AutoTranslate } from "@/components/site/AutoTranslate";
 import type { Dictionary, Locale } from "@/i18n";
 import { localeMeta, locales } from "@/i18n";
 import { cn, localeHref } from "@/lib/utils";
@@ -62,13 +63,11 @@ export function Header({ locale, dict }: HeaderProps) {
           className="group flex items-baseline gap-3"
           aria-label={`${brand.name} — ${dict.nav.home}`}
         >
-          <span className="font-serif text-[1.35rem] leading-none tracking-[0.02em] md:hidden">
+          <span className="font-serif text-[1.2rem] leading-none tracking-[-0.01em] md:hidden">
             {brand.shortName}
           </span>
-          <span className="hidden font-sans text-[0.6875rem] font-medium uppercase leading-[1.5] tracking-[0.24em] md:block">
-            GLOBAL DIGITAL
-            <br />
-            UNIVERSE
+          <span className="hidden font-sans text-[0.8125rem] font-medium leading-none tracking-[0.14em] md:block">
+            {brand.shortName}
           </span>
         </Link>
 
@@ -102,6 +101,7 @@ export function Header({ locale, dict }: HeaderProps) {
         </nav>
 
         <div className="flex items-center gap-5">
+          <AutoTranslate locale={locale} />
           <div className="hidden items-center gap-2 font-sans text-[0.6875rem] uppercase tracking-[0.14em] sm:flex">
             {locales.map((code, index) => (
               <span key={code} className="flex items-center gap-2">
@@ -180,13 +180,7 @@ export function Header({ locale, dict }: HeaderProps) {
             ))}
           </ul>
           <div className="mt-8 flex items-center justify-between">
-            <Link
-              href={alternateHref}
-              hrefLang={alternate}
-              className="font-sans text-[0.6875rem] uppercase tracking-[0.16em]"
-            >
-              {localeMeta[alternate].label}
-            </Link>
+            <AutoTranslate locale={locale} />
             <span className="font-sans text-[0.625rem] uppercase tracking-[0.16em] text-muted">
               {brand.founded} · {locale === "ko" ? "서울" : "Seoul"}
             </span>

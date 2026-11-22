@@ -3,14 +3,29 @@
 @tailwind utilities;
 
 /* ==========================================================================
-   GLOBAL DIGITAL UNIVERSE — Editorial White
+   Ajak brush — East Sea Dokdo (SIL Open Font License), self-hosted so the
+   showcase title never waits on a network font. Subset to the title glyphs
+   and basic Latin only (31 kB), so the sheet stays light.
+   ========================================================================== */
+@font-face {
+  font-family: "Ajak Brush";
+  src: url("/fonts/ajak-brush.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   AjakStudio — Editorial White (formerly GLOBAL DIGITAL UNIVERSE)
    Token source of truth. Mirrors docs/BRAND_DESIGN_SYSTEM.md §3.
    ========================================================================== */
 
 :root {
-  /* Surfaces — porcelain and paper, never pure #fff as a page background */
-  --gdu-paper: #fbfaf7;
-  --gdu-porcelain: #f2eee6;
+  /* Surfaces — two papers: a paler hanji for the page, a deeper one for the hero.
+     Both are textures as well as colours (see --gdu-texture below). */
+  --gdu-paper: #f8f4ea;
+  --gdu-hanji: #efe6d5;
+  --gdu-porcelain: #f4eddf;
 
   /* Ink */
   --gdu-ink: #14140f;
@@ -18,11 +33,16 @@
   --gdu-muted: #6b6862;
 
   /* Hairlines — one weight only, 1px */
-  --gdu-line: #ddd7cb;
+  --gdu-line: #e2d8c4;
 
   /* Accent — brass. Reserved for rules, labels and active states. */
   --gdu-brass: #8a6a3c;
-  --gdu-brass-soft: #ece3d2;
+  --gdu-brass-soft: #ebdfc6;
+
+  /* Hanji — hand-made mulberry paper. Seamless 512px tiles, fibres baked in. */
+  --gdu-texture: url("/textures/hanji-light.png");
+  --gdu-texture-warm: url("/textures/hanji-warm.png");
+  --gdu-texture-size: 340px 340px;
 
   /* Rhythm */
   --gdu-gutter: clamp(1.25rem, 4.4vw, 4.5rem);
@@ -44,6 +64,9 @@
 
   body {
     background-color: var(--gdu-paper);
+    background-image: var(--gdu-texture);
+    background-size: var(--gdu-texture-size);
+    background-repeat: repeat;
     color: var(--gdu-ink);
     font-family: var(--font-sans);
     font-size: 1rem;
@@ -170,6 +193,179 @@
   .rise {
     animation: rise-in 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
   }
+
+  /* Hero paper — the deeper hanji sheet the hojakdo plate sits on. */
+  .hanji-hero {
+    background-color: var(--gdu-hanji);
+    background-image: var(--gdu-texture-warm);
+    background-size: 380px 380px;
+    background-repeat: repeat;
+  }
+
+  /*
+   * HOME hero — the magpie layer.
+   * The bird is a separate transparent PNG laid over the base plate; this is
+   * the only motion on the page that is not a hover state. It nods from the
+   * branch (transform-origin at the feet), the way a perched bird does, with a
+   * short double nod twice per loop so the eye catches it and moves on.
+   */
+  .hero-magpie {
+    transform-origin: 45% 100%;
+    animation: magpie-nod 9s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    will-change: transform;
+  }
+
+  /*
+   * Ajak Showcase band — the one ink-dark sheet on the home page. It sits
+   * directly under the hero so a visitor can reach the live showcase, which
+   * always runs ahead of this site, in a single press.
+   *
+   * The sheet is one smooth dark hanji: a single tile of quiet mulberry fibre,
+   * no blotches, no second material behind the flowers. The camellia plate has
+   * been cut out, so nothing about it needs to blend into this paper.
+   */
+  .showcase-band {
+    background-color: #32231a;
+    background-image: url("/textures/hanji-dark.png");
+    background-size: 512px 512px;
+    background-repeat: repeat;
+  }
+
+  /*
+   * The plate: the cut-out camellia, flush to the top, right and bottom edges,
+   * so the thick branch runs off the frame instead of ending in mid-air.
+   */
+  .showcase-plate {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 100%;
+    pointer-events: none;
+  }
+  .showcase-plate img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: right top;
+  }
+
+  /* A phone lays its words over the plate; this keeps them readable while the
+     branch still runs off the top and bottom edges. */
+  .showcase-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(50, 35, 26, 0.16) 0%,
+      rgba(50, 35, 26, 0.42) 12%,
+      rgba(50, 35, 26, 0.7) 26%,
+      rgba(50, 35, 26, 0.9) 44%,
+      rgba(50, 35, 26, 0.94) 60%,
+      rgba(50, 35, 26, 0.95) 100%
+    );
+  }
+
+  @media (min-width: 1024px) {
+    .showcase-plate {
+      /* Exactly the plate's own proportions, so nothing of the branch is
+         cropped: it stays flush to the top, right and bottom edges. */
+      width: auto;
+      aspect-ratio: 16 / 9;
+    }
+    /* Only the words' side is darkened; the flowers stay untouched. */
+    .showcase-veil {
+      background: linear-gradient(
+        to right,
+        rgba(46, 32, 22, 0.62) 0%,
+        rgba(46, 32, 22, 0.4) 18%,
+        rgba(46, 32, 22, 0.14) 34%,
+        rgba(46, 32, 22, 0) 46%
+      );
+    }
+  }
+
+  /* The seal, pressed on the lower-right corner of the sheet. */
+  .showcase-seal {
+    position: absolute;
+    right: clamp(1rem, 2.6vw, 2rem);
+    bottom: clamp(1rem, 2.6vw, 2rem);
+    width: clamp(3.75rem, 5.6vw, 5rem);
+    height: auto;
+    z-index: 20;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.6));
+  }
+
+  /* Scroll cue — a hairline that draws itself downward, once per beat. */
+  .scroll-cue {
+    position: relative;
+    display: block;
+    width: 1px;
+    height: 1.5rem;
+    overflow: hidden;
+    background: var(--gdu-line);
+  }
+  .scroll-cue > span {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 100%;
+    background: var(--gdu-ink);
+    transform-origin: top;
+    animation: scroll-trace 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+}
+
+@keyframes magpie-nod {
+  0%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  5% {
+    transform: rotate(-1.05deg) translateY(-0.4px);
+  }
+  10% {
+    transform: rotate(0.4deg) translateY(0);
+  }
+  15% {
+    transform: rotate(-0.75deg) translateY(-0.25px);
+  }
+  20%,
+  58% {
+    transform: rotate(0deg) translateY(0);
+  }
+  64% {
+    transform: rotate(-0.6deg) translateY(-0.15px);
+  }
+  70%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+@keyframes scroll-trace {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  70% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-magpie,
+  .scroll-cue > span {
+    animation: none !important;
+  }
 }
 
 @layer utilities {
@@ -179,12 +375,29 @@
   .text-pretty {
     text-wrap: pretty;
   }
+  /* Korean brush calligraphy — used only for the showcase title. */
+  .font-brush {
+    font-family: "Ajak Brush", var(--font-serif), ui-serif, Georgia, serif;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    word-break: keep-all;
+  }
   .hairline-b {
     border-bottom: 1px solid var(--gdu-line);
   }
   .hairline-t {
     border-top: 1px solid var(--gdu-line);
   }
+  /* Every band is the same sheet of paper; only the ink changes. */
+  main section:not(.hanji-hero):not(.showcase-band),
+  main > section:not(.hanji-hero):not(.showcase-band),
+  header,
+  footer {
+    background-image: var(--gdu-texture);
+    background-size: var(--gdu-texture-size);
+    background-repeat: repeat;
+  }
+
   /* Keep the sticky header from covering anchored headings */
   .anchor-offset {
     scroll-margin-top: calc(var(--gdu-header-h) + 1.5rem);

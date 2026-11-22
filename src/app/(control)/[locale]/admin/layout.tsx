@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const locale: Locale = isLocale(raw) ? raw : "ko";
   const dict = getDictionary(locale);
   return {
-    title: "CONTROL CENTER — GLOBAL DIGITAL UNIVERSE",
+    title: "CONTROL CENTER — AjakStudio",
     description: dict.meta.description,
     robots: { index: false, follow: false, nocache: true },
     alternates: { canonical: `/ko/admin/` },

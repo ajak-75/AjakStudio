@@ -86,7 +86,7 @@ function SignIn({ onSignedIn }: { onSignedIn: () => void }) {
       </div>
       <div className="flex flex-1 items-center justify-center px-5 py-16">
         <div className="w-full max-w-sm">
-          <p className="font-sans text-[0.625rem] uppercase tracking-[0.24em] text-brass">GLOBAL DIGITAL UNIVERSE</p>
+          <p className="font-sans text-[0.625rem] uppercase tracking-[0.24em] text-brass">AjakStudio</p>
           <h1 className="mt-3 font-serif text-[2rem] leading-tight text-ink">CONTROL CENTER</h1>
           <p className="mt-2 font-sans text-[0.75rem] leading-relaxed text-muted">
             비공개 관리자입니다. 로그인 뒤 `admin_users`에 활성 행이 있는 계정만 들어올 수 있습니다.
@@ -210,7 +210,7 @@ function AdminShell({ auth, onSignedOut }: { auth: AdminAuthState; onSignedOut: 
         <aside className="sticky top-0 hidden h-screen w-[264px] shrink-0 flex-col border-r border-line bg-paper lg:flex">
           <div className="border-b border-line px-5 py-5">
             <a href="/ko/" className="block">
-              <p className="font-sans text-[0.5625rem] uppercase tracking-[0.24em] text-brass">GLOBAL DIGITAL UNIVERSE</p>
+              <p className="font-sans text-[0.5625rem] uppercase tracking-[0.24em] text-brass">AjakStudio</p>
               <p className="mt-1 font-serif text-[1.375rem] leading-none text-ink">CONTROL CENTER</p>
             </a>
             <p className="mt-2 font-sans text-[0.5625rem] uppercase tracking-[0.14em] text-muted">
@@ -349,7 +349,7 @@ function AdminShell({ auth, onSignedOut }: { auth: AdminAuthState; onSignedOut: 
           <main className="px-4 py-6 sm:px-6 sm:py-8">{renderSection(section, navigate)}</main>
 
           <footer className="border-t border-line px-4 py-6 font-sans text-[0.625rem] leading-relaxed text-muted sm:px-6">
-            GLOBAL DIGITAL UNIVERSE · CONTROL CENTER · {supabaseEnabled() ? "Supabase 연결됨" : "로컬 미리보기"} ·{" "}
+            AJAKSTUDIO · CONTROL CENTER · {supabaseEnabled() ? "Supabase 연결됨" : "로컬 미리보기"} ·{" "}
             {formatEditorialDate(new Date().toISOString())} · 이 화면은 검색에 노출되지 않습니다 (noindex).
           </footer>
         </div>
@@ -373,7 +373,7 @@ function renderSection(section: string, navigate: (id: string) => void) {
               </div>
               <h1 className="mt-3 font-serif text-[clamp(1.75rem,3vw,2.5rem)] leading-tight text-ink">Hero Studio</h1>
               <p className="mt-3 max-w-[62ch] font-sans text-[0.8125rem] leading-relaxed text-muted">
-                이미지를 올리고 캔버스에서 크기·위치·크롭·텍스트를 조정합니다. 저장은 새 버전, 게시는 공개 HOME 한 곳에만 반영됩니다.
+                이미지를 올리고 캔버스에서 크기·위치·크롭·텍스트를 조정합니다. 저장은 새 버전으로 보관되며, 공개 HOME은 고정 시그니처 히어로를 씁니다.
               </p>
             </div>
           </header>
