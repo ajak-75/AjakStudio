@@ -207,11 +207,12 @@
    * The bird is a separate transparent PNG laid over the base plate; this is
    * the only motion on the page that is not a hover state. It nods from the
    * branch (transform-origin at the feet), the way a perched bird does, with a
-   * short double nod twice per loop so the eye catches it and moves on.
+   * double nod, a long rest, then one more nod each loop, wide enough that the
+   * eye catches it from across the page.
    */
   .hero-magpie {
     transform-origin: 45% 100%;
-    animation: magpie-nod 9s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    animation: magpie-nod 3.6s cubic-bezier(0.37, 0, 0.63, 1) infinite;
     will-change: transform;
   }
 
@@ -321,25 +322,21 @@
   100% {
     transform: rotate(0deg) translateY(0);
   }
-  5% {
-    transform: rotate(-1.05deg) translateY(-0.4px);
+  12% {
+    transform: rotate(-4.5deg) translateY(-3px);
   }
-  10% {
-    transform: rotate(0.4deg) translateY(0);
+  24% {
+    transform: rotate(2deg) translateY(0);
   }
-  15% {
-    transform: rotate(-0.75deg) translateY(-0.25px);
+  36% {
+    transform: rotate(-3.5deg) translateY(-2.5px);
   }
-  20%,
-  58% {
+  48%,
+  72% {
     transform: rotate(0deg) translateY(0);
   }
-  64% {
-    transform: rotate(-0.6deg) translateY(-0.15px);
-  }
-  70%,
-  100% {
-    transform: rotate(0deg) translateY(0);
+  82% {
+    transform: rotate(-2.8deg) translateY(-1.5px);
   }
 }
 
