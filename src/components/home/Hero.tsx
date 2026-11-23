@@ -55,10 +55,7 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
     <section className="hanji-hero relative isolate overflow-hidden border-b border-line">
       {/* Phone plate — full width, flush under the header --------------------- */}
       <figure className="relative lg:hidden">
-        {/* the empty paper under the paws is lifted off the phone plate */}
-        <div className="overflow-hidden" style={{ aspectRatio: "1 / 0.93" }}>
-          <HojakdoPlate alt={dict.home.plate.alt} />
-        </div>
+        <HojakdoPlate alt={dict.home.plate.alt} />
         <figcaption className="border-t border-line">
           <div className="shell flex items-baseline justify-between gap-4 py-2.5">
             <span className="eyebrow text-graphite">{dict.home.plate.title}</span>
