@@ -73,7 +73,7 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         {/* Desktop plate — leaves through the left and top edges ------------- */}
         <div
           aria-hidden
-          className="pointer-events-none absolute bottom-0 left-0 hidden aspect-square h-[102%] max-h-[50rem] select-none lg:block"
+          className="pointer-events-none absolute bottom-0 left-0 hidden aspect-square h-[102%] max-h-[min(44rem,52vw)] select-none lg:block"
         >
           <HojakdoPlate alt="" />
         </div>
