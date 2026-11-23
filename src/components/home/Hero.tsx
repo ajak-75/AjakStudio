@@ -8,16 +8,25 @@ import { localeHref } from "@/lib/utils";
  * Signature HOME hero (server-rendered, always shown).
  *
  * Left: the frameless hojakdo plate — `hojakdo-base` is the painting with the
- * magpie removed and the branch healed underneath, and `hojakdo-magpie` is the
- * bird cut out as its own transparent layer. The bird is nudged by one CSS
- * keyframe (globals.css → `.hero-magpie`), so the page ships no runtime script
- * and still breathes. Overlap geometry is expressed in percentages of the
- * plate, so the two images stay aligned at every width.
+ * magpie's body taken out and the branch fork healed underneath, and
+ * `hojakdo-magpie` is that body cut out as its own transparent layer.
+ *
+ * Only the body moves. The bird's tail lies *behind* the branch in the
+ * painting, so it stays in the plate: the branch itself hides the join, and a
+ * nodding body over a settled tail is what a perched bird looks like. The
+ * cutout carries the bird's own leg down to the branch, which is where the CSS
+ * `transform-origin` sits, so the bird pivots on the twig instead of swinging
+ * from its tail.
+ *
+ * The bird is nudged by one CSS keyframe (globals.css → `.hero-magpie`), so the
+ * page ships no runtime script and still breathes. Overlap geometry is
+ * expressed in percentages of the plate, so the two images stay aligned at
+ * every width.
  *
  * Right: the story — the worldview this studio is building, not a list.
  */
 export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
-  const MAGPIE = { left: "32.30%", top: "17.46%", width: "14.04%" };
+  const MAGPIE = { left: "32.06%", top: "17.30%", width: "14.51%" };
 
   return (
     <section className="hanji-hero relative overflow-hidden border-b border-line">
@@ -43,8 +52,8 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
                 src="/hero/hojakdo-magpie.png"
                 alt=""
                 aria-hidden
-                width={176}
-                height={179}
+                width={182}
+                height={164}
                 className="hero-magpie pointer-events-none absolute select-none"
                 style={{ left: MAGPIE.left, top: MAGPIE.top, width: MAGPIE.width }}
               />
