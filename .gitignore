@@ -37,3 +37,7 @@ supabase/.temp/
 .tmp-test/out/
 .tmp-test/hero-snapshot.json
 .tmp-test/ssr/
+
+# local scratch (node runtime + image repair previews)
+.tmp-fix/
+.tmp-node/

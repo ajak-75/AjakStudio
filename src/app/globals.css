@@ -205,15 +205,18 @@
   /*
    * HOME hero — the magpie layer.
    * The bird is a separate transparent PNG laid over the base plate; this is
-   * the only motion on the page that is not a hover state. It nods and hops
-   * from the branch (transform-origin at the point where its leg meets the
-   * twig), the way a perched bird does: a deep nod, a lift, a little bounce,
-   * no still stretch in the loop. The swing is deliberately wide — a small
-   * bird in a phone-sized plate needs a broad nod (roughly −8° to +4°, lifting
-   * 8px) before the eye catches it.
+   * the only motion on the page that is not a hover state. It nods on the
+   * branch (transform-origin at the point where its leg meets the twig), the
+   * way a perched bird does: a deep nod, a little bounce, no still stretch in
+   * the loop. The swing is deliberately wide — a small bird in a phone-sized
+   * plate needs a broad nod (roughly −8° to +4°) before the eye catches it.
+   *
+   * Vertical travel stays at zero: a lift of a few pixels opened a pale seam
+   * under the bird's chest and let its leg read as a line floating in the air,
+   * so the whole motion is a rotation about the foot. The bird stays planted.
    */
   .hero-magpie {
-    transform-origin: 43% 88%;
+    transform-origin: 46% 94%;
     animation: magpie-nod 2.4s cubic-bezier(0.37, 0, 0.63, 1) infinite;
     will-change: transform;
   }
@@ -321,28 +324,28 @@
 
 @keyframes magpie-nod {
   0% {
-    transform: rotate(-3deg) translate(-1px, -2px);
+    transform: rotate(-3deg);
   }
   14% {
-    transform: rotate(-8deg) translate(-3px, -7px);
+    transform: rotate(-8deg);
   }
   28% {
-    transform: rotate(4deg) translate(-1px, -1px);
+    transform: rotate(4deg);
   }
   42% {
-    transform: rotate(-7.5deg) translate(-3px, -8px);
+    transform: rotate(-7.5deg);
   }
   56% {
-    transform: rotate(3deg) translate(0, -1px);
+    transform: rotate(3deg);
   }
   70% {
-    transform: rotate(-6deg) translate(-2px, -5px);
+    transform: rotate(-6deg);
   }
   84% {
-    transform: rotate(2deg) translate(0, -1px);
+    transform: rotate(2deg);
   }
   100% {
-    transform: rotate(-3deg) translate(-1px, -2px);
+    transform: rotate(-3deg);
   }
 }
 
