@@ -41,3 +41,6 @@ supabase/.temp/
 # local scratch (node runtime + image repair previews)
 .tmp-fix/
 .tmp-node/
+
+# local scratch (plate build previews)
+.tmp-plate/

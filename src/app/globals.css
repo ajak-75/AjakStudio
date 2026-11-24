@@ -285,82 +285,30 @@
 
 
 /* ==========================================================================
-   HOME hero — the hojakdo plate and its magpie.
+   HOME hero — the hojakdo plate.
 
-   The plate is one transparent PNG: the clay pine, tiger and the empty branch,
-   lifted off its own sheet of paper, so it lies on the page's warm hanji with
-   no card and no seam. The bird is not part of that plate: it ships as four
-   transparent pieces (tail, torso, head, wing) placed on the same 1:1 canvas,
-   each hinged on its own pivot — so the bird turns its head, breathes on the
-   twig and sways its tail without ever opening a hole in the branch behind it.
-
-   Geometry lives in percentages of the square plate, taken from the source
-   artwork (800 × 800), so the pieces stay locked together at every width.
+   One square still image: the clay pine, magpie and tiger exactly as the
+   artist's final original. The sheet's own paper is tone-matched to this
+   hero's hanji and its outer margin feathered to alpha 0, so the plate lies
+   on the page with no card, no frame and no square edge. Nothing on it moves.
    ========================================================================== */
-.magpie-plate {
+.hojakdo-plate {
   position: relative;
   aspect-ratio: 1 / 1;
   width: 100%;
 }
-.magpie-plate > picture,
-.magpie-plate .magpie-base {
+.hojakdo-plate > picture,
+.hojakdo-plate picture img,
+.hojakdo-plate .hojakdo-base {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
 }
-.magpie-plate picture img,
-.magpie-plate .magpie-base {
-  width: 100%;
-  height: 100%;
+.hojakdo-plate picture img,
+.hojakdo-plate .hojakdo-base {
   object-fit: contain;
   user-select: none;
-}
-
-/* The body carries the whole bird: a small rotation about the branch fork and
-   a lift of about two pixels, which is what a perched bird does. */
-.magpie-anim {
-  position: absolute;
-  inset: 0;
-  transform-origin: 40.5% 20%;
-  animation: magpie-body-sway 3.491s linear infinite;
-  will-change: transform;
-}
-
-.magpie-piece {
-  position: absolute;
-  height: auto;
-  max-width: none;
-  user-select: none;
-}
-.magpie-tail {
-  left: 17.625%;
-  top: 17.5%;
-  width: 17%;
-  transform-origin: 91.91% 9.89%;
-  animation: magpie-tail-sway 3.491s linear infinite;
-  will-change: transform;
-}
-.magpie-torso {
-  left: 31.75%;
-  top: 8.5%;
-  width: 12.75%;
-}
-.magpie-head {
-  left: 42.875%;
-  top: 7.125%;
-  width: 9.5%;
-  transform-origin: 9.21% 54.44%;
-  animation: magpie-head-turn 3.491s linear infinite;
-  will-change: transform;
-}
-.magpie-wing {
-  left: 28.25%;
-  top: 10%;
-  width: 15.75%;
-  transform-origin: 83.33% 34.21%;
-  animation: magpie-wing-sway 3.491s linear infinite;
-  will-change: transform;
 }
 
   /* Scroll cue — a hairline that draws itself downward, once per beat. */
@@ -383,166 +331,6 @@
   }
 }
 
-@keyframes magpie-head-turn {
-  0.0% { transform: rotate(0.000deg); }
-  2.778% { transform: rotate(7.329deg); }
-  5.556% { transform: rotate(11.418deg); }
-  8.333% { transform: rotate(13.107deg); }
-  11.111% { transform: rotate(13.739deg); }
-  13.889% { transform: rotate(13.898deg); }
-  16.667% { transform: rotate(13.787deg); }
-  19.444% { transform: rotate(13.491deg); }
-  22.222% { transform: rotate(13.069deg); }
-  25.0% { transform: rotate(12.582deg); }
-  27.778% { transform: rotate(12.090deg); }
-  30.556% { transform: rotate(11.649deg); }
-  33.333% { transform: rotate(11.306deg); }
-  36.111% { transform: rotate(11.077deg); }
-  38.889% { transform: rotate(10.917deg); }
-  41.667% { transform: rotate(10.626deg); }
-  44.444% { transform: rotate(9.576deg); }
-  47.222% { transform: rotate(6.349deg); }
-  50.0% { transform: rotate(0.000deg); }
-  52.778% { transform: rotate(-6.349deg); }
-  55.556% { transform: rotate(-9.576deg); }
-  58.333% { transform: rotate(-10.626deg); }
-  61.111% { transform: rotate(-10.917deg); }
-  63.889% { transform: rotate(-11.077deg); }
-  66.667% { transform: rotate(-11.306deg); }
-  69.444% { transform: rotate(-11.649deg); }
-  72.222% { transform: rotate(-12.090deg); }
-  75.0% { transform: rotate(-12.582deg); }
-  77.778% { transform: rotate(-13.069deg); }
-  80.556% { transform: rotate(-13.491deg); }
-  83.333% { transform: rotate(-13.787deg); }
-  86.111% { transform: rotate(-13.898deg); }
-  88.889% { transform: rotate(-13.739deg); }
-  91.667% { transform: rotate(-13.107deg); }
-  94.444% { transform: rotate(-11.418deg); }
-  97.222% { transform: rotate(-7.329deg); }
-  100.0% { transform: rotate(-0.000deg); }
-}
-
-@keyframes magpie-body-sway {
-  0.0% { transform: translateY(-0.0000%) rotate(0.000deg); }
-  2.778% { transform: translateY(-0.0608%) rotate(1.088deg); }
-  5.556% { transform: translateY(-0.1197%) rotate(1.670deg); }
-  8.333% { transform: translateY(-0.1750%) rotate(1.888deg); }
-  11.111% { transform: translateY(-0.2250%) rotate(1.961deg); }
-  13.889% { transform: translateY(-0.2681%) rotate(1.987deg); }
-  16.667% { transform: translateY(-0.3031%) rotate(1.996deg); }
-  19.444% { transform: translateY(-0.3289%) rotate(2.000deg); }
-  22.222% { transform: translateY(-0.3447%) rotate(2.001deg); }
-  25.0% { transform: translateY(-0.3500%) rotate(2.002deg); }
-  27.778% { transform: translateY(-0.3447%) rotate(2.001deg); }
-  30.556% { transform: translateY(-0.3289%) rotate(2.000deg); }
-  33.333% { transform: translateY(-0.3031%) rotate(1.996deg); }
-  36.111% { transform: translateY(-0.2681%) rotate(1.987deg); }
-  38.889% { transform: translateY(-0.2250%) rotate(1.961deg); }
-  41.667% { transform: translateY(-0.1750%) rotate(1.888deg); }
-  44.444% { transform: translateY(-0.1197%) rotate(1.670deg); }
-  47.222% { transform: translateY(-0.0608%) rotate(1.088deg); }
-  50.0% { transform: translateY(-0.0000%) rotate(0.000deg); }
-  52.778% { transform: translateY(-0.0608%) rotate(-1.088deg); }
-  55.556% { transform: translateY(-0.1197%) rotate(-1.670deg); }
-  58.333% { transform: translateY(-0.1750%) rotate(-1.888deg); }
-  61.111% { transform: translateY(-0.2250%) rotate(-1.961deg); }
-  63.889% { transform: translateY(-0.2681%) rotate(-1.987deg); }
-  66.667% { transform: translateY(-0.3031%) rotate(-1.996deg); }
-  69.444% { transform: translateY(-0.3289%) rotate(-2.000deg); }
-  72.222% { transform: translateY(-0.3447%) rotate(-2.001deg); }
-  75.0% { transform: translateY(-0.3500%) rotate(-2.002deg); }
-  77.778% { transform: translateY(-0.3447%) rotate(-2.001deg); }
-  80.556% { transform: translateY(-0.3289%) rotate(-2.000deg); }
-  83.333% { transform: translateY(-0.3031%) rotate(-1.996deg); }
-  86.111% { transform: translateY(-0.2681%) rotate(-1.987deg); }
-  88.889% { transform: translateY(-0.2250%) rotate(-1.961deg); }
-  91.667% { transform: translateY(-0.1750%) rotate(-1.888deg); }
-  94.444% { transform: translateY(-0.1197%) rotate(-1.670deg); }
-  97.222% { transform: translateY(-0.0608%) rotate(-1.088deg); }
-  100.0% { transform: translateY(-0.0000%) rotate(-0.000deg); }
-}
-
-@keyframes magpie-tail-sway {
-  0.0% { transform: rotate(0.000deg); }
-  2.778% { transform: rotate(-2.014deg); }
-  5.556% { transform: rotate(-2.821deg); }
-  8.333% { transform: rotate(-2.870deg); }
-  11.111% { transform: rotate(-2.786deg); }
-  13.889% { transform: rotate(-2.851deg); }
-  16.667% { transform: rotate(-3.148deg); }
-  19.444% { transform: rotate(-3.669deg); }
-  22.222% { transform: rotate(-4.362deg); }
-  25.0% { transform: rotate(-5.147deg); }
-  27.778% { transform: rotate(-5.930deg); }
-  30.556% { transform: rotate(-6.615deg); }
-  33.333% { transform: rotate(-7.117deg); }
-  36.111% { transform: rotate(-7.365deg); }
-  38.889% { transform: rotate(-7.300deg); }
-  41.667% { transform: rotate(-6.839deg); }
-  44.444% { transform: rotate(-5.767deg); }
-  47.222% { transform: rotate(-3.582deg); }
-  50.0% { transform: rotate(-0.000deg); }
-  52.778% { transform: rotate(3.582deg); }
-  55.556% { transform: rotate(5.767deg); }
-  58.333% { transform: rotate(6.839deg); }
-  61.111% { transform: rotate(7.300deg); }
-  63.889% { transform: rotate(7.365deg); }
-  66.667% { transform: rotate(7.117deg); }
-  69.444% { transform: rotate(6.615deg); }
-  72.222% { transform: rotate(5.930deg); }
-  75.0% { transform: rotate(5.147deg); }
-  77.778% { transform: rotate(4.362deg); }
-  80.556% { transform: rotate(3.669deg); }
-  83.333% { transform: rotate(3.148deg); }
-  86.111% { transform: rotate(2.851deg); }
-  88.889% { transform: rotate(2.786deg); }
-  91.667% { transform: rotate(2.870deg); }
-  94.444% { transform: rotate(2.821deg); }
-  97.222% { transform: rotate(2.014deg); }
-  100.0% { transform: rotate(0.000deg); }
-}
-
-@keyframes magpie-wing-sway {
-  0.0% { transform: rotate(0.000deg); }
-  2.778% { transform: rotate(0.588deg); }
-  5.556% { transform: rotate(1.105deg); }
-  8.333% { transform: rotate(1.489deg); }
-  11.111% { transform: rotate(1.693deg); }
-  13.889% { transform: rotate(1.693deg); }
-  16.667% { transform: rotate(1.489deg); }
-  19.444% { transform: rotate(1.105deg); }
-  22.222% { transform: rotate(0.588deg); }
-  25.0% { transform: rotate(0.000deg); }
-  27.778% { transform: rotate(-0.588deg); }
-  30.556% { transform: rotate(-1.105deg); }
-  33.333% { transform: rotate(-1.489deg); }
-  36.111% { transform: rotate(-1.693deg); }
-  38.889% { transform: rotate(-1.693deg); }
-  41.667% { transform: rotate(-1.489deg); }
-  44.444% { transform: rotate(-1.105deg); }
-  47.222% { transform: rotate(-0.588deg); }
-  50.0% { transform: rotate(-0.000deg); }
-  52.778% { transform: rotate(0.588deg); }
-  55.556% { transform: rotate(1.105deg); }
-  58.333% { transform: rotate(1.489deg); }
-  61.111% { transform: rotate(1.693deg); }
-  63.889% { transform: rotate(1.693deg); }
-  66.667% { transform: rotate(1.489deg); }
-  69.444% { transform: rotate(1.105deg); }
-  72.222% { transform: rotate(0.588deg); }
-  75.0% { transform: rotate(0.000deg); }
-  77.778% { transform: rotate(-0.588deg); }
-  80.556% { transform: rotate(-1.105deg); }
-  83.333% { transform: rotate(-1.489deg); }
-  86.111% { transform: rotate(-1.693deg); }
-  88.889% { transform: rotate(-1.693deg); }
-  91.667% { transform: rotate(-1.489deg); }
-  94.444% { transform: rotate(-1.105deg); }
-  97.222% { transform: rotate(-0.588deg); }
-  100.0% { transform: rotate(-0.000deg); }
-}
-
 @keyframes scroll-trace {
   0% {
     transform: scaleY(0);
@@ -563,12 +351,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .scroll-cue > span {
-    animation: none !important;
-  }
-  .magpie-anim,
-  .magpie-tail,
-  .magpie-head,
-  .magpie-wing {
     animation: none !important;
   }
 }

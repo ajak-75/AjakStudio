@@ -5,19 +5,19 @@ import type { Dictionary, Locale } from "@/i18n";
 import { localeHref } from "@/lib/utils";
 
 /**
- * The hojakdo plate: one square canvas holding the clay pine and tiger as a
- * transparent cut-out, with the magpie laid over it as four separately hinged
- * pieces (tail, torso, head, wing) so it can turn its head and sway on the twig.
- * Percentages are the source artwork's own 800 × 800 geometry.
+ * The hojakdo plate: one square canvas holding the clay pine, magpie and tiger
+ * exactly as the artist's final original — a single still image, no cut-out
+ * parts and no motion. Its outer paper margin is feathered into the hero hanji,
+ * so the sheet has no visible square edge.
  */
 function HojakdoPlate({ alt, className = "" }: { alt: string; className?: string }) {
   return (
-    <div className={`magpie-plate ${className}`}>
+    <div className={`hojakdo-plate ${className}`}>
       <picture>
         <source srcSet="/hero/hojakdo-plate.webp" type="image/webp" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          className="magpie-base"
+          className="hojakdo-base"
           src="/hero/hojakdo-plate.png"
           alt={alt}
           width={1600}
@@ -25,17 +25,6 @@ function HojakdoPlate({ alt, className = "" }: { alt: string; className?: string
           fetchPriority="high"
         />
       </picture>
-
-      <div className="magpie-anim" aria-hidden>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="magpie-piece magpie-tail" src="/hero/magpie-tail.webp" alt="" width={272} height={182} />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="magpie-piece magpie-torso" src="/hero/magpie-body.webp" alt="" width={204} height={190} />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="magpie-piece magpie-head" src="/hero/magpie-head.webp" alt="" width={152} height={180} />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="magpie-piece magpie-wing" src="/hero/magpie-wing.webp" alt="" width={252} height={152} />
-      </div>
     </div>
   );
 }
