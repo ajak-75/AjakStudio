@@ -54,19 +54,26 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         className="showcase-band relative isolate overflow-hidden border-y border-brass/40"
       >
         {/*
-         * The camellia is a cut-out (its hanji ground was lifted off), laid on
-         * the band's own dark sheet. It runs off the top, right and bottom
-         * edges so the heavy branch never stops in mid-air.
+         * One sheet, edge to edge: the dark hanji, the camellias and the red
+         * 아작 스튜디오 seal are a single artwork now, so nothing here is a
+         * cut-out laid on a second material. It is anchored to the lower-right
+         * corner, which keeps the seal and the heavy branch on the sheet; only
+         * the far side of the sheet runs off the frame.
          */}
         <div aria-hidden className="showcase-plate">
           <picture>
-            <source srcSet="/art/showcase-camellia-cutout.webp" type="image/webp" />
+            <source
+              media="(max-width: 640px)"
+              srcSet="/art/showcase-camellia-1124-1024.webp"
+              type="image/webp"
+            />
+            <source srcSet="/art/showcase-camellia-1124.webp" type="image/webp" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/art/showcase-camellia-cutout.png"
+              src="/art/showcase-camellia-1124.jpg"
               alt=""
-              width={1600}
-              height={900}
+              width={2048}
+              height={1039}
               loading="lazy"
               decoding="async"
             />
@@ -120,16 +127,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
         </div>
 
-        {/* 아작 스튜디오 — the red seal, stamped on the sheet's lower corner */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/art/showcase-seal.png"
-          alt={dict.home.showcaseSealAlt}
-          width={244}
-          height={231}
-          loading="lazy"
-          className="showcase-seal"
-        />
       </section>
 
       {/* The universe — three axes --------------------------------------- */}
