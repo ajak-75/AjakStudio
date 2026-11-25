@@ -48,64 +48,66 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     <>
       <Hero locale={locale} dict={dict} />
 
-      {/* Ajak Showcase — the live shelf, straight under the hero ---------- */}
+      {/* Ajak Showcase — the artist's camellia sheet, the live shelf under the hero */}
       <section
         aria-labelledby="showcase-title"
-        className="showcase-band relative isolate overflow-hidden border-y border-brass/40"
+        className="showcase-band border-y border-brass/40"
       >
         {/*
-         * One sheet, edge to edge: the dark hanji, the camellias and the red
-         * 아작 스튜디오 seal are a single artwork now, so nothing here is a
-         * cut-out laid on a second material. It is anchored to the lower-right
-         * corner, which keeps the seal and the heavy branch on the sheet; only
-         * the far side of the sheet runs off the frame.
+         * One plate: the artist's sheet exactly as painted — the dark hanji, the
+         * five camellias and the red 아작 스튜디오 seal, edge to edge. A phone is
+         * served a portrait crop of that same sheet, a window onto the painting
+         * that frames the central bloom without zooming into it; the pixels
+         * inside the window are the artist's own.
          */}
-        <div aria-hidden className="showcase-plate">
+        <div className="showcase-plate">
           <picture>
             <source
-              media="(max-width: 640px)"
-              srcSet="/art/showcase-camellia-1124-1024.webp"
+              media="(max-width: 39.98rem)"
+              srcSet="/art/showcase-camellia-1125-mobile.avif"
+              type="image/avif"
+            />
+            <source
+              media="(max-width: 39.98rem)"
+              srcSet="/art/showcase-camellia-1125-mobile.webp"
               type="image/webp"
             />
-            <source srcSet="/art/showcase-camellia-1124.webp" type="image/webp" />
+            <source srcSet="/art/showcase-camellia-1125.avif" type="image/avif" />
+            <source srcSet="/art/showcase-camellia-1125.webp" type="image/webp" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/art/showcase-camellia-1124.jpg"
-              alt=""
-              width={2048}
-              height={1039}
+              src="/art/showcase-camellia-1125.jpg"
+              alt={dict.home.showcaseArtAlt}
+              width={1760}
+              height={894}
               loading="lazy"
               decoding="async"
             />
           </picture>
         </div>
-        {/* Only on a phone, where the words sit over the plate. */}
-        <div aria-hidden className="showcase-veil" />
+        <div aria-hidden className="showcase-scrim" />
 
-        <div className="relative z-10 shell">
-          <div className="grid-12 items-center gap-y-10 py-[clamp(3rem,5.6vw,5rem)]">
-            <div className="col-span-12 lg:col-span-7">
-              <div className="flex items-center gap-4">
-                <span aria-hidden className="h-1.5 w-1.5 animate-pulse rounded-full bg-brass-soft" />
-                <p className="font-sans text-[0.625rem] uppercase tracking-[0.22em] text-brass-soft">
-                  {dict.home.showcaseLabel}
-                </p>
-              </div>
-              <h2
-                id="showcase-title"
-                className="mt-3 text-[clamp(2.75rem,6.2vw,5.25rem)] font-brush leading-[1.06] text-paper"
-              >
-                {dict.home.showcaseTitle}
-              </h2>
-              <p className="mt-5 max-w-[34rem] font-sans text-[0.9375rem] leading-[1.9] text-[#ddd3be] text-pretty">
-                {dict.home.showcaseNote}
+        <div className="showcase-inner">
+          <div className="showcase-copy">
+            <div className="flex items-center gap-4">
+              <span aria-hidden className="h-1.5 w-1.5 animate-pulse rounded-full bg-brass-soft" />
+              <p className="font-sans text-[0.625rem] uppercase tracking-[0.22em] text-brass-soft">
+                {dict.home.showcaseLabel}
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
+            </div>
+            <div className="showcase-row">
+              <div className="showcase-lead">
+                <h2 id="showcase-title" className="showcase-title">
+                  {dict.home.showcaseTitle}
+                </h2>
+                <p className="showcase-note">{dict.home.showcaseNote}</p>
+              </div>
+              <div className="showcase-actions">
                 <a
                   href={showcase.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-5 border border-brass-soft/70 px-7 py-4 font-sans text-[0.6875rem] uppercase tracking-[0.16em] text-paper transition-colors duration-300 hover:bg-brass-soft hover:text-ink"
+                  className="showcase-cta group"
                 >
                   {dict.home.showcaseCta}
                   <span
@@ -115,18 +117,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                     ↗
                   </span>
                 </a>
-                <p className="font-sans text-[0.5625rem] uppercase tracking-[0.18em] text-[#a2947a]">
-                  {dict.home.showcaseMeta}
-                </p>
               </div>
             </div>
-
-            {/* The plate is the backdrop on every size, so this column only
-                keeps the words off the flowers on the narrowest screens. */}
-            <div aria-hidden className="col-span-12 hidden lg:block lg:col-span-5" />
           </div>
         </div>
-
       </section>
 
       {/* The universe — three axes --------------------------------------- */}

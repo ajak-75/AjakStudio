@@ -203,30 +203,29 @@
   }
 
   /*
-   * Ajak Showcase band — the one ink-dark sheet on the home page. It sits
-   * directly under the hero so a visitor can reach the live showcase, which
-   * always runs ahead of this site, in a single press.
+   * Ajak Showcase — the artist's whole camellia sheet, straight under the hero.
    *
-   * The sheet is now the artist's own artwork, whole: the dark hanji, the
-   * camellias and the red 아작 스튜디오 seal on one surface. Nothing is cut out
-   * and laid on a second paper, so there is no seam and no second seal — the
-   * artwork simply is the band, edge to edge.
+   * The sheet is one artwork: the dark hanji, the five blooms and the red
+   * 아작 스튜디오 seal on a single surface. Nothing is cut out, nothing is laid
+   * on a second paper and no filter touches it — the plate is the painting,
+   * edge to edge, at the sheet's own colour.
+   *
+   * The band is 75 vh at its full size (clamp holds it between a phone's share
+   * and a very tall window), and the frame is walked down the sheet until the
+   * seal at its foot is whole: the extra height then comes off the paper above
+   * the top-left bloom, never off a flower that carries the composition.
    */
   .showcase-band {
-    background-color: #32231a;
-    background-image: url("/textures/hanji-dark.png");
-    background-size: 512px 512px;
-    background-repeat: repeat;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    height: clamp(28rem, 75vh, 56rem);
+    background-color: #2b1d14;
   }
 
-  /*
-   * The sheet itself. Anchored to the lower-right corner: the seal sits there,
-   * and the heavy branch runs off the near edges rather than ending in mid-air.
-   */
   .showcase-plate {
     position: absolute;
     inset: 0;
-    pointer-events: none;
   }
   .showcase-plate img {
     position: absolute;
@@ -234,45 +233,212 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    object-position: right bottom;
+    object-position: 50% 90%;
   }
 
-  /* A phone lays its words over the sheet; this keeps them readable while the
-     flowers and the seal stay visible along the lower edge. */
-  .showcase-veil {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(38, 26, 18, 0.94) 0%,
-      rgba(38, 26, 18, 0.9) 38%,
-      rgba(38, 26, 18, 0.8) 58%,
-      rgba(38, 26, 18, 0.55) 76%,
-      rgba(38, 26, 18, 0.22) 92%,
-      rgba(38, 26, 18, 0.04) 100%
-    );
-  }
-
-  @media (min-width: 1024px) {
+  /*
+   * On a wide screen the band is never taller than half the window is wide, so
+   * its frame is always at least 2:1 — wider than the sheet, which means the
+   * sheet is only ever cropped top and bottom, never at the seal on its right.
+   */
+  @media (min-aspect-ratio: 21 / 20) {
     .showcase-band {
-      /* The sheet's own proportion, held across the desktop range so the
-         artwork is cropped by the same amount at every width. */
-      aspect-ratio: 2.3 / 1;
+      height: min(clamp(28rem, 75vh, 56rem), 50vw);
     }
-    /* Only the words' side is darkened; the flowers and the seal stay clear. */
-    .showcase-veil {
-      background: linear-gradient(
-        to right,
-        rgba(38, 26, 18, 0.94) 0%,
-        rgba(38, 26, 18, 0.92) 16%,
-        rgba(38, 26, 18, 0.86) 30%,
-        rgba(38, 26, 18, 0.7) 44%,
-        rgba(38, 26, 18, 0.4) 56%,
-        rgba(38, 26, 18, 0.14) 70%,
-        rgba(38, 26, 18, 0) 84%
+  }
+
+  /*
+   * A portrait window shows a little over half the sheet's width, so the frame
+   * is walked left until the big central bloom holds the centre and the flowers
+   * at the left edge fall away — that leaves the paper dark where the words go.
+   */
+  @media (max-aspect-ratio: 21 / 20) and (min-width: 40rem) {
+    .showcase-plate img {
+      object-position: 35% 50%;
+    }
+  }
+
+  /* The words sit on their own full-bleed track, not on the 1280px editorial
+     shell, so they can stand in the sheet's dark paper at any width. */
+  .showcase-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    height: 100%;
+    align-items: flex-start;
+    padding-inline: clamp(1.5rem, 5vw, 6rem);
+  }
+  /* Where the sheet is seen wide, the words drop into the hollow between the
+     two left-hand blooms — the one place on the paper with no flower in it.
+     The offset follows the crop: the hollow's top is 32% down the sheet, so at
+     any width it lands between the blooms rather than on them. */
+  .showcase-copy {
+    position: relative;
+    top: 32%;
+    width: min(21rem, 27vw);
+  }
+  @media (min-aspect-ratio: 21 / 20) {
+    .showcase-copy {
+      top: clamp(
+        12%,
+        calc(16.26vw - 0.9 * max(0px, 50.79vw - min(75vh, 50vw))),
+        34%
       );
     }
   }
+
+  /*
+   * The only shading: a whisper of the sheet's own ink behind the words. It
+   * never reaches a bloom at full strength and is gone before the painting's
+   * centre, so no flower loses its colour.
+   */
+  .showcase-scrim {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      42% 44% at 3% 40%,
+      rgb(30 21 14 / 0.55) 0%,
+      rgb(30 21 14 / 0.38) 48%,
+      rgb(30 21 14 / 0.14) 76%,
+      rgb(30 21 14 / 0) 100%
+    );
+  }
+
+  /* A phone: the copy sits as one low line, well under the big bloom, and stays
+     small — the painting carries the screen, the words only point at it. */
+  @media (max-width: 39.99rem) {
+    .showcase-inner {
+      align-items: flex-end;
+      padding-bottom: calc(clamp(1.5rem, 4vh, 2.25rem) + env(safe-area-inset-bottom));
+    }
+    .showcase-copy {
+      top: 0;
+      width: 100%;
+      max-width: 22rem;
+    }
+    .showcase-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .showcase-title {
+      margin-top: 0.35rem;
+      font-size: 1.75rem;
+    }
+    .showcase-actions {
+      margin-top: 0;
+    }
+    .showcase-cta {
+      gap: 0.5rem;
+      padding: 0.55rem 0.85rem;
+      font-size: 0.5625rem;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+    .showcase-scrim {
+      background:
+        linear-gradient(
+          to top,
+          rgb(30 21 14 / 0.9) 0%,
+          rgb(30 21 14 / 0.66) 10%,
+          rgb(30 21 14 / 0.34) 20%,
+          rgb(30 21 14 / 0.12) 29%,
+          rgb(30 21 14 / 0) 38%
+        ),
+        linear-gradient(
+          to bottom,
+          rgb(30 21 14 / 0.4) 0%,
+          rgb(30 21 14 / 0) 16%
+        );
+    }
+  }
+
+  /* A tablet held upright: the frame is on the central bloom, the copy sits
+     low and left on the dark paper beneath it. */
+  @media (max-aspect-ratio: 21 / 20) and (min-width: 40rem) {
+    .showcase-inner {
+      align-items: flex-end;
+      padding-bottom: clamp(2rem, 4vh, 3.25rem);
+    }
+    .showcase-copy {
+      top: 0;
+      width: min(26rem, 82vw);
+    }
+    .showcase-title {
+      font-size: clamp(2rem, 4.6vw, 2.75rem);
+    }
+    .showcase-scrim {
+      background:
+        linear-gradient(
+          to top,
+          rgb(30 21 14 / 0.82) 0%,
+          rgb(30 21 14 / 0.62) 10%,
+          rgb(30 21 14 / 0.3) 22%,
+          rgb(30 21 14 / 0.1) 31%,
+          rgb(30 21 14 / 0) 40%
+        ),
+        radial-gradient(
+          55% 55% at 0% 100%,
+          rgb(30 21 14 / 0.5) 0%,
+          rgb(30 21 14 / 0) 100%
+        );
+    }
+  }
+
+  /* Type — a brush title over the site's own quiet voice. */
+  .showcase-title {
+    margin-top: 0.6rem;
+    font-family: "Ajak Brush", var(--font-serif), ui-serif, Georgia, serif;
+    font-size: clamp(2.25rem, 2.95vw, 3.5rem);
+    line-height: 1.06;
+    color: var(--gdu-paper);
+    text-wrap: balance;
+  }
+  .showcase-note {
+    display: none;
+  }
+  .showcase-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+    margin-top: clamp(1rem, 2.2vh, 1.6rem);
+  }
+  .showcase-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    border: 1px solid rgb(235 223 198 / 0.7);
+    padding: 0.65rem 1.3rem;
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gdu-paper);
+    transition: background-color 300ms, border-color 300ms, color 300ms;
+  }
+  .showcase-cta:hover {
+    background-color: var(--gdu-brass-soft);
+    border-color: var(--gdu-brass-soft);
+    color: var(--gdu-ink);
+  }
+
+  /* The full note is spoken only where the hollow can hold it. */
+  @media (min-aspect-ratio: 21 / 20) and (min-width: 100rem) {
+    .showcase-note {
+      display: block;
+      margin-top: clamp(0.8rem, 1.6vh, 1.25rem);
+      max-width: 21rem;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      line-height: 1.8;
+      color: #ded3bd;
+      text-wrap: pretty;
+    }
+  }
+
 
 
 /* ==========================================================================
