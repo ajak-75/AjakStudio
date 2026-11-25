@@ -106,8 +106,8 @@ export const brand = {
   } satisfies Localized,
   founded: "2026",
   base: { ko: "서울 · 대한민국", en: "Seoul · Republic of Korea" } satisfies Localized,
-  /** Official inbox is not public yet; the contact page says so instead of inventing one. */
-  email: null as string | null,
+  /** Official inbox — rendered as a `mailto:` link on the contact page, home and footer. */
+  email: "ajakstudio.lab@gmail.com" as string | null,
   domain: null as string | null,
   controlCenterPath: "/control-center",
 } as const;

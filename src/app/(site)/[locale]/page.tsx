@@ -441,6 +441,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <p className="mt-6 max-w-measure font-sans text-[0.9375rem] leading-relaxed text-graphite">
               {dict.home.contactBody}
             </p>
+            {brand.email ? (
+              <a
+                href={`mailto:${brand.email}`}
+                className="mt-6 inline-block break-all font-serif text-[1.375rem] leading-tight text-ink underline decoration-brass decoration-1 underline-offset-4 transition-colors hover:text-brass"
+              >
+                {brand.email}
+              </a>
+            ) : null}
           </div>
           <div className="col-span-12 md:col-span-4 md:col-start-9 md:text-right">
             <Link

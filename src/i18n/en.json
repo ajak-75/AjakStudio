@@ -120,7 +120,7 @@
     "newsLabel": "NEWS",
     "contactLabel": "CONTACT",
     "contactTitle": "The next project, together",
-    "contactBody": "We welcome partnerships, collaborations and press enquiries. The official contact channel will be announced here as soon as it opens.",
+    "contactBody": "We welcome partnerships, collaborations and press enquiries — write to us at the address below.",
     "contactCta": "Go to contact"
   },
   "about": {
@@ -159,7 +159,7 @@
       {
         "label": "WHAT WE DO",
         "title": "From concept to operations — a person and an agent",
-        "body": "Product planning, brand design, web engineering, content production and channel operations are handled in-house. We ship directly and revise against real user response every week."
+        "body": "Product planning, brand design, web engineering, content production and channel operations are handled by a solo founder, working as one team with the AI employees she built. We ship directly and revise against real user response every week."
       },
       {
         "label": "HOW WE BUILD",
@@ -345,7 +345,8 @@
   "contact": {
     "eyebrow": "CONTACT",
     "title": "Contact",
-    "lead": "For partnerships, collaborations and press. The official email address is being set up — until then, reach us through the channels below.",
+    "lead": "For partnerships, collaborations and press, reach us by email or through the channels below.",
+    "emailLabel": "EMAIL",
     "channelsLabel": "CONTACT CHANNELS",
     "note": "An enquiry form opens in phase four, together with the Control Center inbox.",
     "formLabel": "Enquiry form",

@@ -86,6 +86,16 @@ export function Footer({ locale, dict }: FooterProps) {
             <h2 className="eyebrow">{dict.footer.studio}</h2>
             <ul className="mt-5 space-y-2.5 font-sans text-[0.75rem] leading-relaxed text-graphite">
               <li>{brand.name}</li>
+              {brand.email ? (
+                <li>
+                  <a
+                    href={`mailto:${brand.email}`}
+                    className="break-all transition-colors hover:text-ink"
+                  >
+                    {brand.email}
+                  </a>
+                </li>
+              ) : null}
               <li>
                 <a
                   href={showcase.url}
