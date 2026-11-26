@@ -123,11 +123,11 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         <div className="flex flex-col gap-6 border-t border-line py-5 md:flex-row md:items-center md:justify-between">
           <dl className="grid grid-cols-2 gap-x-6 gap-y-3 md:flex md:items-baseline md:gap-x-9">
             {dict.home.facts.map((fact) => (
-              <div key={fact.label} className="flex flex-col gap-0.5">
-                <dd className="whitespace-nowrap font-sans text-[0.6875rem] uppercase tracking-[0.14em] text-ink">
+              <div key={fact.label} className="flex flex-col gap-1">
+                <dd className="whitespace-nowrap font-sans text-[0.8125rem] font-medium uppercase tracking-[0.12em] text-ink">
                   {fact.value}
                 </dd>
-                <dt className="font-sans text-[0.5rem] uppercase leading-tight tracking-[0.16em] text-muted">
+                <dt className="font-sans text-[0.625rem] leading-snug tracking-[0.01em] text-muted">
                   {fact.label}
                 </dt>
               </div>

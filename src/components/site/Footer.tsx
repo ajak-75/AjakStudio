@@ -106,9 +106,6 @@ export function Footer({ locale, dict }: FooterProps) {
                   {dict.footer.showcase}
                 </a>
               </li>
-              <li className="text-muted">
-                {dict.footer.privateLabel} — {locale === "ko" ? "4단계에서 열립니다" : "opens in phase 4"}
-              </li>
             </ul>
           </div>
         </div>

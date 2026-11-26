@@ -476,12 +476,12 @@ export const news: readonly NewsEntry[] = [
     id: "site-build-01",
     date: "2026-11-20",
     title: {
-      ko: "아작스튜디오, 공식 사이트 구축을 시작합니다",
-      en: "AjakStudio begins building its official site",
+      ko: "아작스튜디오, 공식 사이트를 열었습니다",
+      en: "AjakStudio opens its official site",
     },
     excerpt: {
-      ko: "앱과 채널을 하나로 잇는 공식 사이트의 설계와 기반 공사를 시작했습니다. 에디토리얼 화이트 디자인 시스템, Supabase 데이터 구조, 무료 인프라 기준을 먼저 세웁니다.",
-      en: "Design and groundwork have started for an official site that connects apps and channels: an Editorial White design system, a Supabase data structure and a free-infrastructure baseline come first.",
+      ko: "흩어져 있던 앱과 게임, 국내외 채널을 한곳에서 만날 수 있도록 공식 사이트를 열었습니다. 코미와 모모의 세계가 이제 한 주소에서 시작됩니다.",
+      en: "The scattered apps, games and channels now meet in one place — the official site is open. The world of KOMI and MOMO begins at a single address.",
     },
     status: "published",
   },

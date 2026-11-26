@@ -61,20 +61,20 @@
     },
     "facts": [
       {
-        "value": "KOMI & MOMO",
-        "label": "UNIVERSE"
+        "value": "16 LANGUAGES",
+        "label": "A world that opens in 16 languages"
       },
       {
-        "value": "APPS & AGENT",
-        "label": "TOOLS"
+        "value": "7 APPS & GAMES",
+        "label": "Play instantly, no install"
       },
       {
-        "value": "KR & GLOBAL",
-        "label": "CHANNELS"
+        "value": "10 CHANNELS",
+        "label": "5 in Korea · 5 global"
       },
       {
-        "value": "₩0",
-        "label": "INFRASTRUCTURE COST"
+        "value": "2 CHARACTERS",
+        "label": "KOMI & MOMO"
       }
     ],
     "worldsLabel": "THE UNIVERSE",
@@ -120,7 +120,7 @@
     "newsLabel": "NEWS",
     "contactLabel": "CONTACT",
     "contactTitle": "The next project, together",
-    "contactBody": "We welcome partnerships, collaborations and press enquiries — write to us at the address below.",
+    "contactBody": "We welcome enquiries about KOMI & MOMO character licensing, brand collaborations and global K-culture content production. We usually reply within two business days.",
     "contactCta": "Go to contact"
   },
   "about": {
@@ -366,8 +366,7 @@
     "studio": "STUDIO",
     "showcase": "Ajak Showcase",
     "legal": "© 2026 AjakStudio. ALL RIGHTS RESERVED.",
-    "builtLine": "SEOUL · KOREA — DESIGNED AND BUILT IN-HOUSE",
-    "privateLabel": "Admin"
+    "builtLine": "SEOUL · KOREA — DESIGNED AND BUILT IN-HOUSE"
   },
   "status": {
     "live": "Live",

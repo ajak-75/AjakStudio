@@ -61,20 +61,20 @@
     },
     "facts": [
       {
-        "value": "KOMI & MOMO",
-        "label": "UNIVERSE"
+        "value": "16 LANGUAGES",
+        "label": "16개 언어로 열리는 세계"
       },
       {
-        "value": "APPS & AGENT",
-        "label": "TOOLS"
+        "value": "7 APPS & GAMES",
+        "label": "설치 없이 바로 실행"
       },
       {
-        "value": "KR & GLOBAL",
-        "label": "CHANNELS"
+        "value": "10 CHANNELS",
+        "label": "국내 5 · 글로벌 5"
       },
       {
-        "value": "₩0",
-        "label": "INFRASTRUCTURE COST"
+        "value": "2 CHARACTERS",
+        "label": "코미 & 모모"
       }
     ],
     "worldsLabel": "THE UNIVERSE",
@@ -120,7 +120,7 @@
     "newsLabel": "NEWS",
     "contactLabel": "CONTACT",
     "contactTitle": "다음 프로젝트를 함께",
-    "contactBody": "협업, 제휴, 인터뷰 문의를 기다립니다. 아래 이메일로 편하게 연락해 주세요.",
+    "contactBody": "코미·모모 캐릭터 라이선스, 브랜드 콜라보, 글로벌 K-컬처 콘텐츠 제작 문의를 기다립니다. 보통 2영업일 안에 답장드려요.",
     "contactCta": "문의 페이지로"
   },
   "about": {
@@ -366,8 +366,7 @@
     "studio": "STUDIO",
     "showcase": "아작 쇼케이스",
     "legal": "© 2026 아작스튜디오. ALL RIGHTS RESERVED.",
-    "builtLine": "SEOUL · KOREA — DESIGNED AND BUILT IN-HOUSE",
-    "privateLabel": "관리자"
+    "builtLine": "SEOUL · KOREA — DESIGNED AND BUILT IN-HOUSE"
   },
   "status": {
     "live": "운영 중",

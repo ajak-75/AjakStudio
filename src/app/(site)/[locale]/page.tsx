@@ -62,16 +62,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
          */}
         <div className="showcase-plate">
           <picture>
-            <source
-              media="(max-width: 39.98rem)"
-              srcSet="/art/showcase-camellia-1125-mobile.avif"
-              type="image/avif"
-            />
-            <source
-              media="(max-width: 39.98rem)"
-              srcSet="/art/showcase-camellia-1125-mobile.webp"
-              type="image/webp"
-            />
             <source srcSet="/art/showcase-camellia-1125.avif" type="image/avif" />
             <source srcSet="/art/showcase-camellia-1125.webp" type="image/webp" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -91,7 +81,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="showcase-copy">
             <div className="flex items-center gap-4">
               <span aria-hidden className="h-1.5 w-1.5 animate-pulse rounded-full bg-brass-soft" />
-              <p className="font-sans text-[0.625rem] uppercase tracking-[0.22em] text-brass-soft">
+              <p className="showcase-kicker">
                 {dict.home.showcaseLabel}
               </p>
             </div>
@@ -112,7 +102,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   {dict.home.showcaseCta}
                   <span
                     aria-hidden
-                    className="text-[0.9375rem] leading-none transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    className="showcase-cta-arrow transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   >
                     ↗
                   </span>
