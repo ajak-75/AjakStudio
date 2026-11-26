@@ -65,9 +65,21 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       <section className="border-y border-line bg-porcelain">
         <div className="shell py-12 md:py-14">
           <SectionLabel index="02">{dict.about.factsLabel}</SectionLabel>
-          <dl className="mt-8 grid grid-cols-2 gap-y-8 md:grid-cols-4">
-            {dict.about.facts.map((fact) => (
-              <div key={fact.label}>
+          {/*
+           * Three axes, not a tally: the two shelves of the studio sit side by
+           * side, and the channels that join Korea and the world take the full
+           * row beneath them.
+           */}
+          <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10">
+            {dict.about.facts.map((fact, index) => (
+              <div
+                key={fact.label}
+                className={
+                  index === 2
+                    ? "col-span-2 border-t border-line pt-8"
+                    : undefined
+                }
+              >
                 <dd className="font-serif text-[1.5rem] leading-tight text-ink">{fact.value}</dd>
                 <dt className="mt-2 font-sans text-[0.5625rem] uppercase tracking-[0.16em] text-muted">
                   {fact.label}

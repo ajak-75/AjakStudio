@@ -96,7 +96,7 @@
       {
         "kicker": "REACH · MEDIA & COMMERCE",
         "title": "Channels that meet the world",
-        "body": "Global channels carrying the world outward and Korean channels handling home and goods. Content meets the world; commerce meets daily life.",
+        "body": "Global channels that keep us in touch with people beyond this world, and Korean channels that look after the home and its goods. Content meets the world; commerce meets daily life.",
         "meta": "KR & GLOBAL · CHANNELS"
       }
     ],
@@ -133,8 +133,8 @@
       "The world I carried for twenty years — in 2026, I began bringing it into reality.",
       "MOMO, my beloved long-haired chihuahua, became the motif for two characters, KOMI and MOMO — and with them a diary app and its games opened in sixteen languages.",
       "Beside them I set apps no language barrier can stop: Ajak, the fifteen-language mini social network; K-Sajoo, read through the manse calendar; and ABI, the agent that remembers inside your phone.",
-      "On my own it is a heavy load, but the ideas I have carried for twenty years come out one by one, together with AjakStudio. Planning, drawing, writing code, shipping, fixing — we divide the work every day.",
-      "The work of changing the world I have given to the channels: on the global channels K-culture is rewritten in each country's language, and in Korea the name Danjjan Sallim looks after the home and its goods. Where content meets people and commerce meets daily life. And next comes the brand that carries this world's name."
+      "More than one person can carry alone, so the ideas I have held for twenty years come out one by one, together with my AI employees. Planning, drawing, writing code, shipping, fixing — we divide the work every day.",
+      "The work of making it known I have given to the channels: on the global channels K-culture is rewritten in each country's language, and in Korea the name Danjjan Sallim looks after the home and its goods. Where content meets people and commerce meets daily life. And next comes the brand that carries this world's name."
     ],
     "factsLabel": "AT A GLANCE",
     "facts": [
@@ -149,10 +149,6 @@
       {
         "value": "KR & GLOBAL",
         "label": "CHANNELS"
-      },
-      {
-        "value": "₩0",
-        "label": "INFRASTRUCTURE COST"
       }
     ],
     "blocks": [
@@ -163,21 +159,21 @@
       },
       {
         "label": "HOW WE BUILD",
-        "title": "Free infrastructure, paid-grade craft",
-        "body": "Every app that runs today started on free infrastructure: zero server cost, a domain attached in a later phase. Quality comes from design decisions, not from budget."
+        "title": "Light to open, ready anywhere",
+        "body": "We build only what the work needs — light and fast. It opens straight in the browser with nothing to install, and carries on in sixteen languages."
       },
       {
         "label": "WHERE WE STAND",
         "title": "Two tracks, one standard",
-        "body": "The KOMI & MOMO universe, everyday apps, the Korean SNS Ajak and the global social channels — AjakStudio is where all of it meets in one place. Characters are loved here, but they are not the whole brand: this site is the vessel new services keep being born into."
+        "body": "The KOMI & MOMO universe, everyday apps, the Korean SNS Ajak and the global social channels — AjakStudio is where all of it meets in one place. Characters are the starting point, not the whole brand: this site is the vessel new services keep being born into."
       }
     ],
     "principlesLabel": "PRINCIPLES",
     "principles": [
       "Build only what people actually use.",
-      "Design inside free limits, and check the limits first.",
-      "Keep the brand name and menus editable from the admin.",
-      "Never delete originals; keep every draft restorable."
+      "Light and fast, opening with nothing to install.",
+      "The same experience, whatever the language.",
+      "Keep improving after launch, guided by how people respond."
     ]
   },
   "apps": {

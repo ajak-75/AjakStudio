@@ -492,5 +492,4 @@ export const siteFacts = [
   { value: "KOMI & MOMO", labelKey: "UNIVERSE" },
   { value: "APPS & AGENT", labelKey: "TOOLS" },
   { value: "KR & GLOBAL", labelKey: "CHANNELS" },
-  { value: "₩0", labelKey: "INFRASTRUCTURE COST" },
 ] as const;
