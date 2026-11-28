@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { ArrowGlyph, PageHeader, SectionLabel } from "@/components/site/Editorial";
+import { ArrowGlyph, BrandText, PageHeader, SectionLabel } from "@/components/site/Editorial";
 import { appHref, apps, brand } from "@/config/brand";
 import { getDictionary, isLocale, type Locale } from "@/i18n";
 import { localeHref } from "@/lib/utils";
@@ -31,7 +31,12 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
   return (
     <>
-      <PageHeader eyebrow={dict.about.eyebrow} title={dict.about.title} lead={dict.about.lead} />
+      <PageHeader
+        eyebrow={dict.about.eyebrow}
+        title={dict.about.title}
+        lead={dict.about.lead}
+        note={<BrandText text={brand.parent.attribution[locale]} />}
+      />
 
       {/* Story ------------------------------------------------------------ */}
       <section className="shell py-section">

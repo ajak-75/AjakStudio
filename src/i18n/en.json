@@ -361,8 +361,9 @@
     "global": "Overseas",
     "studio": "STUDIO",
     "showcase": "Ajak Showcase",
-    "legal": "© 2026 AjakStudio. ALL RIGHTS RESERVED.",
-    "builtLine": "SEOUL · KOREA — DESIGNED AND BUILT IN-HOUSE"
+    "operatedBy": "A brand studio operated by SW Global",
+    "legal": "© 2026 SW Global · AjakStudio. ALL RIGHTS RESERVED.",
+    "builtLine": "KOREA — DESIGNED AND BUILT IN-HOUSE"
   },
   "status": {
     "live": "Live",

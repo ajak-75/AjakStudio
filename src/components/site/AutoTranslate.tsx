@@ -39,6 +39,7 @@ const PROTECT = [
   "AjakStudio",
   "Ajak Studio",
   "AjakStudioKFN",
+  "SW Global",
   "KOMI & MOMO",
   "KOMI-Diary",
   "KOMI & MOMO POP",

@@ -24,10 +24,13 @@ export function PageHeader({
   eyebrow,
   title,
   lead,
+  note,
 }: {
   eyebrow: string;
   title: string;
   lead?: string;
+  /** A quiet line under the lead — brand attribution, not part of the title. */
+  note?: ReactNode;
 }) {
   return (
     <header className="shell pt-14 md:pt-20">
@@ -35,6 +38,11 @@ export function PageHeader({
       <h1 className="mt-5 max-w-[18ch] font-serif text-display-l text-ink">{title}</h1>
       {lead ? (
         <p className="mt-8 max-w-measure text-[1.0625rem] leading-[1.75] text-graphite">{lead}</p>
+      ) : null}
+      {note ? (
+        <p className="mt-5 max-w-measure font-sans text-[0.8125rem] leading-relaxed text-muted">
+          {note}
+        </p>
       ) : null}
       <div aria-hidden className="mt-14 h-px w-full bg-line" />
     </header>
@@ -63,6 +71,34 @@ export function StatusTag({ status, label }: { status: string; label: string }) 
       <span aria-hidden className="h-1 w-1 rounded-full bg-current" />
       {label}
     </span>
+  );
+}
+
+/** Brand marks that must survive every translation, ours or the browser's. */
+const BRAND_MARKS = ["AjakStudio", "SW Global"];
+
+/**
+ * Renders a sentence with the brand marks wrapped in `notranslate`, so the
+ * words around them still translate while `AjakStudio` and `SW Global` stay
+ * exactly as written.
+ */
+export function BrandText({ text }: { text: string }) {
+  const pattern = new RegExp(`(${BRAND_MARKS.join("|")})`, "g");
+  return (
+    <>
+      {text
+        .split(pattern)
+        .filter((part) => part !== "")
+        .map((part, index) =>
+          BRAND_MARKS.includes(part) ? (
+            <span key={`${part}-${index}`} className="notranslate">
+              {part}
+            </span>
+          ) : (
+            <span key={`text-${index}`}>{part}</span>
+          ),
+        )}
+    </>
   );
 }
 

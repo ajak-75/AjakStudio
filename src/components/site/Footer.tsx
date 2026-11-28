@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BrandText } from "@/components/site/Editorial";
 import { brand, domesticChannels, globalChannels, menus, showcase } from "@/config/brand";
 import type { Dictionary, Locale } from "@/i18n";
 import { localeHref } from "@/lib/utils";
@@ -24,6 +25,9 @@ export function Footer({ locale, dict }: FooterProps) {
           <div className="col-span-12 lg:col-span-4">
             <p className="font-sans text-[0.8125rem] font-medium leading-[1.6] tracking-[0.14em]">
               {brand.name}
+            </p>
+            <p className="mt-1.5 font-sans text-[0.625rem] uppercase tracking-[0.16em] text-brass">
+              <BrandText text={dict.footer.operatedBy} />
             </p>
             <p className="mt-6 max-w-[22rem] font-serif text-[1.5rem] leading-[1.25] text-ink">
               {dict.footer.tagline}
@@ -112,7 +116,8 @@ export function Footer({ locale, dict }: FooterProps) {
 
         <div className="mt-16 flex flex-col gap-3 border-t border-line pt-6 md:flex-row md:items-center md:justify-between">
           <p className="font-sans text-[0.625rem] uppercase tracking-[0.16em] text-muted">
-            © {year} {brand.name}. {locale === "ko" ? "ALL RIGHTS RESERVED." : "ALL RIGHTS RESERVED."}
+            © {year} <span className="notranslate">{brand.parent.name}</span> ·{" "}
+            <span className="notranslate">{brand.name}</span>. ALL RIGHTS RESERVED.
           </p>
           <p className="font-sans text-[0.625rem] uppercase tracking-[0.16em] text-muted">
             {dict.footer.builtLine}

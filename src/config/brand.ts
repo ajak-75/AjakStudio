@@ -100,12 +100,25 @@ export const brand = {
   name: "AjakStudio",
   shortName: "AjakStudio",
   monogram: "AjakStudio",
+  /**
+   * The operating company the studio belongs to. It is written in the footer
+   * and on The About page only — the hero, the hojakdo plate and the founder's
+   * own story keep the studio's voice and stay untouched.
+   */
+  parent: {
+    name: "SW Global",
+    /** The one-line brand attribution, in each locale's own grammar. */
+    attribution: {
+      ko: "AjakStudio는 SW Global이 운영하는 브랜드 스튜디오입니다.",
+      en: "AjakStudio is a brand studio operated by SW Global.",
+    } satisfies Localized,
+  },
   tagline: {
     ko: "일반 앱과 코미·모모 앱, 한국형·글로벌 SNS가 한곳에 모인 스튜디오",
     en: "Everyday apps, KOMI & MOMO games, Korean and global social — one studio",
   } satisfies Localized,
   founded: "2026",
-  base: { ko: "서울 · 대한민국", en: "Seoul · Republic of Korea" } satisfies Localized,
+  base: { ko: "대한민국", en: "Korea" } satisfies Localized,
   /** Official inbox — rendered as a `mailto:` link on the contact page, home and footer. */
   email: "ajakstudio.lab@gmail.com" as string | null,
   domain: null as string | null,

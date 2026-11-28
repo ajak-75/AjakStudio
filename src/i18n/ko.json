@@ -361,8 +361,9 @@
     "global": "국외",
     "studio": "STUDIO",
     "showcase": "아작 쇼케이스",
-    "legal": "© 2026 아작스튜디오. ALL RIGHTS RESERVED.",
-    "builtLine": "SEOUL · KOREA — DESIGNED AND BUILT IN-HOUSE"
+    "operatedBy": "SW Global이 운영하는 브랜드 스튜디오",
+    "legal": "© 2026 SW Global · AjakStudio. ALL RIGHTS RESERVED.",
+    "builtLine": "KOREA — DESIGNED AND BUILT IN-HOUSE"
   },
   "status": {
     "live": "운영 중",
