@@ -58,7 +58,7 @@ export const defaultHeroSnapshot: HeroSnapshot = {
     ],
     text: {
       visible: true,
-      kicker: "INDEPENDENT DIGITAL STUDIO — SEOUL, KOREA",
+      kicker: "INDEPENDENT DIGITAL STUDIO — KOREA",
       headline: "디지털 세계를\n하나의 브랜드로\n엮어 갑니다",
       headlineEn: "The digital world,\nwoven into one brand",
       subcopy:

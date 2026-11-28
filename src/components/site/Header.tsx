@@ -182,7 +182,7 @@ export function Header({ locale, dict }: HeaderProps) {
           <div className="mt-8 flex items-center justify-between">
             <AutoTranslate locale={locale} />
             <span className="font-sans text-[0.625rem] uppercase tracking-[0.16em] text-muted">
-              {brand.founded} · {locale === "ko" ? "서울" : "Seoul"}
+              {brand.founded} · {brand.base[locale]}
             </span>
           </div>
         </nav>

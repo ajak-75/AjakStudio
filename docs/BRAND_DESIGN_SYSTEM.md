@@ -131,7 +131,7 @@ disables all of it globally.
   from the left. Inactive = graphite, hover to ink.
 - Locale switch `KO / EN` at the right, current locale in ink, the other a link.
 - Below 1280 px the menus collapse into a full-screen paper panel: serif menu names at 28 px,
-  index numbers 01–08 on the right, locale switch and "2026 · Seoul" at the bottom.
+  index numbers 01–08 on the right, locale switch and "2026 · Korea" at the bottom.
 - No logo image, no icon set, no search box in phase 2.
 
 ### 3.2 Hero
@@ -180,8 +180,8 @@ everything else. Never a coloured pill, never a badge with a background.
 ### 3.7 Footer
 
 Porcelain band, four columns: wordmark + one serif line of positioning + base/year · sitemap ·
-channels · studio. Bottom hairline then `© 2026 …` and `SEOUL · KOREA — DESIGNED AND BUILT
-IN-HOUSE` at 10 px, 0.16em. The Control Center is **not** linked publicly; the footer states that
+channels · studio. Bottom hairline then `© 2026 …` and `KOREA — DESIGNED AND BUILT IN-HOUSE`
+at 10 px, 0.16em. The Control Center is **not** linked publicly; the footer states that
 it opens in phase 4.
 
 ### 3.8 Images (hero and content)
